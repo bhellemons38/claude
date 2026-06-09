@@ -1,7 +1,7 @@
 [build]
   base    = "nacholito-site"
   publish = "."
-  command = "echo 'Static site, no build step needed.'"
+  command = "bash import-canva-assets.sh"
 
 [[headers]]
   for = "/assets/*"

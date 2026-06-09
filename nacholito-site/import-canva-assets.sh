@@ -17,20 +17,23 @@
 # URLs verlopen ongeveer 16-22 uur na generatie. Als er 403/expired
 # terugkomt: vraag Claude om nieuwe URLs te regenereren.
 
-set -euo pipefail
+set -uo pipefail
 
 ASSETS_DIR="$(cd "$(dirname "$0")" && pwd)/assets"
 mkdir -p "$ASSETS_DIR"
 
+OK=0; FAIL=0
 fetch() {
   local out="$1" url="$2" label="$3"
   echo "  → $label ($out)"
-  if ! curl -fsSL --max-time 180 -o "$ASSETS_DIR/$out.tmp" "$url"; then
-    echo "    !! download faalde voor $out — URL mogelijk verlopen"
+  if curl -fsSL --max-time 180 -o "$ASSETS_DIR/$out.tmp" "$url"; then
+    mv "$ASSETS_DIR/$out.tmp" "$ASSETS_DIR/$out"
+    OK=$((OK+1))
+  else
     rm -f "$ASSETS_DIR/$out.tmp"
-    return 1
+    echo "    !! URL verlopen of fout — bestaande $out blijft staan"
+    FAIL=$((FAIL+1))
   fi
-  mv "$ASSETS_DIR/$out.tmp" "$ASSETS_DIR/$out"
 }
 
 echo "== Hero =="
@@ -90,10 +93,8 @@ fetch dish-8.jpg \
   "Nacholito sauzen — page 7 (Satay)"
 
 echo
-echo "✓ Klaar. Files in $ASSETS_DIR:"
+echo "✓ Klaar — $OK gelukt, $FAIL gefaald."
 ls -la "$ASSETS_DIR"
-echo
-echo "Volgende stappen:"
-echo "  git add nacholito-site/assets/"
-echo "  git commit -m 'chore: vervang assets door Canva-exports'"
-echo "  git push"
+# Nooit non-zero exit-code: Netlify-build moet doorgaan zelfs als enkele
+# URLs verlopen zijn (dan blijven de eerder gecommitte assets staan).
+exit 0
