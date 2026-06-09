@@ -293,6 +293,18 @@
     *{animation:none!important;transition:none!important}
     .sr{opacity:1;transform:none}.hero h1 .w i,.hero-eyebrow span{transform:none}
   }
+
+  /* officiele Nacholito-logo in header */
+  .brand .logo-img{height:46px;width:auto;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+  .brand:hover .logo-img{transform:rotate(-3deg) scale(1.05)}
+
+  /* smaak-card foto + calavera badge */
+  .flavor .flavorpic{position:relative;height:220px;margin:-28px -22px 18px;border-bottom:2px solid var(--inkt);overflow:hidden;background:var(--zand-donker)}
+  .flavor .flavorpic img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .flavor:hover .flavorpic img{transform:scale(1.06)}
+  .flavor .flavorpic::after{content:'';position:absolute;left:0;right:0;bottom:0;height:60%;background:linear-gradient(transparent,rgba(0,0,0,.18));pointer-events:none}
+  .flavor .skullbadge{position:absolute;right:14px;bottom:14px;width:58px;height:68px;background:var(--zand);border:2px solid var(--inkt);border-radius:12px;display:flex;align-items:center;justify-content:center;padding:5px;box-shadow:3px 4px 0 rgba(28,20,8,.3);z-index:1}
+  .flavor .skullbadge svg{height:54px;width:auto}
 </style>
 </head>
 <body>
@@ -300,9 +312,8 @@
 
 <header id="hdr">
   <div class="wrap nav">
-    <a href="#" class="brand">
-      <svg class="mark" viewBox="0 0 100 120"><use href="#skull-mexican"/></svg>
-      <span class="word">Nacholito</span>
+    <a href="#" class="brand" aria-label="Nacholito home">
+      <img class="logo-img" src="assets/logo.png" alt="Nacholito">
     </a>
     <nav class="navlinks">
       <a href="#product">Product</a>
@@ -430,28 +441,28 @@
     </div>
     <div class="flavor-grid">
       <article class="flavor sr" style="--accent:#7a1f1f">
-        <div class="skullbox"><svg viewBox="0 0 100 120"><use href="#skull-korean"/></svg></div>
+        <div class="flavorpic"><img src="assets/smaak-bulgogi.jpg" alt="Korean Bulgogi gerecht" loading="lazy"><span class="skullbadge"><svg viewBox="0 0 100 120"><use href="#skull-korean"/></svg></span></div>
         <div class="origin">Korea · Seoul</div><h3>Korean Bulgogi</h3>
         <p class="sensory">Zoete soja, scherpe knoflook en de nootachtige warmte van geroosterd sesam. Vol en in balans.</p>
         <div class="hero-ing"><b>De ster in de fles</b><span>Echte mirin en geroosterd sesamzaad.</span></div>
         <a href="/producten" class="btn btn-primary btn-sm buy">Bestel <span class="arrow">→</span></a>
       </article>
       <article class="flavor sr d1" style="--accent:#BD0A0A">
-        <div class="skullbox"><svg viewBox="0 0 100 120"><use href="#skull-mexican"/></svg></div>
+        <div class="flavorpic"><img src="assets/smaak-chipotle.jpg" alt="Chipotle Asado gerecht" loading="lazy"><span class="skullbadge"><svg viewBox="0 0 100 120"><use href="#skull-mexican"/></svg></span></div>
         <div class="origin">Mexico</div><h3>Chipotle Asado</h3>
         <p class="sensory">Gerookte adobo-chipotle met een vleugje pure cacao en de warmte van een asado op houtvuur.</p>
         <div class="hero-ing"><b>De ster in de fles</b><span>Adobo chipotle en pure cacao.</span></div>
         <a href="/producten" class="btn btn-primary btn-sm buy">Bestel <span class="arrow">→</span></a>
       </article>
       <article class="flavor sr d2" style="--accent:#d98a00">
-        <div class="skullbox"><svg viewBox="0 0 100 120"><use href="#skull-asian"/></svg></div>
+        <div class="flavorpic"><img src="assets/smaak-chili.jpg" alt="Chinese Chili Crisp gerecht" loading="lazy"><span class="skullbadge"><svg viewBox="0 0 100 120"><use href="#skull-asian"/></svg></span></div>
         <div class="origin">China</div><h3>Chinese Chili Crisp</h3>
         <p class="sensory">Langzaam getoaste chili op donkere sojasaus, afgemaakt met geroosterde sesamolie. Hartig en diep.</p>
         <div class="hero-ing"><b>De ster in de fles</b><span>Donkere sojasaus voor kleur en umami.</span></div>
         <a href="/producten" class="btn btn-primary btn-sm buy">Bestel <span class="arrow">→</span></a>
       </article>
       <article class="flavor sr d3" style="--accent:#6b4a1f">
-        <div class="skullbox"><svg viewBox="0 0 100 120"><use href="#skull-indo"/></svg></div>
+        <div class="flavorpic"><img src="assets/smaak-rendang.jpg" alt="Indonesische Rendang gerecht" loading="lazy"><span class="skullbadge"><svg viewBox="0 0 100 120"><use href="#skull-indo"/></svg></span></div>
         <div class="origin">Indonesië</div><h3>Indonesische Rendang</h3>
         <p class="sensory">Kokosmelk, citroengras, kaffir limoenblad en rawit peper. De volle, warme diepte van een echte rendang.</p>
         <div class="hero-ing"><b>De ster in de fles</b><span>Echte kokosmelk, geen poeder.</span></div>
