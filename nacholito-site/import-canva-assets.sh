@@ -38,11 +38,11 @@ fetch() {
 
 echo "== Hero =="
 fetch hero-bulgogi.mp4 \
-  'https://export-download.canva.com/EibWY/DAHD09EibWY/-1/0-8224078806646414481.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20260609%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260609T031824Z&X-Amz-Expires=59310&X-Amz-Signature=f267da81fb211661f6edc5a2b4d8f017d74df25f0509cb6d8e0b06a87a02d83a&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2009%20Jun%202026%2019%3A46%3A54%20GMT' \
-  "Korte BULGOGI BEEF BOL (MP4 1080p)"
+  'https://export-download.canva.com/p3ku8/DAHG1Hp3ku8/-1/0-7005855115157139688.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20260608%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260608T225929Z&X-Amz-Expires=77471&X-Amz-Signature=0da33e6ed501b075fe06a8fdbff2eab1cc792391063515d15945cdfbca053f27&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2009%20Jun%202026%2020%3A30%3A40%20GMT' \
+  "BULGOGI KARAAGE CHICKEN (MP4 1080p)"
 fetch hero-poster.jpg \
-  'https://export-download.canva.com/EibWY/DAHD09EibWY/-1/0/0001-6033077588144920876.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20260608%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260608T215818Z&X-Amz-Expires=77866&X-Amz-Signature=996f8552b8a376e64348b828eda229f0248ea2f47aa48e8922638d94e0897c4e&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2009%20Jun%202026%2019%3A36%3A04%20GMT' \
-  "Eerste frame BULGOGI BEEF BOL (poster)"
+  'https://export-download.canva.com/p3ku8/DAHG1Hp3ku8/-1/0/0001-5687426321004306629.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20260609%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260609T015335Z&X-Amz-Expires=65458&X-Amz-Signature=5891f870bb6e3e58fccacbe665858d75560dca1b230a738d096a8c99a31353b8&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2009%20Jun%202026%2020%3A04%3A33%20GMT' \
+  "BULGOGI KARAAGE CHICKEN — eerste frame (poster)"
 
 echo "== Smaak-cards =="
 # Pages uit 'Nieuwe sauzen!' (DAHAQuhdkBg, 1200x1200 square)
