@@ -11,3 +11,12 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+# Preview: route alle Bestel-knoppen voorlopig naar de CTA-sectie,
+# zodat clicks niet doodlopen tijdens UX-review. Vervangen zodra
+# de definitieve checkout-URL bekend is.
+[[redirects]]
+  from = "/producten"
+  to = "/#cta"
+  status = 302
+  force = true
