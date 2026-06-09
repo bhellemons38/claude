@@ -14,7 +14,16 @@
     Cache-Control = "public, max-age=0, must-revalidate"
 
 [[redirects]]
+  # /producten is een placeholder tot de echte checkout-URL bekend is.
+  # Stuur door naar de chooser zodat bezoeker eerst zijn omgeving kiest.
   from = "/producten"
-  to = "/#cta"
+  to = "/"
   status = 302
+  force = true
+
+[[redirects]]
+  # Optionele kortere alias voor de B2B-landing.
+  from = "/pro"
+  to = "/foodservice/"
+  status = 301
   force = true
