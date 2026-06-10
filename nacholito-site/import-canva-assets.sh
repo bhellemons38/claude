@@ -37,11 +37,14 @@ fetch() {
 }
 
 echo "== Hero =="
+# LET OP: deze signed URLs verlopen 10 jun ~13:00 GMT. Na expiry blijft de
+# bestaande (verkeerde) hero staan — regenereer dan nieuwe URLs via Canva
+# en draai dit script lokaal; commit daarna assets/ zodat dit permanent is.
 fetch hero-bulgogi.mp4 \
-  'https://export-download.canva.com/p3ku8/DAHG1Hp3ku8/-1/0-7005855115157139688.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20260608%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260608T225929Z&X-Amz-Expires=77471&X-Amz-Signature=0da33e6ed501b075fe06a8fdbff2eab1cc792391063515d15945cdfbca053f27&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2009%20Jun%202026%2020%3A30%3A40%20GMT' \
+  'https://export-download.canva.com/p3ku8/DAHG1Hp3ku8/-1/0-3819558448309521608.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20260609%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260609T151122Z&X-Amz-Expires=79328&X-Amz-Signature=dc05f6f60a3e0d6fc764dd9b369041def47f30a79245bb15e7e7baa5c4b1db3c&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Wed%2C%2010%20Jun%202026%2013%3A13%3A30%20GMT' \
   "BULGOGI KARAAGE CHICKEN (MP4 1080p)"
 fetch hero-poster.jpg \
-  'https://export-download.canva.com/p3ku8/DAHG1Hp3ku8/-1/0/0001-5687426321004306629.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20260609%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260609T015335Z&X-Amz-Expires=65458&X-Amz-Signature=5891f870bb6e3e58fccacbe665858d75560dca1b230a738d096a8c99a31353b8&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2009%20Jun%202026%2020%3A04%3A33%20GMT' \
+  'https://export-download.canva.com/p3ku8/DAHG1Hp3ku8/-1/0/0001-5627753695974862988.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20260610%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260610T090057Z&X-Amz-Expires=13219&X-Amz-Signature=9626f153092aeff8fa7b6dd56f97814dd5dd967366e2ff11716b6757e5ccdf1a&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Wed%2C%2010%20Jun%202026%2012%3A41%3A16%20GMT' \
   "BULGOGI KARAAGE CHICKEN — eerste frame (poster)"
 
 echo "== Smaak-cards =="
