@@ -62,6 +62,7 @@
     background-image:radial-gradient(var(--inkt) 1.1px,transparent 1.1px);background-size:26px 26px;
     -webkit-mask-image:linear-gradient(180deg,transparent,#000 50%,transparent);mask-image:linear-gradient(180deg,transparent,#000 50%,transparent)}
   .hero .wrap{position:relative;display:grid;grid-template-columns:1fr .9fr;gap:46px;align-items:center}
+  .hero-left{display:flex;flex-direction:column}
   .hero h1{font-size:clamp(48px,6.5vw,92px);color:var(--rood);text-transform:uppercase}
   .hero h1 .em{display:block;color:var(--inkt)}
   .hero p.lead{font-size:clamp(16px,1.5vw,19px);max-width:42ch;margin:18px 0 24px;font-weight:500}
@@ -73,7 +74,7 @@
   .hero-pay{margin-top:16px;font-size:13px;font-weight:700;color:var(--inkt-zacht)}
   .hero-shot{position:relative;border:3px solid var(--inkt);border-radius:24px;overflow:hidden;background:#000;
     box-shadow:14px 18px 0 rgba(28,20,8,.2)}
-  .hero-shot img{width:100%;aspect-ratio:1/1;object-fit:cover}
+  .hero-shot img,.hero-shot video{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
   .hero-shot .flag{position:absolute;top:16px;left:16px;background:var(--zand);border:2px solid var(--inkt);
     border-radius:999px;font-family:'Bebas Neue',sans-serif;letter-spacing:.08em;font-size:14px;padding:6px 14px;z-index:2}
   .hero-flavors{position:absolute;left:14px;right:14px;bottom:14px;display:flex;gap:8px;z-index:2}
@@ -207,7 +208,12 @@
   .sr.d1{transition-delay:.08s}.sr.d2{transition-delay:.16s}.sr.d3{transition-delay:.24s}
 
   @media(max-width:980px){
-    .hero .wrap,#merk .wrap,.ctabox,.bundle{grid-template-columns:1fr}
+    .hero .wrap{display:flex;flex-direction:column;gap:24px}
+    .hero-left{display:contents}
+    .hero h1{order:1}
+    .hero-shot{order:2}
+    .hero-body{order:3}
+    #merk .wrap,.ctabox,.bundle{grid-template-columns:1fr}
     .shop-grid{grid-template-columns:repeat(2,1fr)}
     .steps,.moment-grid{grid-template-columns:1fr}
     .foot{grid-template-columns:1fr 1fr}
@@ -249,23 +255,27 @@
 <!-- HERO: product first -->
 <section class="hero">
   <div class="wrap">
-    <div>
+    <div class="hero-left">
       <h1>Restaurant-smaak.<span class="em">In één schep.</span></h1>
-      <p class="lead">Vier fusion sauzen, ontwikkeld door chefs. Meng met je eigen kip, beef of vega en je hebt in tien minuten een gerecht dat smaakt alsof het uren heeft gestaan.</p>
-      <ul class="hero-usps">
-        <li>Echte ingrediënten — geen poeders of smaakversterkers</li>
-        <li>Klaar in 10 minuten, zonder marineren</li>
-        <li>Eén fles is goed voor ±10 gerechten</li>
-      </ul>
-      <div class="hero-cta">
-        <a href="#shop" class="btn btn-primary">Kies je smaak <span class="arrow">→</span></a>
-        <a href="#hoe" class="btn btn-ghost">Zo werkt het</a>
+      <div class="hero-body">
+        <p class="lead">Vier fusion sauzen, ontwikkeld door chefs. Meng met je eigen kip, beef of vega en je hebt in tien minuten een gerecht dat smaakt alsof het uren heeft gestaan.</p>
+        <ul class="hero-usps">
+          <li>Echte ingrediënten — geen poeders of smaakversterkers</li>
+          <li>Klaar in 10 minuten, zonder marineren</li>
+          <li>Eén fles is goed voor ±10 gerechten</li>
+        </ul>
+        <div class="hero-cta">
+          <a href="#shop" class="btn btn-primary">Kies je smaak <span class="arrow">→</span></a>
+          <a href="#hoe" class="btn btn-ghost">Zo werkt het</a>
+        </div>
+        <p class="hero-pay">Bestel met iDEAL · Snel thuisbezorgd</p>
       </div>
-      <p class="hero-pay">Bestel met iDEAL · Snel thuisbezorgd</p>
     </div>
     <div class="hero-shot">
-      <span class="flag">Liquid Bumbu · 750 ml</span>
-      <img src="../assets/product-bottle.jpg" alt="Nacholito Liquid Bumbu fles">
+      <span class="flag">Bulgogi Karaage Chicken</span>
+      <video autoplay muted loop playsinline poster="../assets/hero-poster.jpg">
+        <source src="../assets/hero-bulgogi.mp4" type="video/mp4">
+      </video>
       <div class="hero-flavors">
         <a href="#shop">Bulgogi</a><a href="#shop">Chipotle</a><a href="#shop">Chili Crisp</a><a href="#shop">Rendang</a>
       </div>
