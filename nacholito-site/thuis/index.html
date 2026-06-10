@@ -137,6 +137,17 @@
   .step h3{font-size:26px;text-transform:uppercase;margin:8px 0 10px}
   .step p{font-size:14.5px;color:var(--inkt-zacht);font-weight:500}
 
+  /* ingredienten */
+  #ingredienten{background:var(--zand-donker);border-bottom:2px solid var(--inkt)}
+  .ing-list{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .ing{background:var(--zand);border:2px solid var(--inkt);border-radius:var(--r);padding:32px 30px;overflow:hidden}
+  .ing .num{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.18em;color:var(--rood)}
+  .ing h3{font-size:32px;text-transform:uppercase;margin:6px 0 12px}
+  .ing h3 em{font-style:normal;color:var(--rood)}
+  .ing p{font-size:15px;color:var(--inkt-zacht);font-weight:500;max-width:46ch}
+  .ing .tag{margin-top:16px;font-family:'Bebas Neue',sans-serif;letter-spacing:.12em;color:var(--inkt);font-size:14px;
+    display:inline-block;background:var(--geel);padding:5px 14px;border-radius:999px;border:2px solid var(--inkt)}
+
   /* moment */
   #moment{background:var(--zand)}
   .moment-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -215,7 +226,7 @@
     .hero-body{order:3}
     #merk .wrap,.ctabox,.bundle{grid-template-columns:1fr}
     .shop-grid{grid-template-columns:repeat(2,1fr)}
-    .steps,.moment-grid{grid-template-columns:1fr}
+    .steps,.moment-grid,.ing-list{grid-template-columns:1fr}
     .foot{grid-template-columns:1fr 1fr}
   }
   @media(max-width:640px){
@@ -242,6 +253,7 @@
     <nav class="navlinks">
       <a href="#shop">Smaken</a>
       <a href="#hoe">Zo werkt het</a>
+      <a href="#ingredienten">Ingrediënten</a>
       <a href="#moment">Recepten</a>
       <a href="#merk">Ons verhaal</a>
     </nav>
@@ -373,6 +385,23 @@
   </div>
 </section>
 
+<!-- INGREDIENTEN / AMBACHT -->
+<section id="ingredienten" class="std">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow sr">Het ambacht in de fles</span>
+      <h2 class="sr d1">Smaak is geen claim.<br>Het is een ingrediëntenlijst.</h2>
+      <p class="sr d2">Iedereen kan zeggen dat een saus lekker is. Het verschil zit in wat er daadwerkelijk in zit — en in de keuzes die je niet ziet, maar wel proeft. Dit zijn de uren ambacht die wij er al voor jou in hebben gestopt.</p>
+    </div>
+    <div class="ing-list">
+      <div class="ing sr"><div class="num">01 · Rendang</div><h3>Echte <em>kokosmelk</em></h3><p>Het op-twee-na-grootste ingrediënt in onze Rendang. Geen poeder dat met water wordt aangelengd, geen kokosvervanger. Dat proef je terug in de volheid.</p><span class="tag">Niet 't goedkoopste, wel het echte</span></div>
+      <div class="ing sr d1"><div class="num">02 · Rendang</div><h3>Citroengras &amp; <em>kaffir limoenblad</em></h3><p>De aromaten die een rendang onderscheiden van een generieke curry. Precies de ingrediënten die een gerecht normaal uren kooktijd kosten, omdat ze tijd nodig hebben.</p><span class="tag">Aromaten die tijd vragen</span></div>
+      <div class="ing sr d2"><div class="num">03 · Chili Crisp</div><h3>Donkere <em>sojasaus</em></h3><p>De sleutel onder onze Chili Crisp. Donkere soja geeft kleur, diepte en umami. Daarop langzaam getoaste chili en geroosterde sesamolie.</p><span class="tag">Diepte, niet alleen hitte</span></div>
+      <div class="ing sr d3"><div class="num">04 · Bulgogi &amp; Chipotle</div><h3>Geroosterd sesam &amp; <em>pure cacao</em></h3><p>Geroosterd sesamzaad en echte mirin geven de Bulgogi zijn nootachtige warmte. In de Chipotle Asado zit pure cacao, het geheim uit de mole-traditie.</p><span class="tag">De smaakmakers zelf</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- MOMENT / RECEPTEN -->
 <section id="moment" class="std">
   <div class="wrap">
@@ -394,9 +423,9 @@
     <div>
       <span class="eyebrow sr">Ons verhaal</span>
       <h2 class="sr d1">Van ambacht <span class="y">naar gemak.</span></h2>
-      <p class="sr d2">Iedereen kan zeggen dat een saus lekker is. Het verschil zit in wat erin zit: echte kokosmelk in de rendang, donkere sojasaus onder de chili crisp, pure cacao in de chipotle. Ingrediënten die normaal uren kooktijd vragen — wij hebben de uren er al ingestopt.</p>
+      <p class="sr d2">Elke Nacholito-saus begint in een professionele keuken, niet in een lab. Ervaren chefs bouwen het smaakprofiel op zoals het hoort — laag voor laag, met de echte ingrediënten en de tijd die het recept vraagt. Pas als het profiel staat, vangen we het in een fles. Jij doet alleen nog de laatste stap.</p>
       <div class="ing-tags sr d3">
-        <span>Echte kokosmelk</span><span>Citroengras &amp; kaffir</span><span>Donkere soja</span><span>Pure cacao</span><span>Geroosterd sesam</span>
+        <span>Ontwikkeld door chefs</span><span>Trouw aan het origineel</span><span>Geen smaakversterkers</span><span>Klein begonnen, vers gebrouwen</span>
       </div>
     </div>
     <div class="mimg sr d1"><img src="../assets/dish-7.jpg" alt="Rendang met romige saus" loading="lazy"></div>
