@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nacholito voor thuis — Restaurant-smaak op je eigen fornuis</title>
-<meta name="description" content="Vier fusion sauzen voor thuis. Eén schep, een vol smaakprofiel zonder marineren. Korean Bulgogi, Chipotle Asado, Chili Crisp en Rendang. Bestel met iDEAL.">
+<meta name="description" content="Vier fusion sauzen voor thuis. Eén schep, een vol smaakprofiel zonder marineren. Korean Bulgogi, Chipotle Asado, Chili Crisp en Rendang. Bestel direct met iDEAL.">
 <link rel="canonical" href="/thuis/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,9 +25,7 @@
   img{display:block;max-width:100%}
   .eyebrow{font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1.5vw,18px);letter-spacing:.24em;text-transform:uppercase}
 
-  .progress{position:fixed;top:0;left:0;height:4px;width:0;background:var(--rood);z-index:200;transition:width .08s linear}
-
-  .btn{display:inline-flex;align-items:center;gap:.55em;font-family:'Bebas Neue',sans-serif;font-size:20px;
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;font-family:'Bebas Neue',sans-serif;font-size:20px;
     letter-spacing:.06em;text-transform:uppercase;padding:15px 30px;border-radius:999px;cursor:pointer;
     border:2px solid transparent;transition:transform .15s ease,box-shadow .15s ease,background .15s ease;will-change:transform}
   .btn-primary{background:var(--rood);color:var(--wit);box-shadow:0 8px 0 var(--rood-diep)}
@@ -37,232 +35,160 @@
   .btn-ghost:hover{background:var(--inkt);color:var(--zand)}
   .btn-yellow{background:var(--geel);color:var(--inkt);box-shadow:0 8px 0 #c79611}
   .btn-yellow:hover{box-shadow:0 12px 0 #c79611}
-  .btn-sm{font-size:16px;padding:10px 20px;box-shadow:0 5px 0 var(--rood-diep)}
+  .btn-sm{font-size:17px;padding:11px 22px;box-shadow:0 5px 0 var(--rood-diep)}
   .btn-sm:hover{box-shadow:0 8px 0 var(--rood-diep)}
+  .btn-wide{width:100%}
   .arrow{transition:transform .18s ease}
   .btn:hover .arrow{transform:translateX(5px)}
 
-  /* nav */
   header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s ease,border-color .3s ease}
   header.solid{background:rgba(255,198,26,.96);backdrop-filter:blur(8px);border-bottom:2px solid var(--inkt)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
-  .brand{display:flex;align-items:center;gap:12px}
-  .brand .mark{width:38px;height:46px;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-  .brand:hover .mark{transform:rotate(-8deg) scale(1.08)}
-  /* SWAP: vervang .word door jullie officiele Caveage-logo (PNG/SVG) in Wix */
-  .brand .word{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--rood);letter-spacing:.02em;line-height:1}
+  .brand img{height:46px;width:auto}
   .navlinks{display:flex;align-items:center;gap:26px}
   .navlinks a{font-weight:600;font-size:15px;position:relative;padding:4px 0;color:var(--inkt)}
   .navlinks a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--rood);transition:width .22s}
   .navlinks a:hover::after{width:100%}
   .nav-actions{display:flex;align-items:center;gap:12px}
-  .nav-cta{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.05em;text-transform:uppercase;
-    padding:9px 18px;border-radius:999px}
+  .nav-cta{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.05em;text-transform:uppercase;padding:9px 18px;border-radius:999px}
   .nav-cta.buy{background:var(--rood);color:var(--wit)}
   .nav-cta.buy:hover{background:var(--rood-diep)}
   .nav-cta.ghost{border:2px solid var(--inkt);color:var(--inkt)}
   .nav-cta.ghost:hover{background:var(--inkt);color:var(--zand)}
 
-  /* ============ HERO (bright + product video) ============ */
-  .hero{position:relative;padding:120px 0 84px;background:var(--geel);border-bottom:2px solid var(--inkt);overflow:hidden}
+  /* HERO — product first */
+  .hero{position:relative;padding:118px 0 64px;background:var(--geel);border-bottom:2px solid var(--inkt);overflow:hidden}
   .hero::before{content:'';position:absolute;inset:0;opacity:.4;
     background-image:radial-gradient(var(--inkt) 1.1px,transparent 1.1px);background-size:26px 26px;
     -webkit-mask-image:linear-gradient(180deg,transparent,#000 50%,transparent);mask-image:linear-gradient(180deg,transparent,#000 50%,transparent)}
-  .hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
-  .hero-eyebrow{color:var(--rood);margin-bottom:18px;overflow:hidden}
-  .hero-eyebrow span{display:inline-block;transform:translateY(110%);animation:lineup .7s .1s cubic-bezier(.2,.8,.2,1) forwards}
-  .hero h1{font-size:clamp(54px,8vw,116px);color:var(--rood);text-transform:uppercase}
-  .hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top}
-  .hero h1 .w i{display:inline-block;font-style:normal;transform:translateY(110%);animation:lineup .8s cubic-bezier(.2,.8,.2,1) forwards}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1fr .9fr;gap:46px;align-items:center}
+  .hero h1{font-size:clamp(48px,6.5vw,92px);color:var(--rood);text-transform:uppercase}
   .hero h1 .em{display:block;color:var(--inkt)}
-  @keyframes lineup{to{transform:translateY(0)}}
-  .hero p.lead{font-size:clamp(17px,1.6vw,21px);max-width:38ch;margin:24px 0 30px;font-weight:500;color:var(--inkt);
-    opacity:0;animation:fadein .8s .7s forwards}
-  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadein .8s .9s forwards}
-  .hero-trust{margin-top:22px;font-size:13.5px;font-weight:600;color:var(--inkt-zacht);opacity:0;animation:fadein .8s 1.05s forwards;display:flex;gap:18px;flex-wrap:wrap}
-  .hero-trust b{color:var(--rood)}
-  @keyframes fadein{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-  /* product video card */
-  .hero-card{position:relative;border:3px solid var(--inkt);border-radius:24px;overflow:hidden;aspect-ratio:1/1;
-    background:#000;box-shadow:14px 18px 0 rgba(28,20,8,.2);animation:fadein .9s .3s both}
-  .hero-card video,.hero-card .poster{width:100%;height:100%;object-fit:cover;display:block}
-  .hero-card .flag{position:absolute;top:16px;left:16px;background:var(--geel);border:2px solid var(--inkt);
+  .hero p.lead{font-size:clamp(16px,1.5vw,19px);max-width:42ch;margin:18px 0 24px;font-weight:500}
+  .hero-usps{list-style:none;margin:0 0 28px;display:grid;gap:8px}
+  .hero-usps li{font-size:15px;font-weight:700;display:flex;gap:10px;align-items:center}
+  .hero-usps li::before{content:'✓';flex:0 0 24px;height:24px;border-radius:50%;background:var(--rood);color:var(--wit);
+    display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:800}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero-pay{margin-top:16px;font-size:13px;font-weight:700;color:var(--inkt-zacht)}
+  .hero-shot{position:relative;border:3px solid var(--inkt);border-radius:24px;overflow:hidden;background:#000;
+    box-shadow:14px 18px 0 rgba(28,20,8,.2)}
+  .hero-shot img{width:100%;aspect-ratio:1/1;object-fit:cover}
+  .hero-shot .flag{position:absolute;top:16px;left:16px;background:var(--zand);border:2px solid var(--inkt);
     border-radius:999px;font-family:'Bebas Neue',sans-serif;letter-spacing:.08em;font-size:14px;padding:6px 14px;z-index:2}
-  .hero-card .tagstrip{position:absolute;left:0;right:0;bottom:0;padding:18px 20px;z-index:2;
-    background:linear-gradient(transparent,rgba(0,0,0,.82));color:var(--zand)}
-  .hero-card .tagstrip .t{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.04em;text-transform:uppercase}
-  .hero-card .tagstrip .s{font-size:13px;color:rgba(246,235,217,.85);font-weight:600}
+  .hero-flavors{position:absolute;left:14px;right:14px;bottom:14px;display:flex;gap:8px;z-index:2}
+  .hero-flavors a{flex:1;text-align:center;background:rgba(246,235,217,.95);border:2px solid var(--inkt);border-radius:12px;
+    font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.05em;padding:8px 4px;text-transform:uppercase;transition:background .15s}
+  .hero-flavors a:hover{background:var(--geel)}
+
+  /* USP bar */
+  .uspbar{background:var(--inkt);color:var(--zand);padding:16px 0;border-bottom:2px solid var(--inkt)}
+  .uspbar .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+  .uspbar span{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.08em;text-transform:uppercase;display:flex;gap:10px;align-items:center}
+  .uspbar b{color:var(--geel)}
+
+  section.std{padding:84px 0}
+  .sec-head{max-width:780px;margin-bottom:44px}
+  .sec-head .eyebrow{color:var(--rood);display:block;margin-bottom:14px}
+  .sec-head h2{font-size:clamp(38px,5vw,68px);text-transform:uppercase}
+  .sec-head p{font-size:17px;margin-top:16px;color:var(--inkt-zacht);max-width:62ch}
+  .sec-head.center{text-align:center;margin-left:auto;margin-right:auto}
+
+  /* SHOP grid */
+  #shop{background:var(--zand)}
+  .shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .scard{background:var(--wit);border:2px solid var(--inkt);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .2s ease,box-shadow .2s ease;will-change:transform;position:relative}
+  .scard:hover{transform:translateY(-8px);box-shadow:12px 16px 0 rgba(28,20,8,.16)}
+  .scard .pic{aspect-ratio:1/1;overflow:hidden;border-bottom:2px solid var(--inkt);position:relative;background:var(--zand-donker)}
+  .scard .pic img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .scard:hover .pic img{transform:scale(1.06)}
+  .scard .pic .accent{position:absolute;left:0;right:0;bottom:0;height:6px;background:var(--accent)}
+  .scard .body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
+  .scard .origin{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.18em;color:var(--rood);text-transform:uppercase}
+  .scard h3{font-size:26px;text-transform:uppercase;margin:3px 0 8px}
+  .scard .desc{font-size:13.5px;color:var(--inkt-zacht);font-weight:500;flex:1;margin-bottom:14px}
+  .scard .vol{font-size:12px;font-weight:700;color:var(--inkt-zacht);margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em}
+  .scard .btn{margin-top:auto}
+  .scard .best{position:absolute;top:12px;right:12px;background:var(--geel);border:2px solid var(--inkt);border-radius:999px;
+    font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.08em;padding:5px 12px;z-index:2;text-transform:uppercase}
+  .bundle{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--inkt);border-radius:var(--r);overflow:hidden;background:var(--rood);color:var(--zand)}
+  .bundle .bimg{min-height:280px;background:#000}
+  .bundle .bimg img{width:100%;height:100%;object-fit:cover}
+  .bundle .bbody{padding:40px 38px;display:flex;flex-direction:column;justify-content:center}
+  .bundle .eyebrow{color:var(--geel);display:block;margin-bottom:10px}
+  .bundle h3{font-size:clamp(32px,4vw,52px);text-transform:uppercase;margin-bottom:12px}
+  .bundle p{font-size:15.5px;color:rgba(246,235,217,.88);margin-bottom:24px;max-width:46ch}
 
   /* kinetic */
-  .kinetic{background:var(--rood);color:var(--zand);border-bottom:2px solid var(--inkt);padding:22px 0;overflow:hidden}
-  .kinetic .run{display:flex;white-space:nowrap;font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,68px);letter-spacing:.02em;animation:slide 32s linear infinite}
+  .kinetic{background:var(--rood);color:var(--zand);border-top:2px solid var(--inkt);border-bottom:2px solid var(--inkt);padding:20px 0;overflow:hidden}
+  .kinetic .run{display:flex;white-space:nowrap;font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,4.5vw,60px);letter-spacing:.02em;animation:slide 32s linear infinite}
   .kinetic .run span{padding:0 30px;display:inline-flex;align-items:center;gap:30px}
   .kinetic .star{color:var(--geel);font-size:.6em}
   .kinetic .out{-webkit-text-stroke:2px var(--zand);color:transparent}
   @keyframes slide{to{transform:translateX(-50%)}}
 
-  section.std{padding:92px 0}
-  .sec-head{max-width:780px;margin-bottom:50px}
-  .sec-head .eyebrow{color:var(--rood);display:block;margin-bottom:14px}
-  .sec-head h2{font-size:clamp(40px,5.5vw,76px);text-transform:uppercase}
-  .sec-head p{font-size:18px;margin-top:18px;color:var(--inkt-zacht);max-width:62ch}
+  /* zo werkt het */
+  #hoe{background:var(--zand-donker);border-bottom:2px solid var(--inkt)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .step{background:var(--zand);border:2px solid var(--inkt);border-radius:var(--r);padding:32px 28px;text-align:center}
+  .step .n{font-family:'Bebas Neue',sans-serif;font-size:54px;color:var(--rood);line-height:1}
+  .step h3{font-size:26px;text-transform:uppercase;margin:8px 0 10px}
+  .step p{font-size:14.5px;color:var(--inkt-zacht);font-weight:500}
 
-  /* ============ PRODUCT showcase ============ */
-  #product{background:var(--zand);border-bottom:2px solid var(--inkt)}
-  #product .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:50px;align-items:center}
-  .prod-img{border:3px solid var(--inkt);border-radius:20px;overflow:hidden;background:#000;box-shadow:12px 16px 0 rgba(28,20,8,.18);position:relative}
-  .prod-img img{width:100%;aspect-ratio:1/1;object-fit:cover}
-  .prod-img .badge{position:absolute;bottom:14px;right:14px;background:var(--rood);color:var(--wit);border:2px solid var(--inkt);
-    border-radius:999px;font-family:'Bebas Neue',sans-serif;letter-spacing:.06em;font-size:15px;padding:7px 16px}
-  #product .eyebrow{color:var(--rood);display:block;margin-bottom:14px}
-  #product h2{font-size:clamp(38px,5vw,68px);text-transform:uppercase;margin-bottom:6px}
-  #product .sub{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.04em;color:var(--rood);margin-bottom:18px}
-  #product p{font-size:16.5px;color:var(--inkt-zacht);font-weight:500;max-width:50ch;margin-bottom:22px}
-  .prod-specs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
-  .prod-specs span{background:var(--zand-donker);border:2px solid var(--inkt);border-radius:999px;padding:7px 15px;
-    font-size:13.5px;font-weight:700}
-  .prod-cta{display:flex;gap:14px;flex-wrap:wrap}
-
-  /* merk dark */
-  #merk{background:var(--inkt);color:var(--zand);position:relative;overflow:hidden}
-  #merk::before{content:'';position:absolute;inset:0;opacity:.06;background-image:radial-gradient(var(--geel) 1px,transparent 1px);background-size:30px 30px}
-  #merk .wrap{position:relative}
-  .merk-tag{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,5vw,66px);text-transform:uppercase;line-height:.95;margin-bottom:8px}
-  .merk-tag .y{color:var(--geel)}
-  .merk-sub{color:rgba(246,235,217,.7);font-size:17px;max-width:54ch;margin-bottom:50px;font-weight:500}
-  .mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-  .mv{border:2px solid rgba(246,235,217,.24);border-radius:var(--r);padding:36px 32px}
-  .mv .label{font-family:'Bebas Neue',sans-serif;letter-spacing:.18em;color:var(--geel);font-size:16px;margin-bottom:14px}
-  .mv h3{font-size:30px;text-transform:uppercase;margin-bottom:14px;color:var(--zand)}
-  .mv p{font-size:16px;color:rgba(246,235,217,.85);font-weight:500}
-  .values{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:24px}
-  .value{border-top:3px solid var(--rood);padding-top:18px}
-  .value h4{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.04em;text-transform:uppercase;color:var(--geel);margin-bottom:8px}
-  .value p{font-size:14px;color:rgba(246,235,217,.78);font-weight:500}
-
-  /* ingredienten */
-  #ingredienten{background:var(--zand-donker);border-bottom:2px solid var(--inkt)}
-  .ing-list{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-  .ing{background:var(--zand);border:2px solid var(--inkt);border-radius:var(--r);padding:32px 30px;overflow:hidden}
-  .ing .num{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.18em;color:var(--rood)}
-  .ing h3{font-size:34px;text-transform:uppercase;margin:6px 0 12px}
-  .ing h3 em{font-style:normal;color:var(--rood)}
-  .ing p{font-size:15px;color:var(--inkt-zacht);font-weight:500;max-width:46ch}
-  .ing .tag{margin-top:16px;font-family:'Bebas Neue',sans-serif;letter-spacing:.12em;color:var(--inkt);font-size:14px;
-    display:inline-block;background:var(--geel);padding:5px 14px;border-radius:999px;border:2px solid var(--inkt)}
-
-  /* smaken */
-  #smaken{background:var(--zand)}
-  .flavor-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-  .flavor{background:var(--zand);border:2px solid var(--inkt);border-radius:var(--r);padding:28px 22px 24px;
-    display:flex;flex-direction:column;position:relative;overflow:hidden;transition:box-shadow .2s ease;will-change:transform}
-  .flavor::after{content:'';position:absolute;left:0;right:0;bottom:0;height:7px;background:var(--accent)}
-  .flavor:hover{box-shadow:12px 16px 0 rgba(28,20,8,.16)}
-  .flavor .skullbox{height:140px;display:flex;align-items:center;justify-content:center;margin-bottom:4px;transition:transform .3s ease}
-  .flavor:hover .skullbox{transform:translateY(-6px) scale(1.05)}
-  .flavor .skullbox svg{height:130px;width:auto}
-  .flavor .origin{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.18em;color:var(--rood);text-transform:uppercase}
-  .flavor h3{font-size:28px;margin:4px 0 10px;text-transform:uppercase}
-  .flavor .sensory{font-size:14px;color:var(--inkt-zacht);font-weight:500;flex-grow:1}
-  .flavor .hero-ing{margin-top:14px;padding-top:12px;border-top:1px dashed rgba(28,20,8,.28);font-size:12.5px;margin-bottom:18px}
-  .flavor .hero-ing b{display:block;font-family:'Bebas Neue',sans-serif;font-size:12.5px;letter-spacing:.14em;color:var(--inkt);margin-bottom:4px;text-transform:uppercase}
-  .flavor .hero-ing span{font-weight:600}
-  .flavor .buy{margin-top:auto}
-
-  /* elk moment */
-  #moment{background:var(--zand-donker);border-top:2px solid var(--inkt)}
+  /* moment */
+  #moment{background:var(--zand)}
   .moment-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .mcard{border:2px solid var(--inkt);border-radius:var(--r);overflow:hidden;background:var(--zand);transition:transform .25s ease;will-change:transform}
+  .mcard{border:2px solid var(--inkt);border-radius:var(--r);overflow:hidden;background:var(--wit);transition:transform .25s ease;will-change:transform}
   .mcard:hover{transform:translateY(-8px)}
   .mcard .imgwrap{aspect-ratio:1;overflow:hidden}
   .mcard img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
   .mcard:hover img{transform:scale(1.06)}
-  .mcard .cap{padding:16px 18px}
+  .mcard .cap{padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px}
   .mcard .cap .k{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.16em;color:var(--rood)}
-  .mcard .cap h4{font-family:'Bebas Neue',sans-serif;font-size:24px;text-transform:uppercase;margin-top:3px}
+  .mcard .cap h4{font-family:'Bebas Neue',sans-serif;font-size:22px;text-transform:uppercase;margin-top:2px}
+  .mcard .cap a{font-family:'Bebas Neue',sans-serif;font-size:15px;color:var(--rood);white-space:nowrap}
 
-  /* spits */
-  #spits{background:var(--rood);color:var(--zand);border-top:2px solid var(--inkt);border-bottom:2px solid var(--inkt)}
-  #spits .sec-head .eyebrow{color:var(--geel)} #spits .sec-head h2{color:var(--zand)} #spits .sec-head p{color:rgba(246,235,217,.85)}
-  .payoff{display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--zand);border-radius:var(--r);overflow:hidden}
-  .payoff>div{padding:40px 30px}
-  .payoff>div:not(:last-child){border-right:2px solid var(--zand)}
-  .payoff .big{font-family:'Bebas Neue',sans-serif;font-size:70px;color:var(--geel);line-height:.9}
-  .payoff h4{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.05em;text-transform:uppercase;margin:10px 0 8px}
-  .payoff p{font-size:14.5px;color:rgba(246,235,217,.82);font-weight:500}
-
-  /* wegen */
-  #wegen{background:var(--zand)}
-  .funnel{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-  .lane{border:2px solid var(--inkt);border-radius:var(--r);padding:38px 34px;background:var(--zand);position:relative;transition:transform .2s ease;will-change:transform}
-  .lane:hover{transform:translateY(-6px)}
-  .lane.up{background:var(--inkt);color:var(--zand)}
-  .lane .step{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--rood)}
-  .lane.up .step{color:var(--geel)}
-  .lane h3{font-size:38px;text-transform:uppercase;margin:6px 0 14px}
-  .lane p{font-size:15.5px;font-weight:500;color:var(--inkt-zacht);margin-bottom:20px}
-  .lane.up p{color:rgba(246,235,217,.8)}
-  .lane ul{list-style:none;margin-bottom:24px}
-  .lane li{font-size:14.5px;font-weight:600;padding:9px 0;border-bottom:1px dashed rgba(28,20,8,.2);display:flex;gap:10px}
-  .lane.up li{border-color:rgba(246,235,217,.22)}
-  .lane li::before{content:'';flex:0 0 18px;height:18px;margin-top:2px;border-radius:50%;background:var(--rood)}
-  .lane.up li::before{background:var(--geel)}
-  .lane .tag{position:absolute;top:-14px;right:28px;background:var(--geel);color:var(--inkt);font-family:'Bebas Neue',sans-serif;
-    font-size:15px;letter-spacing:.08em;padding:6px 16px;border-radius:999px;border:2px solid var(--inkt);text-transform:uppercase}
-
-  /* bord gallery */
-  #bord{background:var(--zand-donker);border-top:2px solid var(--inkt)}
-  .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-  .gal a{aspect-ratio:1;border:2px solid var(--inkt);border-radius:var(--r);overflow:hidden;position:relative;background:#000;display:block}
-  .gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-  .gal a:hover img{transform:scale(1.07)}
-  .gal a::after{content:attr(data-cap);position:absolute;left:0;right:0;bottom:0;padding:16px 18px;
-    font-family:'Bebas Neue',sans-serif;letter-spacing:.08em;font-size:18px;color:var(--zand);text-transform:uppercase;
-    background:linear-gradient(transparent,rgba(0,0,0,.78))}
-
-  /* lab */
-  #lab{background:var(--geel);border-top:2px solid var(--inkt);border-bottom:2px solid var(--inkt);overflow:hidden;position:relative}
-  #lab::before{content:'';position:absolute;inset:0;opacity:.5;background-image:radial-gradient(var(--inkt) 1.1px,transparent 1.1px);background-size:26px 26px;
-    -webkit-mask-image:radial-gradient(circle at 72% 50%,#000,transparent 68%);mask-image:radial-gradient(circle at 72% 50%,#000,transparent 68%)}
-  #lab .wrap{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
-  #lab .eyebrow{color:var(--rood);display:block;margin-bottom:14px}
-  #lab h2{font-size:clamp(40px,5.5vw,74px);text-transform:uppercase;color:var(--inkt)}
-  #lab p{font-size:17px;margin:18px 0 26px;color:var(--inkt);max-width:46ch;font-weight:500}
-  .lab-skulls{display:flex;justify-content:center;align-items:center;gap:6px}
-  .lab-skulls svg{height:118px;width:auto;filter:drop-shadow(4px 6px 0 rgba(28,20,8,.18))}
-  .lab-skulls .ghost{opacity:.3}
-  .lab-q{font-family:'Bebas Neue',sans-serif;font-size:118px;color:var(--rood);line-height:.8}
+  /* merk kort */
+  #merk{background:var(--inkt);color:var(--zand);position:relative;overflow:hidden}
+  #merk::before{content:'';position:absolute;inset:0;opacity:.06;background-image:radial-gradient(var(--geel) 1px,transparent 1px);background-size:30px 30px}
+  #merk .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+  #merk .eyebrow{color:var(--geel);display:block;margin-bottom:12px}
+  #merk h2{font-size:clamp(36px,4.5vw,60px);text-transform:uppercase;margin-bottom:14px}
+  #merk h2 .y{color:var(--geel)}
+  #merk p{font-size:16px;color:rgba(246,235,217,.85);max-width:54ch;margin-bottom:18px}
+  #merk .ing-tags{display:flex;gap:10px;flex-wrap:wrap}
+  #merk .ing-tags span{border:2px solid rgba(246,235,217,.3);border-radius:999px;padding:7px 16px;font-size:13px;font-weight:700}
+  #merk .mimg{border:3px solid var(--geel);border-radius:20px;overflow:hidden}
+  #merk .mimg img{width:100%;aspect-ratio:4/3;object-fit:cover}
 
   /* quotes */
-  #quotes{background:var(--zand);border-top:2px solid var(--inkt);padding:78px 0;overflow:hidden}
-  #quotes .lead{text-align:center;margin-bottom:44px}
+  #quotes{background:var(--zand);border-top:2px solid var(--inkt);padding:72px 0;overflow:hidden}
+  #quotes .lead{text-align:center;margin-bottom:40px}
   #quotes .eyebrow{color:var(--rood);display:block;margin-bottom:12px}
-  #quotes h2{font-size:clamp(34px,4.5vw,60px);text-transform:uppercase}
+  #quotes h2{font-size:clamp(32px,4.2vw,54px);text-transform:uppercase}
   .qtrack{display:flex;gap:20px;width:max-content;margin-bottom:20px}
   .qrow1{animation:marq 40s linear infinite}.qrow2{animation:marq 46s linear infinite reverse}
   #quotes:hover .qtrack{animation-play-state:paused}
   @keyframes marq{to{transform:translateX(-50%)}}
   .quote{flex:0 0 auto;width:340px;background:var(--zand-donker);border:2px solid var(--inkt);border-radius:var(--r);padding:24px 26px}
-  .quote p{font-size:16px;font-weight:600;line-height:1.4}
-  .quote .who{font-family:'Bebas Neue',sans-serif;letter-spacing:.12em;color:var(--rood);font-size:14px;margin-top:14px;text-transform:uppercase}
+  .quote .stars{color:var(--rood);letter-spacing:2px;margin-bottom:8px;font-size:15px}
+  .quote p{font-size:15.5px;font-weight:600;line-height:1.4}
+  .quote .who{font-family:'Bebas Neue',sans-serif;letter-spacing:.12em;color:var(--rood);font-size:14px;margin-top:12px;text-transform:uppercase}
 
   /* cta */
-  #cta{background:var(--geel);border-top:2px solid var(--inkt);border-bottom:2px solid var(--inkt)}
+  #cta{background:var(--geel);border-top:2px solid var(--inkt)}
   .ctabox{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--inkt);border-radius:var(--r);overflow:hidden;background:var(--zand)}
-  .ctabox .left{padding:52px 46px}
-  .ctabox .right{padding:52px 46px;background:var(--rood);color:var(--zand);display:flex;flex-direction:column;justify-content:center}
+  .ctabox .left{padding:48px 44px}
+  .ctabox .right{padding:48px 44px;background:var(--rood);color:var(--zand);display:flex;flex-direction:column;justify-content:center}
   .ctabox .eyebrow{color:var(--rood);display:block;margin-bottom:14px}
-  .ctabox h2{font-size:clamp(36px,4.5vw,58px);text-transform:uppercase}
-  .ctabox .left p{margin:18px 0 26px;font-size:16px;color:var(--inkt-zacht);max-width:40ch}
-  .ctabox .left .two{display:flex;gap:14px;flex-wrap:wrap}
-  .ctabox .right .price{font-family:'Bebas Neue',sans-serif;font-size:88px;color:var(--geel);line-height:.85}
-  .ctabox .right .price small{font-size:30px;vertical-align:super}
-  .ctabox .right .what{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.04em;text-transform:uppercase;margin:6px 0 6px}
+  .ctabox h2{font-size:clamp(34px,4.2vw,54px);text-transform:uppercase}
+  .ctabox .left p{margin:16px 0 24px;font-size:15.5px;color:var(--inkt-zacht);max-width:40ch}
+  .ctabox .right .what{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px}
   .ctabox .right p{font-size:14.5px;color:rgba(246,235,217,.85);margin-bottom:24px}
 
-  /* footer */
-  footer{background:var(--inkt);color:var(--zand);padding:62px 0 32px}
-  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;padding-bottom:42px;border-bottom:1px solid rgba(246,235,217,.18)}
+  footer{background:var(--inkt);color:var(--zand);padding:58px 0 96px}
+  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;padding-bottom:40px;border-bottom:1px solid rgba(246,235,217,.18)}
   .foot .word{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--geel);line-height:1}
   .foot .tag{font-family:'Bebas Neue',sans-serif;letter-spacing:.1em;margin-top:10px;font-size:15px;color:rgba(246,235,217,.7)}
   .foot h5{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--geel);margin-bottom:14px}
@@ -270,95 +196,146 @@
   .foot a:hover{color:var(--zand)}
   .sub{display:flex;justify-content:space-between;align-items:center;padding-top:22px;flex-wrap:wrap;gap:14px;font-size:12.5px;color:rgba(246,235,217,.6)}
 
+  /* sticky mobile buy bar */
+  .buybar{position:fixed;left:0;right:0;bottom:0;z-index:120;background:var(--zand);border-top:2px solid var(--inkt);
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none;align-items:center;gap:14px;justify-content:space-between}
+  .buybar .t{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.04em;text-transform:uppercase;line-height:1.05}
+  .buybar .s{display:block;font-family:'Raleway',sans-serif;font-size:11px;font-weight:700;color:var(--inkt-zacht);letter-spacing:0;text-transform:none}
+
   .sr{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
   .sr.in{opacity:1;transform:none}
   .sr.d1{transition-delay:.08s}.sr.d2{transition-delay:.16s}.sr.d3{transition-delay:.24s}
 
   @media(max-width:980px){
-    .hero .wrap,#product .wrap,.mv-grid,.ing-list,.funnel,.ctabox,#lab .wrap{grid-template-columns:1fr}
-    .hero-card{max-width:420px}
-    .values,.flavor-grid,.payoff,.gal{grid-template-columns:repeat(2,1fr)}
-    .moment-grid{grid-template-columns:1fr}
-    .payoff>div:not(:last-child){border-right:none;border-bottom:2px solid var(--zand)}
+    .hero .wrap,#merk .wrap,.ctabox,.bundle{grid-template-columns:1fr}
+    .shop-grid{grid-template-columns:repeat(2,1fr)}
+    .steps,.moment-grid{grid-template-columns:1fr}
     .foot{grid-template-columns:1fr 1fr}
-    .lab-q{display:none}
   }
   @media(max-width:640px){
     .navlinks{display:none}
-    section.std{padding:58px 0}
-    .values,.flavor-grid,.payoff,.gal,.foot{grid-template-columns:1fr}
-    .payoff>div:not(:last-child){border-right:none;border-bottom:2px solid var(--zand)}
+    section.std{padding:54px 0}
+    .shop-grid,.foot{grid-template-columns:1fr}
     .nav-cta.ghost{display:none}
+    .buybar{display:flex}
+    .uspbar .wrap{justify-content:flex-start}
   }
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
-    .sr{opacity:1;transform:none}.hero h1 .w i,.hero-eyebrow span{transform:none}
+    .sr{opacity:1;transform:none}
   }
-
-  /* officiele Nacholito-logo in header */
-  .brand .logo-img{height:46px;width:auto;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-  .brand:hover .logo-img{transform:rotate(-3deg) scale(1.05)}
-
-  /* smaak-card foto + calavera badge */
-  .flavor .flavorpic{position:relative;height:280px;margin:-28px -22px 18px;border-bottom:2px solid var(--inkt);overflow:hidden;background:var(--zand-donker)}
-  .flavor .flavorpic img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-  .flavor:hover .flavorpic img{transform:scale(1.06)}
-  .flavor .flavorpic::after{content:'';position:absolute;left:0;right:0;bottom:0;height:60%;background:linear-gradient(transparent,rgba(0,0,0,.18));pointer-events:none}
-  .flavor .skullbadge{position:absolute;right:14px;bottom:14px;width:58px;height:68px;background:var(--zand);border:2px solid var(--inkt);border-radius:12px;display:flex;align-items:center;justify-content:center;padding:5px;box-shadow:3px 4px 0 rgba(28,20,8,.3);z-index:1}
-  .flavor .skullbadge svg{height:54px;width:auto}
 </style>
 </head>
 <body>
-<div class="progress" id="prog"></div>
 
 <header id="hdr">
   <div class="wrap nav">
     <a href="/" class="brand" aria-label="Nacholito home">
-      <img class="logo-img" src="../assets/logo.png" alt="Nacholito">
+      <img src="../assets/logo.png" alt="Nacholito">
     </a>
     <nav class="navlinks">
-      <a href="#product">Product</a>
-      <a href="#smaken">Smaken</a>
+      <a href="#shop">Smaken</a>
+      <a href="#hoe">Zo werkt het</a>
       <a href="#moment">Recepten</a>
-      <a href="#bord">Inspiratie</a>
       <a href="#merk">Ons verhaal</a>
     </nav>
     <div class="nav-actions">
       <a href="/foodservice/" class="nav-cta ghost" title="Voor horeca en foodservice">Voor pro →</a>
-      <a href="/producten" class="nav-cta buy">Bestel met iDEAL</a>
+      <a href="#shop" class="nav-cta buy">Bestel nu</a>
     </div>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO: product first -->
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="hero-eyebrow eyebrow"><span>Voor thuis · restaurant-smaak · in tien minuten</span></div>
-      <h1>
-        <span class="w"><i style="animation-delay:.10s">De</i></span>
-        <span class="w"><i style="animation-delay:.18s">wereld</i></span>
-        <span class="em"><span class="w"><i style="animation-delay:.30s">op</i></span> <span class="w"><i style="animation-delay:.40s">smaak.</i></span></span>
-      </h1>
-      <p class="lead">Krachtige fusion sauzen in één fles. Eén schep en je hebt een gerecht dat smaakt alsof het uren heeft gestaan. Echte ingrediënten, ontwikkeld door chefs — voor het fornuis van jou.</p>
+      <h1>Restaurant-smaak.<span class="em">In één schep.</span></h1>
+      <p class="lead">Vier fusion sauzen, ontwikkeld door chefs. Meng met je eigen kip, beef of vega en je hebt in tien minuten een gerecht dat smaakt alsof het uren heeft gestaan.</p>
+      <ul class="hero-usps">
+        <li>Echte ingrediënten — geen poeders of smaakversterkers</li>
+        <li>Klaar in 10 minuten, zonder marineren</li>
+        <li>Eén fles is goed voor ±10 gerechten</li>
+      </ul>
       <div class="hero-cta">
-        <a href="/producten" class="btn btn-primary">Bestel met iDEAL <span class="arrow">→</span></a>
-        <a href="#smaken" class="btn btn-ghost">Bekijk de smaken</a>
+        <a href="#shop" class="btn btn-primary">Kies je smaak <span class="arrow">→</span></a>
+        <a href="#hoe" class="btn btn-ghost">Zo werkt het</a>
       </div>
-      <div class="hero-trust">
-        <span><b>4 smaken</b> klaar voor gebruik</span>
-        <span><b>Tien minuten</b> van fles tot bord</span>
-        <span><b>Vrij verzonden</b> vanaf €40</span>
+      <p class="hero-pay">Bestel met iDEAL · Snel thuisbezorgd</p>
+    </div>
+    <div class="hero-shot">
+      <span class="flag">Liquid Bumbu · 750 ml</span>
+      <img src="../assets/product-bottle.jpg" alt="Nacholito Liquid Bumbu fles">
+      <div class="hero-flavors">
+        <a href="#shop">Bulgogi</a><a href="#shop">Chipotle</a><a href="#shop">Chili Crisp</a><a href="#shop">Rendang</a>
       </div>
     </div>
-    <div class="hero-card">
-      <span class="flag">Bulgogi Karaage Chicken</span>
-      <video autoplay muted loop playsinline poster="../assets/hero-poster.jpg">
-        <source src="../assets/hero-bulgogi.mp4" type="video/mp4">
-      </video>
-      <div class="tagstrip">
-        <div class="t">Liquid Bumbu · 750 ml</div>
-        <div class="s">Eén schep saus, direct een gerecht.</div>
+  </div>
+</section>
+
+<div class="uspbar">
+  <div class="wrap">
+    <span><b>✓</b> Door chefs ontwikkeld</span>
+    <span><b>✓</b> iDEAL &amp; veilig betalen</span>
+    <span><b>✓</b> Snel thuisbezorgd</span>
+    <span><b>✓</b> ±10 gerechten per fles</span>
+  </div>
+</div>
+
+<!-- SHOP -->
+<section id="shop" class="std">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow sr">De vier smaken</span>
+      <h2 class="sr d1">Kies je wereld.</h2>
+    </div>
+    <div class="shop-grid">
+      <article class="scard sr" style="--accent:#7a1f1f">
+        <span class="best">Meest gekozen</span>
+        <div class="pic"><img src="../assets/smaak-bulgogi.jpg" alt="Korean Bulgogi" loading="lazy"><span class="accent"></span></div>
+        <div class="body">
+          <div class="origin">Korea · Seoul</div><h3>Korean Bulgogi</h3>
+          <p class="desc">Zoete soja, scherpe knoflook en geroosterd sesam. Vol en in balans.</p>
+          <div class="vol">750 ml · ±10 gerechten</div>
+          <a href="/producten" class="btn btn-primary btn-sm btn-wide">Bekijk prijs <span class="arrow">→</span></a>
+        </div>
+      </article>
+      <article class="scard sr d1" style="--accent:#BD0A0A">
+        <div class="pic"><img src="../assets/smaak-chipotle.jpg" alt="Chipotle Asado" loading="lazy"><span class="accent"></span></div>
+        <div class="body">
+          <div class="origin">Mexico</div><h3>Chipotle Asado</h3>
+          <p class="desc">Gerookte adobo-chipotle met pure cacao en houtvuur-warmte.</p>
+          <div class="vol">750 ml · ±10 gerechten</div>
+          <a href="/producten" class="btn btn-primary btn-sm btn-wide">Bekijk prijs <span class="arrow">→</span></a>
+        </div>
+      </article>
+      <article class="scard sr d2" style="--accent:#d98a00">
+        <div class="pic"><img src="../assets/smaak-chili.jpg" alt="Chinese Chili Crisp" loading="lazy"><span class="accent"></span></div>
+        <div class="body">
+          <div class="origin">China</div><h3>Chili Crisp</h3>
+          <p class="desc">Getoaste chili op donkere soja, afgemaakt met sesamolie. Hartig en diep.</p>
+          <div class="vol">750 ml · ±10 gerechten</div>
+          <a href="/producten" class="btn btn-primary btn-sm btn-wide">Bekijk prijs <span class="arrow">→</span></a>
+        </div>
+      </article>
+      <article class="scard sr d3" style="--accent:#6b4a1f">
+        <div class="pic"><img src="../assets/smaak-rendang.jpg" alt="Indonesische Rendang" loading="lazy"><span class="accent"></span></div>
+        <div class="body">
+          <div class="origin">Indonesië</div><h3>Rendang</h3>
+          <p class="desc">Echte kokosmelk, citroengras en kaffir limoenblad. Warm en diep.</p>
+          <div class="vol">750 ml · ±10 gerechten</div>
+          <a href="/producten" class="btn btn-primary btn-sm btn-wide">Bekijk prijs <span class="arrow">→</span></a>
+        </div>
+      </article>
+    </div>
+
+    <div class="bundle sr">
+      <div class="bimg"><img src="../assets/product-bottle.jpg" alt="Het ontdekpakket: vier smaken" loading="lazy"></div>
+      <div class="bbody">
+        <span class="eyebrow">Niet kiezen? Alles proeven.</span>
+        <h3>Het ontdekpakket</h3>
+        <p>Alle vier de smaken in één doos, inclusief receptkaart per fles. Vier werelden, veertig gerechten.</p>
+        <a href="/producten" class="btn btn-yellow">Bekijk prijs <span class="arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -371,223 +348,76 @@
   </div>
 </div>
 
-<!-- PRODUCT SHOWCASE -->
-<section id="product" class="std">
+<!-- ZO WERKT HET -->
+<section id="hoe" class="std">
   <div class="wrap">
-    <div class="prod-img sr">
-      <img src="../assets/product-bottle.jpg" alt="Nacholito Liquid Bumbu fles, Korean Bulgogi 750 ml">
-      <span class="badge">750 ml</span>
+    <div class="sec-head center">
+      <span class="eyebrow sr">Zo werkt het</span>
+      <h2 class="sr d1">Drie stappen.<br>Tien minuten.</h2>
     </div>
-    <div>
-      <span class="eyebrow sr">Dit is Nacholito</span>
-      <h2 class="sr d1">Liquid Bumbu sauzen</h2>
-      <div class="sub sr d1">Eén fles. Een wereld aan smaak.</div>
-      <p class="sr d2">Een geconcentreerde fusion saus die je mengt met je eigen kip, beef, pork of een vega-alternatief. 30% saus, 70% proteïne, en je hebt een vol smaakprofiel zonder marineren of urenlang garen. Eén fles van 750 ml is goed voor ongeveer tien gerechten — genoeg om de hele week mee te variëren.</p>
-      <div class="prod-specs sr d2">
-        <span>750 ml fles</span>
-        <span>±10 gerechten per fles</span>
-        <span>Mengbaar met elk proteïne</span>
-        <span>Klaar voor gebruik</span>
-      </div>
-      <div class="prod-cta sr d3">
-        <a href="/producten" class="btn btn-primary">Bestel de sauzen <span class="arrow">→</span></a>
-        <a href="#smaken" class="btn btn-ghost">Bekijk de smaken</a>
-      </div>
+    <div class="steps">
+      <div class="step sr"><div class="n">1</div><h3>Schep</h3><p>30% saus, 70% kip, beef, pork of vega. Geen marineren, geen weegschaal-stress.</p></div>
+      <div class="step sr d1"><div class="n">2</div><h3>Bak</h3><p>Direct de pan in. De saus lakt, glaceert en bindt vanzelf terwijl je proteïne gaart.</p></div>
+      <div class="step sr d2"><div class="n">3</div><h3>Serveer</h3><p>Op rijst, in een bowl, op een broodje of loaded fries. Eén fles, een hele week variatie.</p></div>
     </div>
   </div>
 </section>
 
-<!-- MERK -->
-<section id="merk" class="std">
-  <div class="wrap">
-    <div class="merk-tag sr">Van ambacht<br><span class="y">naar gemak.</span></div>
-    <p class="merk-sub sr d1">Wij brengen restaurant-smaak naar je eigen fornuis. Diepe smaakprofielen die uren werk zouden kosten, klaar in één schep — zodat een doordeweekse avond opeens voelt als uit eten.</p>
-    <div class="mv-grid">
-      <div class="mv sr"><div class="label">Missie</div><h3>Keukens versterken</h3><p>Wij versterken keukens met convenience producten die consistente kwaliteit en trendgedreven innovatie garanderen, en daarmee zorgen voor operationele rust, minder verspilling en constante smaak.</p></div>
-      <div class="mv sr d1"><div class="label">Visie</div><h3>De standaard worden</h3><p>Wij streven ernaar de standaard te worden voor chefs, met smaakvolle en slimme oplossingen die tijd en kwaliteit samenbrengen, verspilling verminderen en werkdruk verlagen, zodat teams met rust en constante kwaliteit kunnen serveren.</p></div>
-    </div>
-    <div class="values">
-      <div class="value sr"><h4>Smaak</h4><p>Diep, herkenbaar en ontwikkeld uit vakmanschap. Ervaren chefs vormen het hart van onze R&amp;D.</p></div>
-      <div class="value sr d1"><h4>Multi-inzetbaar</h4><p>Maximale toepasbaarheid in de keuken. Verlaagt waste, beperkt inkoopcomplexiteit, verhoogt marge.</p></div>
-      <div class="value sr d2"><h4>Innovatief</h4><p>Consistent van kwaliteit, kleine batch of industriële schaal. Wij blijven doorontwikkelen.</p></div>
-      <div class="value sr d3"><h4>Persoonlijk</h4><p>Toegewezen klantondersteuning en meedenken in keukenprocessen. Een partner aan tafel.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- INGREDIENTEN -->
-<section id="ingredienten" class="std">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow sr">Wat zit erin</span>
-      <h2 class="sr d1">Smaak is geen claim.<br>Het is een ingrediëntenlijst.</h2>
-      <p class="sr d2">Iedereen kan zeggen dat een saus lekker is. Het verschil zit in wat er daadwerkelijk in zit, en in de keuzes die je niet ziet maar wel proeft.</p>
-    </div>
-    <div class="ing-list">
-      <div class="ing sr"><div class="num">01 · Rendang</div><h3>Echte <em>kokosmelk</em></h3><p>Het op-twee-na-grootste ingrediënt in onze Rendang. Geen poeder dat met water wordt aangelengd, geen kokosvervanger. Dat proef je terug in de volheid.</p><span class="tag">Niet 't goedkoopste, wel het echte</span></div>
-      <div class="ing sr d1"><div class="num">02 · Rendang</div><h3>Citroengras &amp; <em>kaffir limoenblad</em></h3><p>De aromaten die een rendang onderscheiden van een generieke curry. Precies de ingrediënten die een gerecht uren kooktijd kosten omdat ze tijd nodig hebben.</p><span class="tag">Aromaten die tijd vragen</span></div>
-      <div class="ing sr d2"><div class="num">03 · Chili Crisp</div><h3>Donkere <em>sojasaus</em></h3><p>De sleutel onder onze Chili Crisp. Donkere soja geeft kleur, diepte en umami. Daarop langzaam getoaste chili en geroosterde sesamolie.</p><span class="tag">Diepte, niet alleen hitte</span></div>
-      <div class="ing sr d3"><div class="num">04 · Bulgogi &amp; Chipotle</div><h3>Geroosterd sesam &amp; <em>pure cacao</em></h3><p>Geroosterd sesamzaad en echte mirin geven de Bulgogi zijn nootachtige warmte. In de Chipotle Asado zit pure cacao, het geheim uit de mole-traditie.</p><span class="tag">De smaakmakers zelf</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- SMAKEN -->
-<section id="smaken" class="std">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow sr">De vier smaken</span>
-      <h2 class="sr d1">Vier culturen,<br>vier smaakprofielen.</h2>
-      <p class="sr d2">Elke saus een reis, trouw aan het origineel. Klik door en bestel direct per smaak.</p>
-    </div>
-    <div class="flavor-grid">
-      <article class="flavor sr" style="--accent:#7a1f1f">
-        <div class="flavorpic"><img src="../assets/smaak-bulgogi.jpg" alt="Korean Bulgogi gerecht" loading="lazy"><span class="skullbadge"><svg viewBox="0 0 100 120"><use href="#skull-korean"/></svg></span></div>
-        <div class="origin">Korea · Seoul</div><h3>Korean Bulgogi</h3>
-        <p class="sensory">Zoete soja, scherpe knoflook en de nootachtige warmte van geroosterd sesam. Vol en in balans.</p>
-        <div class="hero-ing"><b>De ster in de fles</b><span>Echte mirin en geroosterd sesamzaad.</span></div>
-        <a href="/producten" class="btn btn-primary btn-sm buy">Bestel <span class="arrow">→</span></a>
-      </article>
-      <article class="flavor sr d1" style="--accent:#BD0A0A">
-        <div class="flavorpic"><img src="../assets/smaak-chipotle.jpg" alt="Chipotle Asado gerecht" loading="lazy"><span class="skullbadge"><svg viewBox="0 0 100 120"><use href="#skull-mexican"/></svg></span></div>
-        <div class="origin">Mexico</div><h3>Chipotle Asado</h3>
-        <p class="sensory">Gerookte adobo-chipotle met een vleugje pure cacao en de warmte van een asado op houtvuur.</p>
-        <div class="hero-ing"><b>De ster in de fles</b><span>Adobo chipotle en pure cacao.</span></div>
-        <a href="/producten" class="btn btn-primary btn-sm buy">Bestel <span class="arrow">→</span></a>
-      </article>
-      <article class="flavor sr d2" style="--accent:#d98a00">
-        <div class="flavorpic"><img src="../assets/smaak-chili.jpg" alt="Chinese Chili Crisp gerecht" loading="lazy"><span class="skullbadge"><svg viewBox="0 0 100 120"><use href="#skull-asian"/></svg></span></div>
-        <div class="origin">China</div><h3>Chinese Chili Crisp</h3>
-        <p class="sensory">Langzaam getoaste chili op donkere sojasaus, afgemaakt met geroosterde sesamolie. Hartig en diep.</p>
-        <div class="hero-ing"><b>De ster in de fles</b><span>Donkere sojasaus voor kleur en umami.</span></div>
-        <a href="/producten" class="btn btn-primary btn-sm buy">Bestel <span class="arrow">→</span></a>
-      </article>
-      <article class="flavor sr d3" style="--accent:#6b4a1f">
-        <div class="flavorpic"><img src="../assets/smaak-rendang.jpg" alt="Indonesische Rendang gerecht" loading="lazy"><span class="skullbadge"><svg viewBox="0 0 100 120"><use href="#skull-indo"/></svg></span></div>
-        <div class="origin">Indonesië</div><h3>Indonesische Rendang</h3>
-        <p class="sensory">Kokosmelk, citroengras, kaffir limoenblad en rawit peper. De volle, warme diepte van een echte rendang.</p>
-        <div class="hero-ing"><b>De ster in de fles</b><span>Echte kokosmelk, geen poeder.</span></div>
-        <a href="/producten" class="btn btn-primary btn-sm buy">Bestel <span class="arrow">→</span></a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ELK MOMENT -->
+<!-- MOMENT / RECEPTEN -->
 <section id="moment" class="std">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow sr">Eén saus, meerdere gerechten</span>
+      <span class="eyebrow sr">Eén fles, meerdere gerechten</span>
       <h2 class="sr d1">Van lunch tot diner,<br>met dezelfde fles.</h2>
-      <p class="sr d2">Dezelfde Korean Bulgogi op een spies bij de lunch, in een bowl bij de borrel en op een plate bij het diner. Eén product, een hele kaart.</p>
     </div>
     <div class="moment-grid">
-      <div class="mcard sr"><div class="imgwrap"><img src="../assets/dish-2.jpg" alt="Bulgogi kipspiesen, lunch" loading="lazy"></div><div class="cap"><div class="k">Lunch</div><h4>Bulgogi kipspiesen</h4></div></div>
-      <div class="mcard sr d1"><div class="imgwrap"><img src="../assets/dish-3.jpg" alt="Bulgogi karaage kip, borrel" loading="lazy"></div><div class="cap"><div class="k">Borrel</div><h4>Bulgogi karaage</h4></div></div>
-      <div class="mcard sr d2"><div class="imgwrap"><img src="../assets/dish-4.jpg" alt="Bulgogi short rib, diner" loading="lazy"></div><div class="cap"><div class="k">Diner</div><h4>Glazed short rib</h4></div></div>
+      <div class="mcard sr"><div class="imgwrap"><img src="../assets/dish-2.jpg" alt="Bulgogi kipspiesen" loading="lazy"></div><div class="cap"><div><div class="k">Lunch</div><h4>Bulgogi kipspiesen</h4></div><a href="/producten">Bestel →</a></div></div>
+      <div class="mcard sr d1"><div class="imgwrap"><img src="../assets/dish-3.jpg" alt="Bulgogi karaage" loading="lazy"></div><div class="cap"><div><div class="k">Borrel</div><h4>Bulgogi karaage</h4></div><a href="/producten">Bestel →</a></div></div>
+      <div class="mcard sr d2"><div class="imgwrap"><img src="../assets/dish-4.jpg" alt="Glazed short rib" loading="lazy"></div><div class="cap"><div><div class="k">Diner</div><h4>Glazed short rib</h4></div><a href="/producten">Bestel →</a></div></div>
     </div>
   </div>
 </section>
 
-<!-- SPITS -->
-<section id="spits" class="std">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow sr">Op een doordeweekse avond</span>
-      <h2 class="sr d1">Diep van smaak.<br>Snel in de pan.</h2>
-      <p class="sr d2">De smaak is wat blijft hangen. De snelheid is wat van een gewone dinsdagavond opeens iets bijzonders maakt.</p>
-    </div>
-    <div class="payoff">
-      <div class="sr"><div class="big"><span class="count" data-to="30">0</span>/<span class="count" data-to="70">0</span></div><h4>Mengen en klaar</h4><p>30% saus, 70% proteïne. Geen marineren, geen wachten, direct in de pan.</p></div>
-      <div class="sr d1"><div class="big"><span class="count" data-to="100">0</span>%</div><h4>Consistent</h4><p>Dezelfde smaak, elke keer. Niet meer drie keer proeven of het wel klopt.</p></div>
-      <div class="sr d2"><div class="big">10</div><h4>Minuten</h4><p>Van koude pan tot bord. Geen marineren, geen wachten, geen halve middag schoonmaken.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- WEGEN -->
-<section id="wegen" class="std">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow sr">Twee manieren om te beginnen</span>
-      <h2 class="sr d1">Eén fles of het<br>hele viertal.</h2>
-    </div>
-    <div class="funnel">
-      <div class="lane sr"><span class="tag">Instap</span><div class="step">Optie 1 · Eén fles</div><h3>Kies je smaak</h3>
-        <p>Liever eerst proberen? Bestel één fles van je favoriete smaakprofiel. Goed voor ongeveer tien gerechten.</p>
-        <ul><li>750 ml fles</li><li>Eén smaak naar keuze</li><li>Vrij verzonden vanaf €40</li><li>Lang houdbaar, klaar voor gebruik</li></ul>
-        <a href="/producten" class="btn btn-primary">Bestel een fles <span class="arrow">→</span></a>
-      </div>
-      <div class="lane up sr d1"><span class="tag">Favoriet</span><div class="step">Optie 2 · Vier smaken</div><h3>Het ontdekpakket</h3>
-        <p>De volledige Liquid Bumbu lijn in één keer in huis. Vier werelden, vier avonden vol nieuwe smaak.</p>
-        <ul><li>4 × 750 ml fles</li><li>Bulgogi · Chipotle · Chili Crisp · Rendang</li><li>Inclusief receptkaart per smaak</li><li>Vrij verzonden in heel Nederland</li></ul>
-        <a href="/producten" class="btn btn-yellow">Bestel het ontdekpakket <span class="arrow">→</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BORD -->
-<section id="bord" class="std">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow sr">Van fles naar bord</span>
-      <h2 class="sr d1">Zo ziet het eruit<br>op het bord.</h2>
-      <p class="sr d2">Van snackbar tot keten, van casual tot creatief. Onze smaken passen op elk concept en elk segment.</p>
-    </div>
-    <div class="gal sr">
-      <a href="/producten" data-cap="Chipotle Asado"><img src="../assets/dish-5.jpg" alt="Chipotle gelakt vlees met slaw" loading="lazy"></a>
-      <a href="/producten" data-cap="Garnaal &amp; sesam"><img src="../assets/dish-6.jpg" alt="Garnalen met sesam en komkommer" loading="lazy"></a>
-      <a href="/producten" data-cap="Rendang"><img src="../assets/dish-7.jpg" alt="Rendang met romige saus" loading="lazy"></a>
-      <a href="/producten" data-cap="Satay &amp; kroepoek"><img src="../assets/dish-8.jpg" alt="Vlees met pindasaus, kroepoek en slaw" loading="lazy"></a>
-    </div>
-  </div>
-</section>
-
-<!-- LAB -->
-<section id="lab" class="std">
+<!-- MERK kort -->
+<section id="merk" class="std">
   <div class="wrap">
     <div>
-      <span class="eyebrow">Nacholito Lab</span>
-      <h2>Dit is pas<br>het begin.</h2>
-      <p>Vier smaken op de kaart, en meer in ontwikkeling. In het Nacholito Lab werken onze chefs aan nieuwe smaakprofielen, samenwerkingen en concepten. Wil je als eerste proeven wat eraan komt?</p>
-      <a href="#cta" class="btn btn-primary">Blijf op de hoogte <span class="arrow">→</span></a>
+      <span class="eyebrow sr">Ons verhaal</span>
+      <h2 class="sr d1">Van ambacht <span class="y">naar gemak.</span></h2>
+      <p class="sr d2">Iedereen kan zeggen dat een saus lekker is. Het verschil zit in wat erin zit: echte kokosmelk in de rendang, donkere sojasaus onder de chili crisp, pure cacao in de chipotle. Ingrediënten die normaal uren kooktijd vragen — wij hebben de uren er al ingestopt.</p>
+      <div class="ing-tags sr d3">
+        <span>Echte kokosmelk</span><span>Citroengras &amp; kaffir</span><span>Donkere soja</span><span>Pure cacao</span><span>Geroosterd sesam</span>
+      </div>
     </div>
-    <div class="lab-skulls">
-      <svg viewBox="0 0 100 120"><use href="#skull-korean"/></svg>
-      <svg viewBox="0 0 100 120" class="ghost"><use href="#skull-indo"/></svg>
-      <span class="lab-q">?</span>
-    </div>
+    <div class="mimg sr d1"><img src="../assets/dish-7.jpg" alt="Rendang met romige saus" loading="lazy"></div>
   </div>
 </section>
 
 <!-- QUOTES -->
 <section id="quotes">
   <div class="wrap lead">
-    <span class="eyebrow">Wat de keuken zegt</span>
+    <span class="eyebrow">Wat thuiskoks zeggen</span>
     <h2>Proef het, en je snapt het.</h2>
   </div>
   <div class="qtrack qrow1">
-    <div class="quote"><p>"M'n vriendinnen denken dat ik een kookcursus heb gevolgd. Niet vertellen, ja?"</p><div class="who">Thuiskok</div></div>
-    <div class="quote"><p>"Eindelijk een rendang die smaakt alsof hij uren heeft gestaan, zonder dat hij dat heeft."</p><div class="who">Foodie</div></div>
-    <div class="quote"><p>"Eén fles in m'n kast, en bij elke maaltijd voelt het alsof ik dagen heb gekookt."</p><div class="who">Thuiskok</div></div>
-    <div class="quote"><p>"Drie verschillende avondmaaltijden uit één fles. M'n meal-prep is nog nooit zo makkelijk geweest."</p><div class="who">Food creator</div></div>
-    <div class="quote"><p>"M'n vriendinnen denken dat ik een kookcursus heb gevolgd. Niet vertellen, ja?"</p><div class="who">Thuiskok</div></div>
-    <div class="quote"><p>"Eindelijk een rendang die smaakt alsof hij uren heeft gestaan, zonder dat hij dat heeft."</p><div class="who">Foodie</div></div>
-    <div class="quote"><p>"Eén fles in m'n kast, en bij elke maaltijd voelt het alsof ik dagen heb gekookt."</p><div class="who">Thuiskok</div></div>
-    <div class="quote"><p>"Drie verschillende avondmaaltijden uit één fles. M'n meal-prep is nog nooit zo makkelijk geweest."</p><div class="who">Food creator</div></div>
+    <div class="quote"><div class="stars">★★★★★</div><p>"M'n vriendinnen denken dat ik een kookcursus heb gevolgd. Niet vertellen, ja?"</p><div class="who">Thuiskok</div></div>
+    <div class="quote"><div class="stars">★★★★★</div><p>"Eindelijk een rendang die smaakt alsof hij uren heeft gestaan, zonder dat hij dat heeft."</p><div class="who">Foodie</div></div>
+    <div class="quote"><div class="stars">★★★★★</div><p>"Eén fles in m'n kast, en bij elke maaltijd voelt het alsof ik dagen heb gekookt."</p><div class="who">Thuiskok</div></div>
+    <div class="quote"><div class="stars">★★★★★</div><p>"Drie verschillende avondmaaltijden uit één fles. M'n meal-prep is nog nooit zo makkelijk geweest."</p><div class="who">Food creator</div></div>
+    <div class="quote"><div class="stars">★★★★★</div><p>"M'n vriendinnen denken dat ik een kookcursus heb gevolgd. Niet vertellen, ja?"</p><div class="who">Thuiskok</div></div>
+    <div class="quote"><div class="stars">★★★★★</div><p>"Eindelijk een rendang die smaakt alsof hij uren heeft gestaan, zonder dat hij dat heeft."</p><div class="who">Foodie</div></div>
+    <div class="quote"><div class="stars">★★★★★</div><p>"Eén fles in m'n kast, en bij elke maaltijd voelt het alsof ik dagen heb gekookt."</p><div class="who">Thuiskok</div></div>
+    <div class="quote"><div class="stars">★★★★★</div><p>"Drie verschillende avondmaaltijden uit één fles. M'n meal-prep is nog nooit zo makkelijk geweest."</p><div class="who">Food creator</div></div>
   </div>
   <div class="qtrack qrow2">
-    <div class="quote"><p>"De chili crisp is hartig en diep, niet zomaar scherp. Sinds die fles is er geen pasta meer zonder."</p><div class="who">Thuiskok</div></div>
-    <div class="quote"><p>"De rendang is precies wat ik thuis nooit voor elkaar krijg. Eén schep en het is er."</p><div class="who">Foodie</div></div>
-    <div class="quote"><p>"De bulgogi smaakt zoals die ene tent in Seoul die ik bezocht. Echt waar."</p><div class="who">Reisliefhebber</div></div>
-
-    <div class="quote"><p>"Zondagavond koken voor zes gasten? Tien minuten en het is af. Niet meer dan dat."</p><div class="who">Gastvrouw</div></div>
-    <div class="quote"><p>"De chili crisp is hartig en diep, niet zomaar scherp. Sinds die fles is er geen pasta meer zonder."</p><div class="who">Thuiskok</div></div>
-    <div class="quote"><p>"De rendang is precies wat ik thuis nooit voor elkaar krijg. Eén schep en het is er."</p><div class="who">Foodie</div></div>
-    <div class="quote"><p>"De bulgogi smaakt zoals die ene tent in Seoul die ik bezocht. Echt waar."</p><div class="who">Reisliefhebber</div></div>
-
-    <div class="quote"><p>"Zondagavond koken voor zes gasten? Tien minuten en het is af. Niet meer dan dat."</p><div class="who">Gastvrouw</div></div>
+    <div class="quote"><div class="stars">★★★★★</div><p>"De chili crisp is hartig en diep, niet zomaar scherp. Sinds die fles is er geen pasta meer zonder."</p><div class="who">Thuiskok</div></div>
+    <div class="quote"><div class="stars">★★★★★</div><p>"De rendang is precies wat ik thuis nooit voor elkaar krijg. Eén schep en het is er."</p><div class="who">Foodie</div></div>
+    <div class="quote"><div class="stars">★★★★★</div><p>"De bulgogi smaakt zoals die ene tent in Seoul die ik bezocht. Echt waar."</p><div class="who">Reisliefhebber</div></div>
+    <div class="quote"><div class="stars">★★★★★</div><p>"Zondagavond koken voor zes gasten? Tien minuten en het is af. Niet meer dan dat."</p><div class="who">Gastvrouw</div></div>
+    <div class="quote"><div class="stars">★★★★★</div><p>"De chili crisp is hartig en diep, niet zomaar scherp. Sinds die fles is er geen pasta meer zonder."</p><div class="who">Thuiskok</div></div>
+    <div class="quote"><div class="stars">★★★★★</div><p>"De rendang is precies wat ik thuis nooit voor elkaar krijg. Eén schep en het is er."</p><div class="who">Foodie</div></div>
+    <div class="quote"><div class="stars">★★★★★</div><p>"De bulgogi smaakt zoals die ene tent in Seoul die ik bezocht. Echt waar."</p><div class="who">Reisliefhebber</div></div>
+    <div class="quote"><div class="stars">★★★★★</div><p>"Zondagavond koken voor zes gasten? Tien minuten en het is af. Niet meer dan dat."</p><div class="who">Gastvrouw</div></div>
   </div>
 </section>
 
@@ -598,18 +428,14 @@
       <div class="left">
         <span class="eyebrow">Begin vanavond</span>
         <h2>Vier smaken,<br>elke avond een reis.</h2>
-        <p>Eén schep en je hebt iets op tafel dat smaakt alsof het uren heeft gestaan. Geen marineren, geen tien losse potjes — wel iets om te delen.</p>
-        <div class="two">
-          <a href="/producten" class="btn btn-primary">Bestel met iDEAL <span class="arrow">→</span></a>
-          <a href="#smaken" class="btn btn-ghost">Bekijk de smaken</a>
-        </div>
+        <p>Eén schep en je hebt iets op tafel dat smaakt alsof het uren heeft gestaan. Geen marineren, geen tien losse potjes.</p>
+        <a href="#shop" class="btn btn-primary">Kies je smaak <span class="arrow">→</span></a>
       </div>
       <div class="right">
         <span class="eyebrow" style="color:var(--geel)">Het ontdekpakket</span>
-        <div class="price"><small>€</small>39</div>
         <div class="what">4 flessen · 4 smaken</div>
-        <p>De vier signatuurprofielen in één doos, met receptkaart per smaak. Goed voor ongeveer veertig gerechten. Vrij verzonden.</p>
-        <a href="/producten" class="btn btn-yellow">Bestel het ontdekpakket <span class="arrow">→</span></a>
+        <p>De vier signatuurprofielen in één doos, met receptkaart per smaak. Goed voor ongeveer veertig gerechten.</p>
+        <a href="/producten" class="btn btn-yellow">Bekijk prijs <span class="arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -618,79 +444,28 @@
 <footer>
   <div class="wrap">
     <div class="foot">
-      <div><div class="word">Nacholito</div><div class="tag">Ready to serve. Less waste. More taste.</div></div>
-      <div><h5>Producten</h5><a href="/producten">Liquid Bumbu sauzen</a><a href="/producten">Ontdekpakket (4 smaken)</a><a href="#bord">Recepten</a><a href="/foodservice/">Voor professionals</a></div>
-      <div><h5>Nacholito</h5><a href="#merk">Ons merk</a><a href="#ingredienten">Vakmanschap</a><a href="#lab">Nacholito Lab</a><a href="#cta">Contact</a></div>
+      <div><div class="word">Nacholito</div><div class="tag">Van ambacht naar gemak.</div></div>
+      <div><h5>Shop</h5><a href="#shop">De vier smaken</a><a href="/producten">Ontdekpakket</a><a href="#moment">Recepten</a><a href="/foodservice/">Voor professionals</a></div>
+      <div><h5>Nacholito</h5><a href="#merk">Ons verhaal</a><a href="#hoe">Zo werkt het</a><a href="#cta">Contact</a></div>
       <div><h5>Bezoek</h5><p>Goeseelsstraat 16<br>4817 MV Breda</p><p>Onderdeel van<br>Sample Kitchen B.V.</p></div>
     </div>
     <div class="sub"><span>© 2026 Nacholito · Sample Kitchen B.V. · KVK 84282495</span><span>Algemene voorwaarden · Privacy</span></div>
   </div>
 </footer>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <g id="skull-base">
-    <path class="sk-base" d="M50 8 C28 8 16 24 16 44 C16 58 22 66 24 72 C26 78 25 82 30 84 L34 84 C34 90 36 94 42 94 L58 94 C64 94 66 90 66 84 L70 84 C75 82 74 78 76 72 C78 66 84 58 84 44 C84 24 72 8 50 8 Z" fill="#F6EBD9" stroke="#1c1408" stroke-width="3" stroke-linejoin="round"/>
-    <circle cx="35" cy="46" r="11" fill="#1c1408"/><circle cx="65" cy="46" r="11" fill="#1c1408"/>
-    <g fill="#F6EBD9"><circle cx="35" cy="46" r="3.2"/><circle cx="35" cy="39" r="2.6"/><circle cx="35" cy="53" r="2.6"/><circle cx="29" cy="46" r="2.6"/><circle cx="41" cy="46" r="2.6"/><circle cx="65" cy="46" r="3.2"/><circle cx="65" cy="39" r="2.6"/><circle cx="65" cy="53" r="2.6"/><circle cx="59" cy="46" r="2.6"/><circle cx="71" cy="46" r="2.6"/></g>
-    <path d="M50 58 C46 64 47 70 50 73 C53 70 54 64 50 58 Z" fill="#1c1408"/>
-    <path d="M38 86 L62 86 L62 79 L38 79 Z" fill="#1c1408"/>
-    <g stroke="#F6EBD9" stroke-width="1.6"><line x1="44" y1="79" x2="44" y2="94"/><line x1="50" y1="79" x2="50" y2="94"/><line x1="56" y1="79" x2="56" y2="94"/></g>
-    <g fill="#1c1408"><circle cx="24" cy="58" r="2"/><circle cx="76" cy="58" r="2"/><circle cx="50" cy="29" r="2"/></g>
-    <path d="M30 30 q8 -8 16 -2 M70 30 q-8 -8 -16 -2" fill="none" stroke="#1c1408" stroke-width="2" stroke-linecap="round"/>
-  </g>
-  <g id="skull-mexican"><use href="#skull-base"/>
-    <g transform="translate(50 18)" fill="none" stroke="#1c1408" stroke-width="2.2" stroke-linejoin="round">
-      <circle cx="0" cy="0" r="6" fill="#BD0A0A" stroke="#1c1408"/>
-      <path d="M-6 0 a6 6 0 0 1 12 0 M-4 -3 a4 4 0 0 1 8 1 M-2 2 q2 2 4 0" stroke="#F6EBD9" stroke-width="1.4"/>
-      <path d="M-10 2 q-4 4 -1 8 M10 2 q4 4 1 8" stroke="#1c1408"/></g></g>
-  <g id="skull-korean">
-    <g transform="rotate(20 50 14)"><rect x="48.5" y="-6" width="3" height="26" rx="1.5" fill="#1c1408"/></g>
-    <g transform="rotate(-20 50 14)"><rect x="48.5" y="-6" width="3" height="26" rx="1.5" fill="#1c1408"/></g>
-    <use href="#skull-base"/>
-    <g transform="translate(50 17)"><circle r="5.5" fill="#FFC61A" stroke="#1c1408" stroke-width="2"/>
-      <g fill="#1c1408"><circle cx="0" cy="-7" r="2.3"/><circle cx="6" cy="-3" r="2.3"/><circle cx="6" cy="4" r="2.3"/><circle cx="-6" cy="-3" r="2.3"/><circle cx="-6" cy="4" r="2.3"/></g><circle r="2" fill="#1c1408"/></g>
-    <path d="M32 33 h5 v-4 h5 v4 h5 v-4 h5 v4 h5" fill="none" stroke="#1c1408" stroke-width="1.8"/></g>
-  <g id="skull-asian"><use href="#skull-base"/>
-    <path d="M50 -2 L84 22 C72 17 60 15 50 15 C40 15 28 17 16 22 Z" fill="#FFC61A" stroke="#1c1408" stroke-width="3" stroke-linejoin="round"/>
-    <path d="M30 19 q20 -5 40 0" fill="none" stroke="#1c1408" stroke-width="1.6"/>
-    <circle cx="50" cy="0" r="3" fill="#BD0A0A" stroke="#1c1408" stroke-width="2"/>
-    <g transform="translate(80 24)"><line x1="0" y1="0" x2="0" y2="14" stroke="#1c1408" stroke-width="2"/><path d="M-3 14 h6 l-1 8 h-4 z" fill="#BD0A0A" stroke="#1c1408" stroke-width="1.6"/></g></g>
-  <g id="skull-indo">
-    <path d="M18 36 C18 18 32 6 50 6 C68 6 82 18 82 36 C74 30 70 22 50 22 C30 22 26 30 18 36 Z" fill="#E9DCC6" stroke="#1c1408" stroke-width="3" stroke-linejoin="round"/>
-    <path d="M22 30 q14 -10 28 -10 q14 0 28 10" fill="none" stroke="#1c1408" stroke-width="1.8"/>
-    <path d="M30 24 q10 -7 20 -7 q10 0 20 7" fill="none" stroke="#1c1408" stroke-width="1.6"/>
-    <path d="M50 9 l3 5 -3 5 -3 -5 z" fill="#BD0A0A" stroke="#1c1408" stroke-width="1.6"/>
-    <use href="#skull-base"/></g>
-</defs></svg>
+<div class="buybar">
+  <div class="t">Liquid Bumbu · 750 ml<span class="s">4 smaken · iDEAL</span></div>
+  <a href="#shop" class="btn btn-primary btn-sm">Bestel nu</a>
+</div>
 
 <script>
-  var hdr=document.getElementById('hdr'), prog=document.getElementById('prog');
-  function onScroll(){
-    var st=window.scrollY||document.documentElement.scrollTop;
-    var h=document.documentElement.scrollHeight-window.innerHeight;
-    prog.style.width=(h>0?(st/h)*100:0)+'%';
-    hdr.classList.toggle('solid', st>60);
-  }
+  var hdr=document.getElementById('hdr');
+  function onScroll(){ hdr.classList.toggle('solid',(window.scrollY||document.documentElement.scrollTop)>60); }
   var ticking=false;
   window.addEventListener('scroll',function(){ if(!ticking){requestAnimationFrame(function(){onScroll();ticking=false;});ticking=true;} },{passive:true});
   onScroll();
   var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.sr').forEach(function(el){io.observe(el);});
-  var cio=new IntersectionObserver(function(es){es.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el=e.target, to=+el.dataset.to, dur=1100, t0=null;
-      function step(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/dur,1); el.textContent=Math.round(to*(1-Math.pow(1-p,3))); if(p<1)requestAnimationFrame(step); }
-      requestAnimationFrame(step); cio.unobserve(el);
-    });},{threshold:.6});
-  document.querySelectorAll('.count').forEach(function(el){cio.observe(el);});
-  document.querySelectorAll('.flavor').forEach(function(c){
-    c.addEventListener('mousemove',function(e){
-      var r=c.getBoundingClientRect();
-      var rx=((e.clientY-r.top)/r.height-0.5)*-6, ry=((e.clientX-r.left)/r.width-0.5)*6;
-      c.style.transform='perspective(800px) rotateX('+rx+'deg) rotateY('+ry+'deg) translateY(-6px)';
-    });
-    c.addEventListener('mouseleave',function(){ c.style.transform=''; });
-  });
 </script>
 </body>
 </html>
