@@ -3,11 +3,63 @@
 @tailwind utilities;
 
 :root {
-  --navy: #0A1628;
-  --gold: #C9973A;
+  --rood: #BD0A0A;
+  --rood-diep: #8c0707;
+  --geel: #FFC61A;
+  --zand: #F6EBD9;
+  --zand-donker: #E9DCC6;
+  --inkt: #1c1408;
+  --inkt-zacht: #4a3d2a;
+  --wit: #FFFDF7;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: #f8fafc;
-  color: #1e293b;
+  background: var(--zand);
+  color: var(--inkt);
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-display text-xl tracking-wide uppercase rounded-full px-7 py-3.5 transition-all duration-150 ease-out cursor-pointer border-2 border-transparent;
+  }
+  .btn-primary {
+    @apply btn bg-rood text-wit shadow-btn-rood;
+  }
+  .btn-primary:hover {
+    @apply shadow-btn-rood-hover;
+  }
+  .btn-primary:active {
+    @apply shadow-btn-rood-active translate-y-1;
+  }
+  .btn-yellow {
+    @apply btn bg-geel text-inkt shadow-btn-geel;
+  }
+  .btn-yellow:hover {
+    @apply shadow-btn-geel-hover;
+  }
+  .btn-yellow:active {
+    @apply shadow-btn-geel-active translate-y-1;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-inkt border-inkt;
+  }
+  .btn-ghost:hover {
+    @apply bg-inkt text-zand;
+  }
+  .btn-disabled {
+    @apply btn bg-zand-donker text-inkt-zacht/50 shadow-none cursor-not-allowed;
+  }
+  .btn-sm {
+    @apply text-base px-5 py-2.5 shadow-[0_5px_0_#8c0707];
+  }
+  .btn-sm:hover {
+    @apply shadow-[0_8px_0_#8c0707];
+  }
+  .eyebrow {
+    @apply font-display text-sm tracking-[0.24em] uppercase text-rood;
+  }
 }

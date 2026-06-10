@@ -14,10 +14,16 @@
     Cache-Control = "public, max-age=0, must-revalidate"
 
 [[redirects]]
-  # /producten is een placeholder tot de echte checkout-URL bekend is.
-  # Stuur door naar de chooser zodat bezoeker eerst zijn omgeving kiest.
+  # Oude /producten-links sturen door naar het bestelportaal.
   from = "/producten"
-  to = "/"
+  to = "/bestellen"
+  status = 301
+  force = true
+
+[[redirects]]
+  # /bestellen verwijst naar het B2B-bestelportaal (aparte Next.js-app).
+  from = "/bestellen"
+  to = "https://bestellen.nacholito.nl/bestellen"
   status = 302
   force = true
 

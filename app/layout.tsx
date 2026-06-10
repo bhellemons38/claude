@@ -1,18 +1,28 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Bebas_Neue, Raleway } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const bebas = Bebas_Neue({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-bebas',
+})
+
+const raleway = Raleway({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-raleway',
+})
 
 export const metadata: Metadata = {
-  title: 'Nacholito — B2B Bestelportaal',
-  description: 'Groothandel bestelportaal voor Nacholito Liquid Bumbu sauzen. Voor horeca ondernemers in Nederland.',
+  title: 'Bestel nu — Nacholito Foodservice',
+  description: 'Bestel Nacholito fusion sauzen met iDEAL. Geen MOQ op de fles, snel geleverd, automatisch gefactureerd.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="nl">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${bebas.variable} ${raleway.variable} font-body antialiased`}>{children}</body>
     </html>
   )
 }

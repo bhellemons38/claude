@@ -47,7 +47,6 @@ export function BevestigingContent() {
         } else if (o.paymentStatus === 'failed' || o.paymentStatus === 'expired') {
           setState('failed')
         } else {
-          // still pending — retry
           attempts++
           if (attempts < maxAttempts) {
             setTimeout(poll, 2000)
@@ -65,12 +64,12 @@ export function BevestigingContent() {
 
   if (state === 'loading') {
     return (
-      <div className="flex flex-col items-center justify-center py-20 text-slate-400">
+      <div className="flex flex-col items-center justify-center py-20 text-inkt-zacht">
         <svg className="animate-spin w-8 h-8 mb-4" fill="none" viewBox="0 0 24 24">
           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
         </svg>
-        <p>Betaling controleren…</p>
+        <p className="font-semibold">Betaling controleren…</p>
       </div>
     )
   }
@@ -78,12 +77,9 @@ export function BevestigingContent() {
   if (state === 'not-found') {
     return (
       <div className="text-center py-16">
-        <div className="text-5xl mb-4">?</div>
-        <h1 className="text-xl font-bold text-navy mb-2">Bestelling niet gevonden</h1>
-        <p className="text-slate-500 mb-6">We konden uw bestelling niet vinden. Controleer uw e-mail voor een bevestiging.</p>
-        <Link href="/bestellen" className="inline-block bg-gold text-white font-bold px-6 py-3 rounded-lg hover:bg-gold-dark transition-colors">
-          Terug naar bestelformulier
-        </Link>
+        <h1 className="font-display uppercase text-4xl text-rood mb-2">Bestelling niet gevonden</h1>
+        <p className="text-inkt-zacht mb-6 font-medium">We konden uw bestelling niet vinden. Controleer uw e-mail voor een bevestiging.</p>
+        <Link href="/bestellen" className="btn-primary inline-flex">Terug naar bestelformulier</Link>
       </div>
     )
   }
@@ -91,19 +87,13 @@ export function BevestigingContent() {
   if (state === 'failed') {
     return (
       <div className="text-center py-16">
-        <div className="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </div>
-        <h1 className="text-xl font-bold text-navy mb-2">Betaling niet geslaagd</h1>
-        <p className="text-slate-500 mb-6">
-          Uw bestelling {order?.orderNumber} is aangemaakt maar de betaling is niet gelukt of verlopen.
-          Probeer het opnieuw.
+        <span className="eyebrow block mb-3">Betaling mislukt</span>
+        <h1 className="font-display uppercase text-4xl sm:text-5xl text-rood mb-3">Dat ging niet goed.</h1>
+        <p className="text-inkt-zacht mb-6 font-medium max-w-md mx-auto">
+          Uw bestelling <strong>{order?.orderNumber}</strong> is aangemaakt maar de betaling is niet gelukt of verlopen.
+          Probeer het opnieuw — uw keuze blijft bewaard tot u opnieuw bestelt.
         </p>
-        <Link href="/bestellen" className="inline-block bg-gold text-white font-bold px-6 py-3 rounded-lg hover:bg-gold-dark transition-colors">
-          Opnieuw bestellen
-        </Link>
+        <Link href="/bestellen" className="btn-primary inline-flex">Opnieuw bestellen <span>→</span></Link>
       </div>
     )
   }
@@ -111,16 +101,12 @@ export function BevestigingContent() {
   if (state === 'pending' && order) {
     return (
       <div className="text-center py-16">
-        <div className="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </div>
-        <h1 className="text-xl font-bold text-navy mb-2">Betaling in behandeling</h1>
-        <p className="text-slate-500 mb-2">
-          Bestelnummer: <strong>{order.orderNumber}</strong>
+        <span className="eyebrow block mb-3">Even geduld</span>
+        <h1 className="font-display uppercase text-4xl sm:text-5xl mb-3">Betaling in behandeling</h1>
+        <p className="text-inkt-zacht mb-2 font-medium">
+          Bestelnummer: <strong className="text-inkt">{order.orderNumber}</strong>
         </p>
-        <p className="text-slate-500 mb-6">
+        <p className="text-inkt-zacht font-medium max-w-md mx-auto">
           Uw betaling wordt verwerkt. U ontvangt een bevestigingsmail zodra de betaling is afgerond.
         </p>
       </div>
@@ -132,98 +118,92 @@ export function BevestigingContent() {
   return (
     <div className="space-y-6">
       {/* Success banner */}
-      <div className="bg-green-50 border border-green-200 rounded-xl p-6 flex gap-4">
-        <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
-          <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-          </svg>
-        </div>
-        <div>
-          <h1 className="text-lg font-bold text-green-800">Betaling geslaagd — bedankt voor uw bestelling!</h1>
-          <p className="text-sm text-green-700 mt-1">
-            Een bevestigingsmail is verstuurd naar <strong>{order.customer.email}</strong>.
-          </p>
-        </div>
+      <div className="bg-rood text-zand border-2 border-inkt rounded-[18px] p-6 sm:p-8 relative overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.08] pointer-events-none"
+          style={{ backgroundImage: 'radial-gradient(var(--geel) 1px, transparent 1px)', backgroundSize: '30px 30px' }}
+        />
+        <span className="eyebrow !text-geel block mb-2 relative">Betaling gelukt</span>
+        <h1 className="font-display uppercase text-4xl sm:text-5xl mb-2 relative">Bedankt voor je bestelling!</h1>
+        <p className="text-zand/85 font-medium relative">
+          Een bevestigingsmail is verstuurd naar <strong className="text-wit">{order.customer.email}</strong>.
+        </p>
       </div>
 
       {/* Order summary */}
-      <div className="bg-white rounded-xl border border-slate-200 p-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100">
+      <div className="bg-wit border-2 border-inkt rounded-[18px] p-6 sm:p-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5 pb-4 border-b-2 border-dashed border-inkt/15">
           <div>
-            <p className="text-xs text-slate-500">Bestelnummer</p>
-            <p className="text-xl font-bold text-navy">{order.orderNumber}</p>
+            <p className="text-xs font-bold uppercase tracking-wide text-inkt-zacht">Bestelnummer</p>
+            <p className="font-display text-2xl">{order.orderNumber}</p>
           </div>
-          <div className="text-right">
-            <p className="text-xs text-slate-500">Besteldatum</p>
-            <p className="text-sm font-medium text-navy">{formatDate(order.createdAt)}</p>
+          <div className="sm:text-right">
+            <p className="text-xs font-bold uppercase tracking-wide text-inkt-zacht">Besteldatum</p>
+            <p className="font-semibold text-sm">{formatDate(order.createdAt)}</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
           <div>
-            <p className="text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wide">Bezorgadres</p>
-            <p className="text-sm text-navy font-medium">{order.customer.companyName}</p>
-            <p className="text-sm text-slate-600">t.a.v. {order.customer.contactName}</p>
-            <p className="text-sm text-slate-600">{order.customer.deliveryAddress}</p>
-            <p className="text-sm text-slate-600">
-              {order.customer.deliveryPostcode} {order.customer.deliveryCity}
-            </p>
+            <p className="eyebrow mb-1">Bezorgadres</p>
+            <p className="font-bold">{order.customer.companyName}</p>
+            <p className="text-sm text-inkt-zacht font-medium">t.a.v. {order.customer.contactName}</p>
+            <p className="text-sm text-inkt-zacht font-medium">{order.customer.deliveryAddress}</p>
+            <p className="text-sm text-inkt-zacht font-medium">{order.customer.deliveryPostcode} {order.customer.deliveryCity}</p>
           </div>
           <div>
-            <p className="text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wide">Verwachte levering</p>
-            <p className="text-sm text-navy font-semibold">3–5 werkdagen</p>
-            <p className="text-xs text-slate-500 mt-1">Na betalingsbevestiging</p>
+            <p className="eyebrow mb-1">Verwachte levering</p>
+            <p className="font-display text-2xl leading-none text-rood">3–5 werkdagen</p>
+            <p className="text-xs text-inkt-zacht font-semibold mt-1">Na betalingsbevestiging</p>
           </div>
         </div>
 
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-slate-100">
-              <th className="text-left text-xs text-slate-500 pb-2 font-medium">Product</th>
-              <th className="text-center text-xs text-slate-500 pb-2 font-medium">Aantal</th>
-              <th className="text-right text-xs text-slate-500 pb-2 font-medium">Totaal</th>
+            <tr className="border-b-2 border-inkt/15">
+              <th className="text-left text-xs uppercase tracking-wide text-inkt-zacht pb-2 font-bold">Product</th>
+              <th className="text-center text-xs uppercase tracking-wide text-inkt-zacht pb-2 font-bold">Aantal</th>
+              <th className="text-right text-xs uppercase tracking-wide text-inkt-zacht pb-2 font-bold">Totaal</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-50">
+          <tbody className="divide-y divide-inkt/5">
             {order.lines.map(line => (
               <tr key={line.productId}>
-                <td className="py-2 text-navy">{line.productName}</td>
-                <td className="py-2 text-center text-slate-600">{line.quantity}</td>
-                <td className="py-2 text-right font-medium text-navy">{formatEur(line.lineTotal)}</td>
+                <td className="py-2.5 font-semibold">{line.productName}</td>
+                <td className="py-2.5 text-center text-inkt-zacht font-medium">{line.quantity}</td>
+                <td className="py-2.5 text-right font-bold">{formatEur(line.lineTotal)}</td>
               </tr>
             ))}
           </tbody>
         </table>
 
-        <div className="border-t border-slate-200 mt-2 pt-3 space-y-1">
-          <div className="flex justify-between text-sm">
-            <span className="text-slate-500">Subtotaal excl. BTW</span>
-            <span className="text-navy">{formatEur(order.subtotalExclBtw)}</span>
+        <div className="border-t-2 border-inkt/15 mt-2 pt-3 space-y-1.5">
+          <div className="flex justify-between text-sm text-inkt-zacht font-medium">
+            <span>Subtotaal excl. BTW</span>
+            <span>{formatEur(order.subtotalExclBtw)}</span>
           </div>
-          <div className="flex justify-between text-sm">
-            <span className="text-slate-500">BTW (9%)</span>
-            <span className="text-navy">{formatEur(order.btwAmount)}</span>
+          <div className="flex justify-between text-sm text-inkt-zacht font-medium">
+            <span>BTW (9%)</span>
+            <span>{formatEur(order.btwAmount)}</span>
           </div>
-          <div className="flex justify-between font-bold text-base pt-1">
-            <span className="text-navy">Totaal incl. BTW</span>
-            <span className="text-navy">{formatEur(order.totalInclBtw)}</span>
+          <div className="flex justify-between font-display text-2xl pt-1">
+            <span>Totaal incl. BTW</span>
+            <span className="text-rood">{formatEur(order.totalInclBtw)}</span>
           </div>
         </div>
       </div>
 
-      <div className="bg-navy rounded-xl p-5 text-sm text-slate-300">
-        <p className="font-semibold text-white mb-2">Wat gebeurt er nu?</p>
-        <ul className="space-y-1.5 list-disc list-inside text-slate-400">
-          <li>Uw factuur wordt automatisch aangemaakt en per e-mail verstuurd.</li>
-          <li>Uw bestelling wordt verwerkt en binnen 3–5 werkdagen bezorgd.</li>
-          <li>Bij vragen kunt u contact opnemen via <a href="mailto:info@nacholito.nl" className="text-gold hover:underline">info@nacholito.nl</a>.</li>
+      <div className="bg-inkt text-zand border-2 border-inkt rounded-[18px] p-6 sm:p-8">
+        <p className="font-display uppercase text-xl text-geel mb-3">Wat gebeurt er nu?</p>
+        <ul className="space-y-2 text-sm font-medium">
+          <li className="flex gap-3"><span className="flex-none w-5 h-5 mt-0.5 rounded-full bg-geel"></span>Uw factuur wordt automatisch aangemaakt en per e-mail verstuurd.</li>
+          <li className="flex gap-3"><span className="flex-none w-5 h-5 mt-0.5 rounded-full bg-geel"></span>Uw bestelling wordt verwerkt en binnen 3–5 werkdagen bezorgd.</li>
+          <li className="flex gap-3"><span className="flex-none w-5 h-5 mt-0.5 rounded-full bg-geel"></span>Vragen? Mail naar <a href="mailto:info@nacholito.nl" className="text-geel underline">info@nacholito.nl</a>.</li>
         </ul>
       </div>
 
       <div className="text-center">
-        <Link href="/bestellen" className="inline-block border border-slate-300 text-slate-600 hover:bg-slate-50 font-medium px-5 py-2.5 rounded-lg text-sm transition-colors">
-          Nog een bestelling plaatsen
-        </Link>
+        <Link href="/bestellen" className="btn-ghost inline-flex">Nog een bestelling plaatsen</Link>
       </div>
     </div>
   )

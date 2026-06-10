@@ -125,6 +125,13 @@ npm start
 
 Zorg dat de `data/` map schrijfbaar is (SQLite database).
 
+### Koppeling met de marketing site
+
+De "Bestel"/"Bekijk prijs"-knoppen op `nacholito-site/foodservice/index.html`
+linken naar `/bestellen`. In `netlify.toml` wordt dit pad doorgestuurd naar
+`https://bestellen.nacholito.nl/bestellen` — pas die URL aan naar de
+daadwerkelijke productie-URL van dit bestelportaal zodra die bekend is.
+
 ---
 
 ## Admin

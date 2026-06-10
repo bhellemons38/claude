@@ -1,11 +1,14 @@
 export interface Product {
   id: string
   name: string
+  origin: string
   description: string
   price: number // excl. BTW
   unit: string
   minQty: number
-  packSize: number // bottles per pack (6 or 12)
+  packSize: number // bottles per pack
+  image: string
+  badge?: string
 }
 
 export interface OrderLine {
