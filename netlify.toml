@@ -3,6 +3,11 @@
   publish = "."
   command = "bash import-canva-assets.sh"
 
+[build.environment]
+  # De repo-root bevat een Next.js-app (het bestelportaal), maar deze
+  # Netlify-site is puur statisch. Voorkom dat de Next.js-runtime aanslaat.
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+
 [[headers]]
   for = "/assets/*"
   [headers.values]

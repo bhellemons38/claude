@@ -1,0 +1,6 @@
+{
+  "name": "nacholito-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Statische Nacholito marketingsite. Dit bestand zorgt ervoor dat Netlify framework-detectie hier stopt en niet terugvalt op de Next.js-app in de repo-root."
+}
