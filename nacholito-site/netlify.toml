@@ -1,5 +1,9 @@
+# Config voor de MARKETING Netlify-site (nacholitopreviewsite).
+# Belangrijk: zet in die Netlify-UI 'Base directory' = nacholito-site,
+# zodat dit bestand wordt gelezen. De portal-site (nacholito-bestellen)
+# heeft Base directory leeg en gebruikt puur UI-instellingen — die ziet
+# dit bestand dus niet en bouwt gewoon de Next.js app vanuit de repo-root.
 [build]
-  base    = "nacholito-site"
   publish = "."
   command = "bash import-canva-assets.sh"
 

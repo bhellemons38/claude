@@ -117,7 +117,9 @@ Deze repo bevat twee deployables:
 
 ### 1. Marketing-site (bestaand)
 
-Wordt automatisch gedeployed vanaf `claude/nice-volta-TZVHa` via de bestaande `netlify.toml` (base = `nacholito-site`, publish = `.`).
+Configuratie staat in `nacholito-site/netlify.toml`. Zet in de Netlify-UI van deze site **Base directory = `nacholito-site`**, anders wordt de toml niet gelezen.
+
+> Voorheen stond de toml in repo-root met `base = "nacholito-site"`. Dat is verplaatst zodat de portal-site (root) er geen last meer van heeft.
 
 ### 2. Bestelportaal als tweede Netlify-site
 
