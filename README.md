@@ -108,19 +108,40 @@ De integratie gebruikt BTW-code `L` (laag tarief, 9%). Verifieer dit in **Boekho
 
 ## Productie deployen
 
-### Vercel (aanbevolen)
+Deze repo bevat twee deployables:
+
+| Onderdeel | Map | Stack | Netlify-site |
+|---|---|---|---|
+| Marketing (chooser + /foodservice + /thuis) | `nacholito-site/` | Statische HTML | `nacholitopreviewsite` |
+| Bestelportaal | repo-root (`app/`, `lib/`, …) | Next.js 14 | `nacholito-bestellen` *(nieuw)* |
+
+### 1. Marketing-site (bestaand)
+
+Wordt automatisch gedeployed vanaf `claude/nice-volta-TZVHa` via de bestaande `netlify.toml` (base = `nacholito-site`, publish = `.`).
+
+### 2. Bestelportaal als tweede Netlify-site
+
+1. **New site → Import an existing project** in Netlify
+2. Selecteer dezelfde repo en branch
+3. Configureer:
+   - **Site name:** `nacholito-bestellen` (matcht de redirect in `netlify.toml` van de marketing-site)
+   - **Base directory:** *(leeg laten — root van de repo)*
+   - **Build command:** `npm run build`
+   - **Publish directory:** `.next`
+   - **Functions directory:** *(standaard)*
+4. Installeer de **Next.js Runtime** plugin als die niet automatisch wordt voorgesteld
+5. Environment variables (zelfde namen als in `.env.local.example`):
+   - `MOLLIE_API_KEY`, `EXACT_CLIENT_ID`, `EXACT_CLIENT_SECRET`, `EXACT_DIVISION`, `RESEND_API_KEY`
+   - `BASE_URL=https://nacholito-bestellen.netlify.app` (of je eigen subdomein)
+6. Deploy en check `/bestellen`
+
+> **Andere site-naam?** Pas dan ook `https://nacholito-bestellen.netlify.app` aan in `netlify.toml` van de marketing-site (3× in de redirects).
+
+### Lokaal draaien
 
 ```bash
-npx vercel
-```
-
-Stel omgevingsvariabelen in via het Vercel dashboard.
-
-### Zelf hosten
-
-```bash
-npm run build
-npm start
+npm install && cp .env.local.example .env.local
+npm run dev
 ```
 
 Zorg dat de `data/` map schrijfbaar is (SQLite database).

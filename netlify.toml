@@ -13,16 +13,31 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
+# ─────────────────────────────────────────────────────────
+# Bestelportaal lives on a second Netlify site that builds
+# the Next.js app from the repo root. Update PORTAL_URL when
+# the portal site exists (default name: nacholito-bestellen).
+# ─────────────────────────────────────────────────────────
 [[redirects]]
-  # /producten is een placeholder tot de echte checkout-URL bekend is.
-  # Stuur door naar de chooser zodat bezoeker eerst zijn omgeving kiest.
-  from = "/producten"
-  to = "/"
+  from = "/bestellen"
+  to = "https://nacholito-bestellen.netlify.app/bestellen"
   status = 302
   force = true
 
 [[redirects]]
-  # Optionele kortere alias voor de B2B-landing.
+  from = "/bestellen/*"
+  to = "https://nacholito-bestellen.netlify.app/bestellen/:splat"
+  status = 302
+  force = true
+
+[[redirects]]
+  # Legacy alias — earlier buttons linked here.
+  from = "/producten"
+  to = "https://nacholito-bestellen.netlify.app/bestellen"
+  status = 302
+  force = true
+
+[[redirects]]
   from = "/pro"
   to = "/foodservice/"
   status = 301
