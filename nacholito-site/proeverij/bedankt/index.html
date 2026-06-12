@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bedankt voor je aanvraag — Nacholito</title>
+<meta name="description" content="We hebben je aanvraag voor een proeverij ontvangen.">
+<link rel="canonical" href="/proeverij/bedankt/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--rood:#BD0A0A;--rood-diep:#8c0707;--geel:#FFC61A;--zand:#F6EBD9;--zand-donker:#E9DCC6;--inkt:#1c1408;--inkt-zacht:#4a3d2a;--wit:#FFFDF7;--max:1100px;--r:18px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Raleway',sans-serif;background:var(--geel);color:var(--inkt);-webkit-font-smoothing:antialiased;line-height:1.6;min-height:100vh;display:flex;flex-direction:column;position:relative;overflow-x:hidden}
+  body::before{content:'';position:absolute;inset:0;opacity:.4;background-image:radial-gradient(var(--inkt) 1.1px,transparent 1.1px);background-size:26px 26px;-webkit-mask-image:linear-gradient(180deg,transparent,#000 50%,transparent);mask-image:linear-gradient(180deg,transparent,#000 50%,transparent);pointer-events:none}
+  h1,.bebas{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.01em;line-height:.92}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;width:100%;position:relative}
+  a{color:inherit;text-decoration:none}
+  header{padding:26px 0}
+  .brand img{height:46px;width:auto;display:block}
+  main{flex:1;display:flex;align-items:center;justify-content:center;padding:30px 0 80px;text-align:center}
+  .card{background:var(--zand);border:3px solid var(--inkt);border-radius:24px;padding:54px 50px;max-width:680px;box-shadow:14px 18px 0 rgba(28,20,8,.2)}
+  .eyebrow{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.24em;text-transform:uppercase;color:var(--rood);display:block;margin-bottom:14px}
+  h1{font-size:clamp(40px,5.5vw,72px);color:var(--rood);text-transform:uppercase;margin-bottom:18px}
+  h1 .em{display:block;color:var(--inkt)}
+  p{font-size:17px;color:var(--inkt-zacht);max-width:48ch;margin:0 auto 18px}
+  .actions{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .btn{display:inline-flex;align-items:center;gap:.55em;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.06em;text-transform:uppercase;padding:15px 30px;border-radius:999px;border:2px solid transparent;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+  .btn-primary{background:var(--rood);color:var(--wit);box-shadow:0 8px 0 var(--rood-diep)}
+  .btn-primary:hover{box-shadow:0 12px 0 var(--rood-diep)}
+  .btn-ghost{background:transparent;color:var(--inkt);border-color:var(--inkt)}
+  .btn-ghost:hover{background:var(--inkt);color:var(--zand)}
+  footer{background:var(--inkt);color:rgba(246,235,217,.65);padding:22px 0;font-size:12.5px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a href="/" class="brand" aria-label="Nacholito home">
+      <img src="../../assets/logo.png" alt="Nacholito">
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+    <span class="eyebrow">Aanvraag ontvangen</span>
+    <h1>Dank je wel.<span class="em">We mailen je snel.</span></h1>
+    <p>Je aanvraag is bij ons binnen. Een van onze chefs reageert binnen één werkdag op het opgegeven e-mailadres om de proeverij in te plannen.</p>
+    <p>Vragen in de tussentijd? Mail <a href="mailto:info@samplekitchen.nl" style="color:var(--rood);font-weight:700;border-bottom:2px solid var(--rood)">info@samplekitchen.nl</a>.</p>
+    <div class="actions">
+      <a href="/foodservice/" class="btn btn-primary">Terug naar foodservice <span>→</span></a>
+      <a href="/" class="btn btn-ghost">Naar de homepage</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Nacholito · Sample Kitchen B.V. · KVK 84282495</span>
+    <span>Goeseelsstraat 16, 4817 MV Breda</span>
+  </div>
+</footer>
+</body>
+</html>
