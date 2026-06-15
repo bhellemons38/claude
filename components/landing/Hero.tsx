@@ -1,12 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion, useReducedMotion } from 'framer-motion'
-import { SplineScene } from './SplineScene'
+import { BottleScene } from './BottleScene'
 
 const EASE = [0.2, 0.8, 0.2, 1] as const
-const SPLINE_SCENE = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode'
 
 export function Hero() {
   const reduce = useReducedMotion()
@@ -90,13 +88,7 @@ export function Hero() {
             className="relative h-[340px] sm:h-[440px] lg:h-[520px]"
           >
             <div className="pointer-events-none absolute inset-0 -z-10 m-auto h-3/4 w-3/4 blur-3xl lp-glow-amber opacity-70" aria-hidden />
-            {reduce ? (
-              <div className="relative h-full w-full overflow-hidden rounded-[28px] lp-glass">
-                <Image src="/assets/hero-poster.jpg" alt="Nacholito fusion saus op een gerecht" fill priority sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" />
-              </div>
-            ) : (
-              <SplineScene scene={SPLINE_SCENE} className="h-full w-full" />
-            )}
+            <BottleScene />
           </motion.div>
         </div>
       </div>
