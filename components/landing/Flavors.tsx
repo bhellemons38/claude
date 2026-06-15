@@ -9,48 +9,46 @@ export function Flavors() {
   const reduce = useReducedMotion()
 
   return (
-    <section id="smaken" className="bg-zand">
-      <div className="max-w-6xl mx-auto px-4 sm:px-7 py-16 sm:py-24">
+    <section id="smaken" className="relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-7 py-20 sm:py-28">
         <Reveal className="max-w-2xl">
-          <span className="eyebrow block mb-3">De line-up</span>
-          <h2 className="font-display uppercase text-4xl sm:text-5xl leading-[0.95]">
-            Vier smaken, <span className="text-rood">één belofte</span>
+          <span className="lp-pill text-rood-glow">De line-up</span>
+          <h2 className="mt-4 font-geist font-semibold tracking-[-0.02em] text-[clamp(30px,4.5vw,52px)] leading-[1.02] text-white">
+            Vier smaken, <span className="lp-gradient-text">één belofte</span>
           </h2>
-          <p className="mt-4 text-inkt-zacht font-medium">
-            Echte ingrediënten, geen rommel. Elke fles geeft je een gerecht met restaurant-diepte
-            in minder stappen.
+          <p className="mt-4 text-white/55 leading-relaxed">
+            Echte ingrediënten, geen rommel. Elke fles geeft je een gerecht met restaurant-diepte in minder stappen.
           </p>
         </Reveal>
 
-        <RevealGroup className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <RevealGroup className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {PRODUCTS.map(product => (
             <motion.article
               key={product.id}
               variants={fadeUp}
-              whileHover={reduce ? undefined : { y: -8 }}
-              transition={{ duration: 0.25, ease: [0.2, 0.8, 0.2, 1] }}
-              className="group bg-wit border-2 border-inkt rounded-[18px] overflow-hidden flex flex-col"
+              whileHover={reduce ? undefined : { y: -6 }}
+              transition={{ duration: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
+              className="group relative overflow-hidden rounded-3xl lp-glass lp-glass-hover flex flex-col"
             >
-              <div className="relative aspect-[4/3] border-b-2 border-inkt overflow-hidden bg-zand-donker">
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={product.image}
                   alt={product.name}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-nacht via-nacht/20 to-transparent" />
                 {product.badge && (
-                  <span className="absolute top-3 left-3 bg-geel border-2 border-inkt rounded-full font-display text-xs tracking-wider uppercase px-3 py-1">
+                  <span className="lp-pill absolute top-3 left-3 rounded-full border border-white/15 bg-black/40 px-2.5 py-1 text-white/90 backdrop-blur">
                     {product.badge}
                   </span>
                 )}
               </div>
-              <div className="p-5 flex flex-col flex-1">
-                <span className="font-display text-xs tracking-[0.18em] uppercase text-rood">
-                  {product.origin}
-                </span>
-                <h3 className="font-display uppercase text-2xl mt-0.5">{product.name}</h3>
-                <p className="text-sm text-inkt-zacht font-medium mt-1.5 flex-1">{product.description}</p>
+              <div className="relative -mt-8 p-5">
+                <span className="lp-pill text-rood-glow">{product.origin}</span>
+                <h3 className="mt-1 font-geist text-xl font-semibold text-white">{product.name}</h3>
+                <p className="mt-1.5 text-sm text-white/55 leading-relaxed">{product.description}</p>
               </div>
             </motion.article>
           ))}

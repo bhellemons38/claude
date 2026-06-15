@@ -12,6 +12,7 @@ const config: Config = {
         rood: {
           DEFAULT: '#BD0A0A',
           diep: '#8c0707',
+          glow: '#FF3B30',
         },
         geel: {
           DEFAULT: '#FFC61A',
@@ -26,10 +27,31 @@ const config: Config = {
           zacht: '#4a3d2a',
         },
         wit: '#FFFDF7',
+        nacht: {
+          DEFAULT: '#0b0805',
+          surface: '#15110a',
+          edge: '#221a0f',
+        },
       },
       fontFamily: {
         display: ['var(--font-bebas)', 'sans-serif'],
         body: ['var(--font-raleway)', 'sans-serif'],
+        geist: ['var(--font-geist-sans)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-geist-mono)', 'monospace'],
+      },
+      keyframes: {
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
+        'spotlight-pan': {
+          '0%, 100%': { opacity: '0.5', transform: 'translateX(-10%)' },
+          '50%': { opacity: '0.8', transform: 'translateX(10%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 32s linear infinite',
+        'spotlight-pan': 'spotlight-pan 10s ease-in-out infinite',
       },
       boxShadow: {
         'btn-rood': '0 8px 0 #8c0707',

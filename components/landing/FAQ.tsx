@@ -33,19 +33,19 @@ function Item({ q, a, index }: { q: string; a: string; index: number }) {
   const id = `faq-${index}`
 
   return (
-    <div className="bg-wit border-2 border-inkt rounded-[18px] overflow-hidden">
+    <div className="overflow-hidden rounded-2xl lp-glass">
       <button
         type="button"
         onClick={() => setOpen(v => !v)}
         aria-expanded={open}
         aria-controls={id}
-        className="w-full flex items-center justify-between gap-4 text-left px-5 sm:px-6 py-4 sm:py-5"
+        className="flex w-full items-center justify-between gap-4 px-5 sm:px-6 py-5 text-left"
       >
-        <span className="font-display uppercase text-xl sm:text-2xl leading-tight">{q}</span>
+        <span className="font-geist text-base sm:text-lg font-medium text-white">{q}</span>
         <motion.span
           animate={{ rotate: open ? 45 : 0 }}
           transition={{ duration: 0.2 }}
-          className="flex-none w-8 h-8 rounded-full bg-rood text-wit flex items-center justify-center font-display text-2xl leading-none"
+          className="flex h-7 w-7 flex-none items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-lg leading-none text-rood-glow"
           aria-hidden
         >
           +
@@ -61,7 +61,7 @@ function Item({ q, a, index }: { q: string; a: string; index: number }) {
             transition={{ duration: 0.25, ease: [0.2, 0.8, 0.2, 1] }}
             className="overflow-hidden"
           >
-            <p className="px-5 sm:px-6 pb-5 text-inkt-zacht font-medium">{a}</p>
+            <p className="px-5 sm:px-6 pb-5 text-white/55 leading-relaxed">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -71,16 +71,16 @@ function Item({ q, a, index }: { q: string; a: string; index: number }) {
 
 export function FAQ() {
   return (
-    <section id="faq" className="bg-zand">
-      <div className="max-w-3xl mx-auto px-4 sm:px-7 py-16 sm:py-24">
+    <section id="faq" className="relative">
+      <div className="max-w-3xl mx-auto px-4 sm:px-7 py-20 sm:py-28">
         <Reveal className="text-center max-w-2xl mx-auto">
-          <span className="eyebrow block mb-3">Veelgestelde vragen</span>
-          <h2 className="font-display uppercase text-4xl sm:text-5xl leading-[0.95]">
-            Nog even <span className="text-rood">dit</span>
+          <span className="lp-pill text-rood-glow">Veelgestelde vragen</span>
+          <h2 className="mt-4 font-geist font-semibold tracking-[-0.02em] text-[clamp(30px,4.5vw,52px)] leading-[1.02] text-white">
+            Nog even <span className="lp-gradient-text">dit</span>
           </h2>
         </Reveal>
 
-        <div className="mt-10 space-y-3">
+        <div className="mt-12 space-y-3">
           {FAQS.map((faq, i) => (
             <Reveal key={faq.q} delay={i * 0.05}>
               <Item q={faq.q} a={faq.a} index={i} />

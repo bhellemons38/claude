@@ -1,9 +1,9 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import { Logo } from '@/components/Logo'
 
 const LINKS = [
   { href: '#smaken', label: 'Smaken' },
@@ -18,7 +18,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
+    const onScroll = () => setScrolled(window.scrollY > 12)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -26,24 +26,31 @@ export function Navbar() {
 
   return (
     <motion.header
-      initial={reduce ? false : { y: -80 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
-      className={`sticky top-0 z-50 border-b-2 border-inkt transition-colors duration-300 ${
-        scrolled ? 'bg-geel/95 backdrop-blur-md' : 'bg-geel'
-      }`}
+      initial={reduce ? false : { y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
+      className="fixed top-0 inset-x-0 z-50 px-4 pt-3 sm:pt-4"
     >
-      <nav className="max-w-6xl mx-auto px-4 sm:px-7 h-16 flex items-center justify-between">
-        <Link href="/" aria-label="Nacholito home" className="flex-none">
-          <Logo size="sm" />
+      <nav
+        className={`max-w-5xl mx-auto flex items-center justify-between gap-4 rounded-full px-4 sm:px-5 h-14 transition-all duration-300 ${
+          scrolled
+            ? 'lp-glass shadow-[0_8px_40px_-12px_rgba(0,0,0,0.8)]'
+            : 'border border-transparent'
+        }`}
+      >
+        <Link href="/" aria-label="Nacholito home" className="flex items-center gap-2">
+          <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-full bg-white">
+            <Image src="/assets/logo.png" alt="Nacholito" width={26} height={26} className="object-contain" />
+          </span>
+          <span className="font-geist font-semibold tracking-tight text-[15px] text-white">Nacholito</span>
         </Link>
 
-        <ul className="hidden md:flex items-center gap-7">
+        <ul className="hidden md:flex items-center gap-1">
           {LINKS.map(link => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="font-display text-lg tracking-wide uppercase text-inkt hover:text-rood transition-colors"
+                className="px-3.5 py-2 rounded-full text-sm font-medium text-white/65 hover:text-white hover:bg-white/5 transition-colors"
               >
                 {link.label}
               </a>
@@ -51,9 +58,13 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden md:block">
-          <Link href="/bestellen" className="btn-primary btn-sm">
+        <div className="hidden md:flex items-center gap-2">
+          <Link
+            href="/bestellen"
+            className="group inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-semibold text-nacht transition-transform hover:scale-[1.03] active:scale-95"
+          >
             Bestel nu
+            <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
           </Link>
         </div>
 
@@ -62,38 +73,42 @@ export function Navbar() {
           onClick={() => setOpen(v => !v)}
           aria-label={open ? 'Menu sluiten' : 'Menu openen'}
           aria-expanded={open}
-          className="md:hidden w-11 h-11 -mr-2 flex flex-col items-center justify-center gap-[5px]"
+          className="md:hidden w-10 h-10 -mr-1 flex flex-col items-center justify-center gap-[5px]"
         >
-          <span className={`block h-0.5 w-6 bg-inkt transition-transform duration-200 ${open ? 'translate-y-[7px] rotate-45' : ''}`} />
-          <span className={`block h-0.5 w-6 bg-inkt transition-opacity duration-200 ${open ? 'opacity-0' : ''}`} />
-          <span className={`block h-0.5 w-6 bg-inkt transition-transform duration-200 ${open ? '-translate-y-[7px] -rotate-45' : ''}`} />
+          <span className={`block h-0.5 w-5 bg-white transition-transform duration-200 ${open ? 'translate-y-[7px] rotate-45' : ''}`} />
+          <span className={`block h-0.5 w-5 bg-white transition-opacity duration-200 ${open ? 'opacity-0' : ''}`} />
+          <span className={`block h-0.5 w-5 bg-white transition-transform duration-200 ${open ? '-translate-y-[7px] -rotate-45' : ''}`} />
         </button>
       </nav>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: [0.2, 0.8, 0.2, 1] }}
-            className="md:hidden overflow-hidden border-t-2 border-inkt/15 bg-geel"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden max-w-5xl mx-auto mt-2 rounded-3xl lp-glass p-2"
           >
-            <ul className="px-4 py-4 flex flex-col gap-1">
+            <ul className="flex flex-col">
               {LINKS.map(link => (
                 <li key={link.href}>
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block py-2.5 font-display text-2xl uppercase text-inkt hover:text-rood transition-colors"
+                    className="block px-4 py-3 rounded-2xl text-base font-medium text-white/80 hover:bg-white/5 transition-colors"
                   >
                     {link.label}
                   </a>
                 </li>
               ))}
-              <li className="pt-2">
-                <Link href="/bestellen" onClick={() => setOpen(false)} className="btn-primary w-full">
-                  Bestel nu
+              <li className="p-1.5">
+                <Link
+                  href="/bestellen"
+                  onClick={() => setOpen(false)}
+                  className="block text-center rounded-full bg-white px-4 py-3 text-sm font-semibold text-nacht"
+                >
+                  Bestel nu →
                 </Link>
               </li>
             </ul>
