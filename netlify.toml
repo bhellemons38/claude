@@ -1,40 +1,31 @@
+# Netlify-config voor de Nacholito Next.js-app (landingspagina op de root).
+# De officiële Next.js-runtime wordt door Netlify automatisch gedetecteerd —
+# we zetten 'm hier dus NIET meer uit (geen NETLIFY_NEXT_PLUGIN_SKIP).
+
 [build]
-  base    = "nacholito-site"
-  publish = "."
-  command = "bash import-canva-assets.sh"
+  command = "next build"
+  publish = ".next"
 
 [build.environment]
-  # De repo-root bevat een Next.js-app (het bestelportaal), maar deze
-  # Netlify-site is puur statisch. Voorkom dat de Next.js-runtime aanslaat.
-  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+  NODE_VERSION = "20"
 
+# Langdurig cachen van de statische merk-assets in /public/assets.
 [[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-[[headers]]
-  for = "/*.html"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-
+# Het B2B-bestelportaal draait als aparte app (het gebruikt SQLite, dat niet
+# werkt op Netlify's serverless functions). /bestellen verwijst daarheen.
 [[redirects]]
-  # Oude /producten-links sturen door naar het bestelportaal.
-  from = "/producten"
-  to = "/bestellen"
-  status = 301
-  force = true
-
-[[redirects]]
-  # /bestellen verwijst naar het B2B-bestelportaal (aparte Next.js-app).
   from = "/bestellen"
   to = "https://bestellen.nacholito.nl/bestellen"
   status = 302
   force = true
 
+# Oude /producten-links blijven werken.
 [[redirects]]
-  # Optionele kortere alias voor de B2B-landing.
-  from = "/pro"
-  to = "/foodservice/"
+  from = "/producten"
+  to = "/bestellen"
   status = 301
   force = true
