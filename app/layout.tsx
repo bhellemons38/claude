@@ -15,6 +15,7 @@ const raleway = Raleway({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.nacholito.com'),
   title: 'Bestel nu — Nacholito Foodservice',
   description: 'Bestel Nacholito fusion sauzen met iDEAL. Geen MOQ op de fles, snel geleverd, automatisch gefactureerd.',
 }
