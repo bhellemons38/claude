@@ -3,9 +3,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, useReducedMotion } from 'framer-motion'
+import { SplineScene } from './SplineScene'
 
 const USPS = ['Geen MOQ op de fles', 'iDEAL of op rekening', 'Factuur direct in je mail']
 const EASE = [0.2, 0.8, 0.2, 1] as const
+const SPLINE_SCENE = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode'
 
 export function Hero() {
   const reduce = useReducedMotion()
@@ -85,14 +87,18 @@ export function Hero() {
             className="relative"
           >
             <div className="relative aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5] rounded-[22px] overflow-hidden border-2 border-inkt shadow-card-lg bg-inkt">
-              <Image
-                src="/assets/hero-poster.jpg"
-                alt="Nacholito fusion saus geserveerd op een gerecht"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
+              {reduce ? (
+                <Image
+                  src="/assets/hero-poster.jpg"
+                  alt="Nacholito fusion saus geserveerd op een gerecht"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              ) : (
+                <SplineScene scene={SPLINE_SCENE} className="w-full h-full" />
+              )}
             </div>
             <motion.div
               initial={reduce ? false : { opacity: 0, y: 12 }}
