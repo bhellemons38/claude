@@ -12,11 +12,11 @@ export function Flavors() {
     <section id="smaken" className="relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-7 py-20 sm:py-28">
         <Reveal className="max-w-2xl">
-          <span className="lp-pill text-rood-glow">De line-up</span>
-          <h2 className="mt-4 font-geist font-semibold tracking-[-0.02em] text-[clamp(30px,4.5vw,52px)] leading-[1.02] text-white">
+          <span className="lp-pill text-rood">De line-up</span>
+          <h2 className="mt-4 font-geist font-semibold tracking-[-0.02em] text-[clamp(30px,4.5vw,52px)] leading-[1.02] text-inkt">
             Vier smaken, <span className="lp-gradient-text">één belofte</span>
           </h2>
-          <p className="mt-4 text-white/55 leading-relaxed">
+          <p className="mt-4 text-inkt-zacht leading-relaxed">
             Echte ingrediënten, geen rommel. Elke fles geeft je een gerecht met restaurant-diepte in minder stappen.
           </p>
         </Reveal>
@@ -38,17 +38,16 @@ export function Flavors() {
                   sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-nacht via-nacht/20 to-transparent" />
                 {product.badge && (
-                  <span className="lp-pill absolute top-3 left-3 rounded-full border border-white/15 bg-black/40 px-2.5 py-1 text-white/90 backdrop-blur">
+                  <span className="lp-pill absolute top-3 left-3 rounded-full border border-inkt/10 bg-wit/85 px-2.5 py-1 text-inkt backdrop-blur">
                     {product.badge}
                   </span>
                 )}
               </div>
-              <div className="relative -mt-8 p-5">
-                <span className="lp-pill text-rood-glow">{product.origin}</span>
-                <h3 className="mt-1 font-geist text-xl font-semibold text-white">{product.name}</h3>
-                <p className="mt-1.5 text-sm text-white/55 leading-relaxed">{product.description}</p>
+              <div className="p-5">
+                <span className="lp-pill text-rood">{product.origin}</span>
+                <h3 className="mt-1 font-geist text-xl font-semibold text-inkt">{product.name}</h3>
+                <p className="mt-1.5 text-sm text-inkt-zacht leading-relaxed">{product.description}</p>
               </div>
             </motion.article>
           ))}

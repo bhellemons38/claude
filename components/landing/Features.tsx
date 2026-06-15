@@ -31,11 +31,11 @@ export function Features() {
 
   return (
     <section id="voordelen" className="relative">
-      <div className="absolute inset-0 lp-grid opacity-30" aria-hidden />
+      <div className="absolute inset-0 lp-grid opacity-40" aria-hidden />
       <div className="relative max-w-6xl mx-auto px-4 sm:px-7 py-20 sm:py-28">
         <Reveal className="max-w-2xl">
-          <span className="lp-pill text-rood-glow">Waarom Nacholito</span>
-          <h2 className="mt-4 font-geist font-semibold tracking-[-0.02em] text-[clamp(30px,4.5vw,52px)] leading-[1.02] text-white">
+          <span className="lp-pill text-rood">Waarom Nacholito</span>
+          <h2 className="mt-4 font-geist font-semibold tracking-[-0.02em] text-[clamp(30px,4.5vw,52px)] leading-[1.02] text-inkt">
             Gemaakt voor <span className="lp-gradient-text">drukke keukens</span>
           </h2>
         </Reveal>
@@ -50,13 +50,13 @@ export function Features() {
               className="group relative overflow-hidden rounded-3xl lp-glass lp-glass-hover p-7"
             >
               <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full lp-glow-red opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" aria-hidden />
-              <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-white/12 bg-white/[0.04] text-rood-glow">
+              <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-inkt/10 bg-rood/10 text-rood">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden>
                   {feature.icon}
                 </svg>
               </span>
-              <h3 className="relative mt-5 font-geist text-xl font-semibold text-white">{feature.title}</h3>
-              <p className="relative mt-2 text-sm text-white/55 leading-relaxed">{feature.body}</p>
+              <h3 className="relative mt-5 font-geist text-xl font-semibold text-inkt">{feature.title}</h3>
+              <p className="relative mt-2 text-sm text-inkt-zacht leading-relaxed">{feature.body}</p>
             </motion.article>
           ))}
         </RevealGroup>

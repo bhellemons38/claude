@@ -64,11 +64,11 @@ body {
   }
 }
 
-/* ── 21st.dev-style landing utilities (dark, premium, glow) ─────────────── */
+/* ── 21st.dev-style landing utilities (light, warm cream, soft glow) ────── */
 .lp {
-  --nacht: #0b0805;
-  background: var(--nacht);
-  color: #f3eee4;
+  --nacht: #1c1408; /* retained name; now the dark ink accent on cream */
+  background: #faf4e8; /* gebroken wit / crème */
+  color: #1c1408;
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 .lp-mono {
@@ -78,8 +78,8 @@ body {
 /* faint grid texture */
 .lp-grid {
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(28, 20, 8, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(28, 20, 8, 0.05) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 
@@ -87,38 +87,40 @@ body {
 .lp-spotlight {
   background: radial-gradient(
     60% 50% at 50% 0%,
-    rgba(255, 59, 48, 0.22) 0%,
-    rgba(255, 198, 26, 0.1) 35%,
-    transparent 70%
+    rgba(255, 59, 48, 0.14) 0%,
+    rgba(255, 198, 26, 0.12) 38%,
+    transparent 72%
   );
 }
 .lp-glow-red {
-  background: radial-gradient(circle at center, rgba(255, 59, 48, 0.35), transparent 62%);
+  background: radial-gradient(circle at center, rgba(255, 59, 48, 0.2), transparent 64%);
 }
 .lp-glow-amber {
-  background: radial-gradient(circle at center, rgba(255, 198, 26, 0.28), transparent 62%);
+  background: radial-gradient(circle at center, rgba(255, 198, 26, 0.26), transparent 64%);
 }
 
-/* gradient headline */
+/* gradient headline (readable on cream) */
 .lp-gradient-text {
-  background: linear-gradient(120deg, #fff 0%, #ffd99a 38%, #ff6a3d 72%, #ff3b30 100%);
+  background: linear-gradient(110deg, #8c0707 0%, #bd0a0a 42%, #d98a1f 92%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* glass surface */
+/* glass surface (light) */
 .lp-glass {
-  background: rgba(255, 255, 255, 0.035);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 253, 247, 0.7);
+  border: 1px solid rgba(28, 20, 8, 0.1);
   backdrop-filter: blur(12px);
+  box-shadow: 0 1px 2px rgba(28, 20, 8, 0.04), 0 14px 30px -18px rgba(28, 20, 8, 0.25);
 }
 .lp-glass-hover {
-  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 .lp-glass-hover:hover {
-  border-color: rgba(255, 59, 48, 0.45);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(189, 10, 10, 0.4);
+  background: rgba(255, 253, 247, 0.92);
+  box-shadow: 0 2px 6px rgba(28, 20, 8, 0.06), 0 22px 44px -20px rgba(28, 20, 8, 0.32);
 }
 
 /* animated conic border for the highlighted card */

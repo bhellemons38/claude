@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Navbar } from '@/components/landing/Navbar'
 import { Hero } from '@/components/landing/Hero'
+import { Showcase } from '@/components/landing/Showcase'
 import { Flavors } from '@/components/landing/Flavors'
 import { Features } from '@/components/landing/Features'
 import { SocialProof } from '@/components/landing/SocialProof'
@@ -27,6 +28,7 @@ export default function Home() {
     <main className="lp min-h-screen flex flex-col overflow-x-hidden">
       <Navbar />
       <Hero />
+      <Showcase />
       <Flavors />
       <Features />
       <SocialProof />
