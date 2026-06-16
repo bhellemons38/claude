@@ -66,9 +66,14 @@ const config: Config = {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
+        spotlight: {
+          '0%': { opacity: '0', transform: 'translate(-72%, -62%) scale(0.5)' },
+          '100%': { opacity: '1', transform: 'translate(-50%, -40%) scale(1)' },
+        },
       },
       animation: {
         marquee: 'marquee 40s linear infinite',
+        spotlight: 'spotlight 2.4s ease 0.6s 1 forwards',
       },
       boxShadow: {
         'btn-rood': '0 8px 0 #8c0707',

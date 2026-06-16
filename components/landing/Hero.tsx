@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'framer-motion'
+import { Spotlight } from '@/components/ui/spotlight'
 import { WordReveal } from './Kinetic'
 import { CircularBadge } from './CircularBadge'
 
@@ -43,11 +44,14 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden pt-28 sm:pt-32 lg:pt-36">
+      {/* warm spotlight wash */}
+      <Spotlight className="-top-40 left-4 md:-top-24 md:left-1/4" fill="#FFC61A" />
+
       {/* warm decorative accents */}
       <div className="pointer-events-none absolute -top-20 right-[-6rem] h-80 w-80 rounded-full bg-accent-tint blur-2xl" aria-hidden />
       <div className="pointer-events-none absolute bottom-0 left-[-8rem] h-72 w-72 rounded-full bg-primary-tint blur-2xl" aria-hidden />
 
-      <div className="relative mx-auto max-w-6xl px-4 pb-16 sm:px-7 lg:pb-24">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 pb-16 sm:px-7 lg:pb-24">
         <div className="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-8">
           {/* copy */}
           <div>
@@ -59,7 +63,7 @@ export function Hero() {
               className="lp-label inline-flex items-center gap-2 rounded-full border border-neutral-900/15 bg-neutral-0 px-3 py-2 text-primary"
             >
               <span className="h-2 w-2 rounded-full bg-primary" />
-              Door chefs ontwikkeld
+              Vers · door chefs ontwikkeld
             </motion.span>
 
             <h1 className="lp-display mt-6 text-h1 text-neutral-900">
@@ -80,8 +84,8 @@ export function Hero() {
               variants={fade}
               className="mt-6 max-w-[46ch] text-lead text-neutral-700"
             >
-              Vier internationale fusion sauzen met restaurant-diepte — Bulgogi, Rendang, Chipotle en
-              Chili Crisp. Maak er een bord mee waar je gasten voor terugkomen.
+              Fiery Pomodoro, Bulgogi, Rendang en Chili Crisp — fusion sauzen met restaurant-diepte,
+              ready to use. Verse ingrediënten in, gedoe eruit.
             </motion.p>
 
             <motion.div
@@ -118,7 +122,7 @@ export function Hero() {
             </motion.ul>
           </div>
 
-          {/* layered food composition */}
+          {/* layered product composition */}
           <motion.div
             ref={ref}
             onPointerMove={onMove}
@@ -129,12 +133,12 @@ export function Hero() {
             className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none"
           >
             <motion.div style={reduce ? undefined : { x: px, y: py }} className="relative">
-              {/* main dish */}
-              <div className="relative ml-auto w-[82%] overflow-hidden rounded-[28px] border border-neutral-900/10 bg-neutral-900 shadow-warm-lg">
-                <motion.div {...kenBurns} className="relative aspect-[3/4]">
+              {/* hero product shot */}
+              <div className="relative ml-auto w-[84%] overflow-hidden rounded-[28px] border border-neutral-900/10 bg-neutral-900 shadow-warm-lg">
+                <motion.div {...kenBurns} className="relative aspect-[4/5]">
                   <Image
-                    src="/assets/smaak-chili.jpg"
-                    alt="Loaded sub met Nacholito Chili Crisp"
+                    src="/assets/product-fiery-pomodoro.jpg"
+                    alt="Nacholito Fiery Pomodoro saus met verse tomaten, paprika, chili, knoflook en tijm"
                     fill
                     priority
                     sizes="(max-width: 1024px) 90vw, 42vw"
@@ -143,25 +147,25 @@ export function Hero() {
                 </motion.div>
               </div>
 
-              {/* floating kimbap card */}
+              {/* floating dish card */}
               <motion.div
                 {...float(0.4)}
                 className="absolute -bottom-6 -left-1 w-[46%] overflow-hidden rounded-2xl border-4 border-neutral-0 shadow-warm-lg sm:-left-3"
               >
                 <div className="relative aspect-square">
-                  <Image src="/assets/dish-6.jpg" alt="Kimbap met Nacholito" fill sizes="200px" className="object-cover" />
+                  <Image src="/assets/dish-6.jpg" alt="Gerecht met Nacholito" fill sizes="200px" className="object-cover" />
                 </div>
               </motion.div>
 
-              {/* product chip */}
+              {/* dish chip */}
               <motion.div
                 {...float(1.1)}
                 className="absolute -top-4 left-0 w-[42%] rounded-2xl border border-neutral-900/10 bg-neutral-0 p-2 shadow-warm-md sm:-left-2"
               >
                 <div className="relative aspect-[5/4] overflow-hidden rounded-xl">
-                  <Image src="/assets/smaak-chipotle.jpg" alt="Nacholito Birria Beef foodservice-tray" fill sizes="180px" className="object-cover" />
+                  <Image src="/assets/dish-4.jpg" alt="Burger met Nacholito saus" fill sizes="180px" className="object-cover" />
                 </div>
-                <p className="lp-label mt-2 px-1 text-primary">Echt product</p>
+                <p className="lp-label mt-2 px-1 text-primary">Op het bord</p>
               </motion.div>
             </motion.div>
 
