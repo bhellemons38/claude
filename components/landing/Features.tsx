@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Reveal, RevealGroup, fadeUp } from './motion'
 
 const FEATURES = [
@@ -27,36 +27,26 @@ const FEATURES = [
 ]
 
 export function Features() {
-  const reduce = useReducedMotion()
-
   return (
-    <section id="voordelen" className="relative">
-      <div className="absolute inset-0 lp-grid opacity-40" aria-hidden />
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-7 py-20 sm:py-28">
+    <section id="voordelen" className="relative bg-neutral-100">
+      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-7 sm:py-28">
         <Reveal className="max-w-2xl">
-          <span className="lp-pill text-rood">Waarom Nacholito</span>
-          <h2 className="mt-4 font-geist font-semibold tracking-[-0.02em] text-[clamp(30px,4.5vw,52px)] leading-[1.02] text-inkt">
-            Gemaakt voor <span className="lp-gradient-text">drukke keukens</span>
+          <span className="lp-label text-primary">Waarom Nacholito</span>
+          <h2 className="lp-display mt-3 text-h2 text-neutral-900">
+            Gemaakt voor <span className="lp-mark">drukke keukens</span>
           </h2>
         </Reveal>
 
-        <RevealGroup className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <RevealGroup className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3">
           {FEATURES.map(feature => (
-            <motion.article
-              key={feature.title}
-              variants={fadeUp}
-              whileHover={reduce ? undefined : { y: -6 }}
-              transition={{ duration: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
-              className="group relative overflow-hidden rounded-3xl lp-glass lp-glass-hover p-7"
-            >
-              <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full lp-glow-red opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" aria-hidden />
-              <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-inkt/10 bg-rood/10 text-rood">
+            <motion.article key={feature.title} variants={fadeUp} className="lp-card lp-card-hover p-7">
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-neutral-0">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden>
                   {feature.icon}
                 </svg>
               </span>
-              <h3 className="relative mt-5 font-geist text-xl font-semibold text-inkt">{feature.title}</h3>
-              <p className="relative mt-2 text-sm text-inkt-zacht leading-relaxed">{feature.body}</p>
+              <h3 className="lp-display mt-5 text-h3 text-neutral-900">{feature.title}</h3>
+              <p className="mt-2 text-micro leading-relaxed text-neutral-700">{feature.body}</p>
             </motion.article>
           ))}
         </RevealGroup>

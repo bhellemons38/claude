@@ -1,94 +1,171 @@
 'use client'
 
 import Link from 'next/link'
-import { motion, useReducedMotion } from 'framer-motion'
-import { BottleScene } from './BottleScene'
+import Image from 'next/image'
+import { useRef } from 'react'
+import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'framer-motion'
+import { WordReveal } from './Kinetic'
+import { CircularBadge } from './CircularBadge'
 
 const EASE = [0.2, 0.8, 0.2, 1] as const
 
 export function Hero() {
   const reduce = useReducedMotion()
-  const item = {
-    hidden: { opacity: 0, y: reduce ? 0 : 22 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
+  const ref = useRef<HTMLDivElement>(null)
+  const mx = useMotionValue(0)
+  const my = useMotionValue(0)
+  const sx = useSpring(mx, { stiffness: 50, damping: 18 })
+  const sy = useSpring(my, { stiffness: 50, damping: 18 })
+  const px = useTransform(sx, [-0.5, 0.5], [-18, 18])
+  const py = useTransform(sy, [-0.5, 0.5], [-14, 14])
+
+  function onMove(e: React.PointerEvent) {
+    if (reduce || !ref.current) return
+    const r = ref.current.getBoundingClientRect()
+    mx.set((e.clientX - r.left) / r.width - 0.5)
+    my.set((e.clientY - r.top) / r.height - 0.5)
   }
+  const resetParallax = () => {
+    mx.set(0)
+    my.set(0)
+  }
+
+  const fade = {
+    hidden: { opacity: 0, y: reduce ? 0 : 16 },
+    show: (d: number) => ({ opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE, delay: d } }),
+  }
+
+  const kenBurns = reduce
+    ? {}
+    : { animate: { scale: [1, 1.07, 1] }, transition: { duration: 18, repeat: Infinity, ease: 'easeInOut' } }
+  const float = (delay: number) =>
+    reduce ? {} : { animate: { y: [0, -12, 0] }, transition: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay } }
 
   return (
     <section className="relative overflow-hidden pt-28 sm:pt-32 lg:pt-36">
-      {/* background layers */}
-      <div className="absolute inset-0 lp-grid opacity-70" aria-hidden />
-      <div className="absolute inset-x-0 top-0 h-[640px] lp-spotlight animate-spotlight-pan" aria-hidden />
-      <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-[420px] w-[820px] blur-3xl lp-glow-red opacity-70" aria-hidden />
+      {/* warm decorative accents */}
+      <div className="pointer-events-none absolute -top-20 right-[-6rem] h-80 w-80 rounded-full bg-accent-tint blur-2xl" aria-hidden />
+      <div className="pointer-events-none absolute bottom-0 left-[-8rem] h-72 w-72 rounded-full bg-primary-tint blur-2xl" aria-hidden />
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-7 pb-12 lg:pb-16">
-        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-8 items-center">
+      <div className="relative mx-auto max-w-6xl px-4 pb-16 sm:px-7 lg:pb-24">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-8">
           {/* copy */}
-          <motion.div initial={reduce ? false : 'hidden'} animate="show" variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}>
+          <div>
             <motion.span
-              variants={item}
-              className="lp-pill inline-flex items-center gap-2 rounded-full border border-inkt/12 bg-wit/60 px-3.5 py-1.5 text-inkt-zacht"
+              initial={reduce ? false : 'hidden'}
+              animate="show"
+              custom={0}
+              variants={fade}
+              className="lp-label inline-flex items-center gap-2 rounded-full border border-neutral-900/15 bg-neutral-0 px-3 py-2 text-primary"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-rood shadow-[0_0_10px_2px_rgba(255,59,48,0.6)]" />
-              Door chefs ontwikkeld · 4 fusion smaken
+              <span className="h-2 w-2 rounded-full bg-primary" />
+              Door chefs ontwikkeld
             </motion.span>
 
-            <motion.h1
-              variants={item}
-              className="mt-6 font-geist font-semibold tracking-[-0.03em] text-[clamp(42px,7vw,76px)] leading-[0.98]"
-            >
-              <span className="text-inkt">De wereld,</span>
-              <br />
-              <span className="lp-gradient-text">op smaak gebracht.</span>
-            </motion.h1>
+            <h1 className="lp-display mt-6 text-h1 text-neutral-900">
+              <span className="block">
+                <WordReveal text="Eén lepel." delay={0.1} />
+              </span>
+              <span className="block">
+                <span className="lp-mark">
+                  <WordReveal text="Een gerecht." delay={0.32} />
+                </span>
+              </span>
+            </h1>
 
-            <motion.p variants={item} className="mt-6 max-w-[46ch] text-base sm:text-lg text-inkt-zacht leading-relaxed">
-              Vier internationale sauzen met restaurant-diepte — Bulgogi, Rendang, Chipotle en Chili Crisp.
-              Klaar voor je keuken, vandaag besteld en snel geleverd.
+            <motion.p
+              initial={reduce ? false : 'hidden'}
+              animate="show"
+              custom={0.55}
+              variants={fade}
+              className="mt-6 max-w-[46ch] text-lead text-neutral-700"
+            >
+              Vier internationale fusion sauzen met restaurant-diepte — Bulgogi, Rendang, Chipotle en
+              Chili Crisp. Maak er een bord mee waar je gasten voor terugkomen.
             </motion.p>
 
-            <motion.div variants={item} className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link
-                href="/bestellen"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-rood px-6 py-3.5 text-sm font-semibold text-wit transition-transform hover:scale-[1.03] active:scale-95"
-              >
+            <motion.div
+              initial={reduce ? false : 'hidden'}
+              animate="show"
+              custom={0.7}
+              variants={fade}
+              className="mt-8 flex flex-col gap-3 sm:flex-row"
+            >
+              <Link href="/bestellen" className="lp-btn lp-btn--primary group">
                 Bestel nu
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </Link>
-              <a
-                href="#smaken"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-inkt/15 bg-wit/50 px-6 py-3.5 text-sm font-semibold text-inkt hover:bg-wit/80 transition-colors"
-              >
+              <a href="#smaken" className="lp-btn lp-btn--ghost">
                 Bekijk de smaken
               </a>
             </motion.div>
 
-            <motion.div variants={item} className="mt-10 flex items-center gap-6 text-inkt-zacht">
-              <div>
-                <p className="font-geist text-2xl font-semibold text-inkt">500+</p>
-                <p className="lp-pill mt-0.5">Keukens</p>
-              </div>
-              <div className="h-8 w-px bg-inkt/10" />
-              <div>
-                <p className="font-geist text-2xl font-semibold text-inkt">9,4</p>
-                <p className="lp-pill mt-0.5">Beoordeling</p>
-              </div>
-              <div className="h-8 w-px bg-inkt/10" />
-              <div>
-                <p className="font-geist text-2xl font-semibold text-inkt">3–5</p>
-                <p className="lp-pill mt-0.5">Werkdagen</p>
-              </div>
-            </motion.div>
-          </motion.div>
+            <motion.ul
+              initial={reduce ? false : 'hidden'}
+              animate="show"
+              custom={0.85}
+              variants={fade}
+              className="mt-8 flex flex-wrap gap-x-6 gap-y-2"
+            >
+              {['Geen MOQ op de fles', 'iDEAL of op rekening', '3–5 werkdagen levertijd'].map(item => (
+                <li key={item} className="flex items-center gap-2 text-micro font-semibold text-neutral-700">
+                  <svg viewBox="0 0 20 20" className="h-4 w-4 text-primary" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <path d="m16 6-7.5 8L4 10.5" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </motion.ul>
+          </div>
 
-          {/* Spline 3D scene (interactive thesis) */}
+          {/* layered food composition */}
           <motion.div
-            initial={reduce ? false : { opacity: 0, scale: 0.95 }}
+            ref={ref}
+            onPointerMove={onMove}
+            onPointerLeave={resetParallax}
+            initial={reduce ? false : { opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
-            className="relative h-[340px] sm:h-[440px] lg:h-[520px]"
+            transition={{ duration: 0.8, ease: EASE, delay: 0.2 }}
+            className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none"
           >
-            <div className="pointer-events-none absolute inset-0 -z-10 m-auto h-3/4 w-3/4 blur-3xl lp-glow-amber opacity-70" aria-hidden />
-            <BottleScene />
+            <motion.div style={reduce ? undefined : { x: px, y: py }} className="relative">
+              {/* main dish */}
+              <div className="relative ml-auto w-[82%] overflow-hidden rounded-[28px] border border-neutral-900/10 bg-neutral-900 shadow-warm-lg">
+                <motion.div {...kenBurns} className="relative aspect-[3/4]">
+                  <Image
+                    src="/assets/smaak-chili.jpg"
+                    alt="Loaded sub met Nacholito Chili Crisp"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 90vw, 42vw"
+                    className="object-cover"
+                  />
+                </motion.div>
+              </div>
+
+              {/* floating kimbap card */}
+              <motion.div
+                {...float(0.4)}
+                className="absolute -bottom-6 -left-1 w-[46%] overflow-hidden rounded-2xl border-4 border-neutral-0 shadow-warm-lg sm:-left-3"
+              >
+                <div className="relative aspect-square">
+                  <Image src="/assets/dish-6.jpg" alt="Kimbap met Nacholito" fill sizes="200px" className="object-cover" />
+                </div>
+              </motion.div>
+
+              {/* product chip */}
+              <motion.div
+                {...float(1.1)}
+                className="absolute -top-4 left-0 w-[42%] rounded-2xl border border-neutral-900/10 bg-neutral-0 p-2 shadow-warm-md sm:-left-2"
+              >
+                <div className="relative aspect-[5/4] overflow-hidden rounded-xl">
+                  <Image src="/assets/smaak-chipotle.jpg" alt="Nacholito Birria Beef foodservice-tray" fill sizes="180px" className="object-cover" />
+                </div>
+                <p className="lp-label mt-2 px-1 text-primary">Echt product</p>
+              </motion.div>
+            </motion.div>
+
+            <CircularBadge className="absolute -bottom-5 right-2 h-20 w-20 sm:h-24 sm:w-24" />
           </motion.div>
         </div>
       </div>

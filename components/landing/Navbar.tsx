@@ -26,38 +26,32 @@ export function Navbar() {
 
   return (
     <motion.header
-      initial={reduce ? false : { y: -80, opacity: 0 }}
+      initial={reduce ? false : { y: -72, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-      className="fixed top-0 inset-x-0 z-50 px-4 pt-3 sm:pt-4"
+      className="fixed inset-x-0 top-0 z-50 px-4 pt-3 sm:pt-4"
     >
       <nav
-        className={`max-w-5xl mx-auto flex items-center justify-between gap-4 rounded-full px-4 sm:px-5 h-14 transition-all duration-300 ${
-          scrolled ? 'lp-glass' : 'border border-transparent'
+        className={`mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 rounded-full px-4 transition-all duration-300 sm:px-5 ${
+          scrolled ? 'border border-neutral-900/10 bg-neutral-50/90 shadow-warm backdrop-blur-md' : 'border border-transparent'
         }`}
       >
-        <Link href="/" aria-label="Nacholito home" className="flex items-center gap-2">
+        <Link href="/" aria-label="Nacholito home" className="flex items-center">
           <Image src="/assets/logo.png" alt="Nacholito" width={84} height={28} style={{ height: 28, width: 'auto' }} priority />
         </Link>
 
-        <ul className="hidden md:flex items-center gap-1">
+        <ul className="hidden items-center gap-1 md:flex">
           {LINKS.map(link => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                className="px-3.5 py-2 rounded-full text-sm font-medium text-inkt-zacht hover:text-inkt hover:bg-inkt/5 transition-colors"
-              >
+              <a href={link.href} className="rounded-full px-3.5 py-2 text-micro font-semibold text-neutral-700 transition-colors hover:bg-neutral-900/5 hover:text-neutral-900">
                 {link.label}
               </a>
             </li>
           ))}
         </ul>
 
-        <div className="hidden md:flex items-center gap-2">
-          <Link
-            href="/bestellen"
-            className="group inline-flex items-center gap-1.5 rounded-full bg-rood px-4 py-2 text-sm font-semibold text-wit transition-transform hover:scale-[1.03] active:scale-95"
-          >
+        <div className="hidden md:block">
+          <Link href="/bestellen" className="lp-btn lp-btn--primary group px-4 py-2 text-micro">
             Bestel nu
             <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
           </Link>
@@ -68,11 +62,11 @@ export function Navbar() {
           onClick={() => setOpen(v => !v)}
           aria-label={open ? 'Menu sluiten' : 'Menu openen'}
           aria-expanded={open}
-          className="md:hidden w-10 h-10 -mr-1 flex flex-col items-center justify-center gap-[5px]"
+          className="-mr-1 flex h-10 w-10 flex-col items-center justify-center gap-[5px] md:hidden"
         >
-          <span className={`block h-0.5 w-5 bg-inkt transition-transform duration-200 ${open ? 'translate-y-[7px] rotate-45' : ''}`} />
-          <span className={`block h-0.5 w-5 bg-inkt transition-opacity duration-200 ${open ? 'opacity-0' : ''}`} />
-          <span className={`block h-0.5 w-5 bg-inkt transition-transform duration-200 ${open ? '-translate-y-[7px] -rotate-45' : ''}`} />
+          <span className={`block h-0.5 w-5 bg-neutral-900 transition-transform duration-200 ${open ? 'translate-y-[7px] rotate-45' : ''}`} />
+          <span className={`block h-0.5 w-5 bg-neutral-900 transition-opacity duration-200 ${open ? 'opacity-0' : ''}`} />
+          <span className={`block h-0.5 w-5 bg-neutral-900 transition-transform duration-200 ${open ? '-translate-y-[7px] -rotate-45' : ''}`} />
         </button>
       </nav>
 
@@ -83,26 +77,18 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden max-w-5xl mx-auto mt-2 rounded-3xl lp-glass p-2"
+            className="mx-auto mt-2 max-w-5xl rounded-3xl border border-neutral-900/10 bg-neutral-50/95 p-2 shadow-warm backdrop-blur-md md:hidden"
           >
             <ul className="flex flex-col">
               {LINKS.map(link => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="block px-4 py-3 rounded-2xl text-base font-medium text-inkt/80 hover:bg-inkt/5 transition-colors"
-                  >
+                  <a href={link.href} onClick={() => setOpen(false)} className="block rounded-2xl px-4 py-3 text-base font-semibold text-neutral-900 transition-colors hover:bg-neutral-900/5">
                     {link.label}
                   </a>
                 </li>
               ))}
               <li className="p-1.5">
-                <Link
-                  href="/bestellen"
-                  onClick={() => setOpen(false)}
-                  className="block text-center rounded-full bg-rood px-4 py-3 text-sm font-semibold text-wit"
-                >
+                <Link href="/bestellen" onClick={() => setOpen(false)} className="lp-btn lp-btn--primary w-full">
                   Bestel nu →
                 </Link>
               </li>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Navbar } from '@/components/landing/Navbar'
 import { Hero } from '@/components/landing/Hero'
+import { FeastMarquee } from '@/components/landing/FeastMarquee'
 import { Showcase } from '@/components/landing/Showcase'
 import { Flavors } from '@/components/landing/Flavors'
 import { Features } from '@/components/landing/Features'
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
       'Fusion sauzen door chefs ontwikkeld. Voor de professional én thuis. Bestel met iDEAL, snel geleverd.',
     type: 'website',
     locale: 'nl_NL',
-    images: ['/assets/hero-poster.jpg'],
+    images: ['/assets/smaak-bulgogi.jpg'],
   },
 }
 
@@ -28,6 +29,7 @@ export default function Home() {
     <main className="lp min-h-screen flex flex-col overflow-x-hidden">
       <Navbar />
       <Hero />
+      <FeastMarquee />
       <Showcase />
       <Flavors />
       <Features />

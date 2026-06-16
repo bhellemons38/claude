@@ -64,98 +64,120 @@ body {
   }
 }
 
-/* ── 21st.dev-style landing utilities (light, warm cream, soft glow) ────── */
+/* ── Landing design system: warm, editorial, food-forward ──────────────── */
 .lp {
-  --nacht: #1c1408; /* retained name; now the dark ink accent on cream */
-  background: #faf4e8; /* gebroken wit / crème */
-  color: #1c1408;
+  background: var(--zand);
+  color: var(--inkt);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
-.lp-mono {
+
+/* Display headings use the condensed face; body/labels stay grotesque/mono. */
+.lp-display {
+  font-family: var(--font-bebas), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.9;
+}
+.lp-label {
   font-family: var(--font-geist-mono), monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
-/* faint grid texture */
-.lp-grid {
-  background-image:
-    linear-gradient(to right, rgba(28, 20, 8, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(28, 20, 8, 0.05) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
-
-/* radial spotlight glow */
-.lp-spotlight {
-  background: radial-gradient(
-    60% 50% at 50% 0%,
-    rgba(255, 59, 48, 0.14) 0%,
-    rgba(255, 198, 26, 0.12) 38%,
-    transparent 72%
-  );
-}
-.lp-glow-red {
-  background: radial-gradient(circle at center, rgba(255, 59, 48, 0.2), transparent 64%);
-}
-.lp-glow-amber {
-  background: radial-gradient(circle at center, rgba(255, 198, 26, 0.26), transparent 64%);
-}
-
-/* gradient headline (readable on cream) */
-.lp-gradient-text {
-  background: linear-gradient(110deg, #8c0707 0%, #bd0a0a 42%, #d98a1f 92%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* glass surface (light) */
-.lp-glass {
-  background: rgba(255, 253, 247, 0.7);
+/* Warm card surface (no glass / no neon). */
+.lp-card {
+  background: var(--wit);
   border: 1px solid rgba(28, 20, 8, 0.1);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 1px 2px rgba(28, 20, 8, 0.04), 0 14px 30px -18px rgba(28, 20, 8, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 2px 8px -2px rgba(28, 20, 8, 0.1);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
 }
-.lp-glass-hover {
-  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-.lp-glass-hover:hover {
-  border-color: rgba(189, 10, 10, 0.4);
-  background: rgba(255, 253, 247, 0.92);
-  box-shadow: 0 2px 6px rgba(28, 20, 8, 0.06), 0 22px 44px -20px rgba(28, 20, 8, 0.32);
+.lp-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(189, 10, 10, 0.35);
+  box-shadow: 0 24px 44px -22px rgba(28, 20, 8, 0.4);
 }
 
-/* animated conic border for the highlighted card */
-.lp-ring {
+/* Hand-drawn accent underline for headline keywords. */
+.lp-mark {
   position: relative;
+  display: inline-block;
+  color: var(--rood);
 }
-.lp-ring::before {
+.lp-mark::after {
   content: '';
   position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: conic-gradient(from 180deg, transparent, #ff3b30, #ffc61a, transparent 60%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  left: -2px;
+  right: -2px;
+  bottom: 0.06em;
+  height: 0.32em;
+  background: var(--geel);
+  z-index: -1;
+  border-radius: 2px;
+  transform: rotate(-1.2deg);
+}
+
+/* Buttons — full state model (default / hover / active / focus / disabled). */
+.lp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.875rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+.lp-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--zand), 0 0 0 5px var(--rood);
+}
+.lp-btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+.lp-btn[disabled],
+.lp-btn[aria-disabled='true'] {
+  opacity: 0.5;
   pointer-events: none;
+}
+.lp-btn--primary {
+  background: var(--rood);
+  color: var(--wit);
+}
+.lp-btn--primary:hover {
+  background: var(--rood-diep);
+  box-shadow: 0 10px 24px -10px rgba(189, 10, 10, 0.7);
+}
+.lp-btn--secondary {
+  background: var(--inkt);
+  color: var(--zand);
+}
+.lp-btn--secondary:hover {
+  background: #2a2010;
+}
+.lp-btn--ghost {
+  background: transparent;
+  color: var(--inkt);
+  border-color: rgba(28, 20, 8, 0.25);
+}
+.lp-btn--ghost:hover {
+  background: rgba(28, 20, 8, 0.06);
 }
 
 /* marquee edge fade */
 .lp-fade-x {
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
-}
-
-.lp-pill {
-  font-family: var(--font-geist-mono), monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.7rem;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee,
-  .animate-spotlight-pan {
+  .animate-marquee {
     animation: none !important;
   }
 }

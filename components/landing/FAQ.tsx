@@ -33,19 +33,19 @@ function Item({ q, a, index }: { q: string; a: string; index: number }) {
   const id = `faq-${index}`
 
   return (
-    <div className="overflow-hidden rounded-2xl lp-glass">
+    <div className="lp-card overflow-hidden">
       <button
         type="button"
         onClick={() => setOpen(v => !v)}
         aria-expanded={open}
         aria-controls={id}
-        className="flex w-full items-center justify-between gap-4 px-5 sm:px-6 py-5 text-left"
+        className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left sm:px-6"
       >
-        <span className="font-geist text-base sm:text-lg font-medium text-inkt">{q}</span>
+        <span className="lp-display text-h3 text-neutral-900">{q}</span>
         <motion.span
           animate={{ rotate: open ? 45 : 0 }}
           transition={{ duration: 0.2 }}
-          className="flex h-7 w-7 flex-none items-center justify-center rounded-full border border-inkt/12 bg-rood/10 text-lg leading-none text-rood"
+          className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-primary text-2xl leading-none text-neutral-0"
           aria-hidden
         >
           +
@@ -61,7 +61,7 @@ function Item({ q, a, index }: { q: string; a: string; index: number }) {
             transition={{ duration: 0.25, ease: [0.2, 0.8, 0.2, 1] }}
             className="overflow-hidden"
           >
-            <p className="px-5 sm:px-6 pb-5 text-inkt-zacht leading-relaxed">{a}</p>
+            <p className="px-5 pb-5 text-body leading-relaxed text-neutral-700 sm:px-6">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -72,11 +72,11 @@ function Item({ q, a, index }: { q: string; a: string; index: number }) {
 export function FAQ() {
   return (
     <section id="faq" className="relative">
-      <div className="max-w-3xl mx-auto px-4 sm:px-7 py-20 sm:py-28">
-        <Reveal className="text-center max-w-2xl mx-auto">
-          <span className="lp-pill text-rood">Veelgestelde vragen</span>
-          <h2 className="mt-4 font-geist font-semibold tracking-[-0.02em] text-[clamp(30px,4.5vw,52px)] leading-[1.02] text-inkt">
-            Nog even <span className="lp-gradient-text">dit</span>
+      <div className="mx-auto max-w-3xl px-4 py-20 sm:px-7 sm:py-28">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <span className="lp-label text-primary">Veelgestelde vragen</span>
+          <h2 className="lp-display mt-3 text-h2 text-neutral-900">
+            Nog even <span className="lp-mark">dit</span>
           </h2>
         </Reveal>
 
