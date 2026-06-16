@@ -1,10 +1,10 @@
 'use client'
 
-import Image from 'next/image'
 import { useRef, type ReactNode } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion, type MotionValue } from 'framer-motion'
+import { FieryBottle } from './FieryBottle'
 
-/* ── stylised ingredient icons (match the Fiery Pomodoro shot) ──────────── */
+/* ── stylised ingredient icons (the real stuff that goes in) ────────────── */
 const Tomato = () => (
   <svg viewBox="0 0 64 64" className="h-full w-full">
     <circle cx="32" cy="37" r="21" fill="#D8341F" />
@@ -19,10 +19,10 @@ const Chili = () => (
     <path d="M18 20c-1-4 1-8 5-9 2 3 1 6-1 8-1 1-3 1-4 1Z" fill="#4a8f36" />
   </svg>
 )
-const Garlic = () => (
+const Ginger = () => (
   <svg viewBox="0 0 64 64" className="h-full w-full">
-    <path d="M32 12c7 6 14 14 14 27 0 8-6 13-14 13s-14-5-14-13c0-13 7-21 14-27Z" fill="#F4ECDD" />
-    <path d="M32 14v50M24 22c-3 8-3 22 0 38M40 22c3 8 3 22 0 38" stroke="#D9CBB0" strokeWidth="1.6" fill="none" />
+    <path d="M20 40c-4-8 2-16 10-16 4 0 6 3 11 3 7 0 10 6 7 12-3 7-10 9-16 9-5 0-10-2-12-8Z" fill="#E2B57F" />
+    <path d="M30 26c2 4 1 8-2 11M40 30c2 3 2 7 0 10" stroke="#b98c52" strokeWidth="1.6" fill="none" />
   </svg>
 )
 const Onion = () => (
@@ -32,11 +32,10 @@ const Onion = () => (
     <path d="M30 14c0-4 4-4 4 0-1 2-3 2-4 0Z" fill="#6f9c3f" />
   </svg>
 )
-const Lime = () => (
+const Pepper = () => (
   <svg viewBox="0 0 64 64" className="h-full w-full">
-    <circle cx="32" cy="32" r="22" fill="#5aa12e" />
-    <circle cx="32" cy="32" r="16" fill="#bfe39a" />
-    <path d="M32 32L32 16M32 32l14 7M32 32l-14 7M32 32l13-9M32 32l-13-9" stroke="#5aa12e" strokeWidth="2" />
+    <path d="M20 30c0-6 6-9 12-9s12 3 12 9c0 12-4 22-12 22S20 42 20 30Z" fill="#D8341F" />
+    <path d="M30 21c0-4 1-7 2-8 2 2 2 5 2 8" stroke="#4a8f36" strokeWidth="3" fill="none" strokeLinecap="round" />
   </svg>
 )
 const Herb = () => (
@@ -51,32 +50,29 @@ const Herb = () => (
   </svg>
 )
 
-type Cfg = { Icon: () => ReactNode; sx: number; sy: number; size: number; rot: number }
-
-// start positions scattered around the bottle (px from centre)
+// sx/sy = scattered start; ex/ey = resting ring around the bottle (px from centre)
+type Cfg = { Icon: () => ReactNode; label: string; sx: number; sy: number; ex: number; ey: number; size: number; rot: number }
 const ITEMS: Cfg[] = [
-  { Icon: Tomato, sx: -300, sy: -150, size: 92, rot: -22 },
-  { Icon: Chili, sx: 300, sy: -120, size: 80, rot: 26 },
-  { Icon: Garlic, sx: -330, sy: 120, size: 84, rot: 14 },
-  { Icon: Onion, sx: 330, sy: 150, size: 96, rot: -16 },
-  { Icon: Lime, sx: -180, sy: -250, size: 70, rot: 30 },
-  { Icon: Herb, sx: 210, sy: 260, size: 88, rot: -28 },
+  { Icon: Tomato, label: 'Tomaat', sx: -460, sy: -260, ex: -150, ey: -120, size: 86, rot: -22 },
+  { Icon: Pepper, label: 'Gegrilde paprika', sx: 470, sy: -230, ex: 165, ey: -90, size: 84, rot: 20 },
+  { Icon: Ginger, label: 'Gember', sx: -500, sy: 120, ex: -180, ey: 40, size: 80, rot: 16 },
+  { Icon: Onion, label: 'Ui', sx: 500, sy: 200, ex: 175, ey: 110, size: 88, rot: -16 },
+  { Icon: Chili, label: 'Chili', sx: -260, sy: 360, ex: -110, ey: 175, size: 72, rot: 28 },
+  { Icon: Herb, label: 'Verse kruiden', sx: 280, sy: 380, ex: 95, ey: 185, size: 82, rot: -26 },
 ]
 
 function FlyingItem({ cfg, progress }: { cfg: Cfg; progress: MotionValue<number> }) {
-  const x = useTransform(progress, [0, 0.85], [cfg.sx, 0])
-  const y = useTransform(progress, [0, 0.85], [cfg.sy, 0])
-  const scale = useTransform(progress, [0, 0.85], [1, 0.35])
-  const opacity = useTransform(progress, [0, 0.7, 0.9], [1, 0.9, 0])
+  const x = useTransform(progress, [0, 0.85], [cfg.sx, cfg.ex])
+  const y = useTransform(progress, [0, 0.85], [cfg.sy, cfg.ey])
+  const scale = useTransform(progress, [0, 0.85], [0.7, 1])
+  const opacity = useTransform(progress, [0, 0.25], [0, 1])
   const rotate = useTransform(progress, [0, 0.85], [cfg.rot, 0])
   return (
     <motion.div
-      style={{ x, y, scale, opacity, rotate, width: cfg.size, height: cfg.size }}
-      className="absolute left-1/2 top-1/2 z-10 -ml-[var(--half)] -mt-[var(--half)] drop-shadow-[0_8px_12px_rgba(28,20,8,0.25)]"
+      style={{ x, y, scale, opacity, rotate, width: cfg.size, height: cfg.size, marginLeft: -cfg.size / 2, marginTop: -cfg.size / 2 }}
+      className="absolute left-1/2 top-1/2 z-30 drop-shadow-[0_8px_12px_rgba(28,20,8,0.25)]"
     >
-      <div style={{ ['--half' as string]: `${cfg.size / 2}px` }} className="h-full w-full">
-        {cfg.Icon()}
-      </div>
+      {cfg.Icon()}
     </motion.div>
   )
 }
@@ -85,28 +81,29 @@ export function IngredientAssembly() {
   const reduce = useReducedMotion()
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] })
-  const bottlePulse = useTransform(scrollYProgress, [0, 0.85, 1], [1, 1, 1.04])
 
   return (
-    <section ref={ref} className="relative h-[180vh] bg-neutral-100">
+    <section ref={ref} className="relative h-[200vh] bg-neutral-100">
       <div className="sticky top-0 flex h-screen flex-col items-center justify-center overflow-hidden px-4">
-        <div className="mb-8 max-w-2xl text-center">
-          <span className="lp-label text-primary">Vers in de fles</span>
+        <div className="mb-6 max-w-2xl text-center">
+          <span className="lp-label text-primary">Echt eten in de fles</span>
           <h2 className="lp-display mt-3 text-h2 text-neutral-900">
             Alles komt samen in <span className="lp-mark">één fles</span>
           </h2>
           <p className="mx-auto mt-3 max-w-md text-body text-neutral-700">
-            Scroll en zie hoe verse tomaat, paprika, chili, knoflook en tijm in de saus verdwijnen.
+            Echte gember, kokosmelk, mirin, tomaat, gegrilde paprika en ui — ambachtelijk ingekookt.
+            Geen extracten, geen aromaten.
           </p>
         </div>
 
-        <div className="relative flex h-[360px] w-full max-w-xl items-center justify-center sm:h-[420px]">
+        <div className="relative flex h-[380px] w-full max-w-xl items-center justify-center sm:h-[440px]">
           {ITEMS.map((cfg, i) =>
             reduce ? (
               <div
                 key={i}
-                style={{ width: cfg.size, height: cfg.size, transform: `translate(${cfg.sx / 2.4}px, ${cfg.sy / 2.4}px) rotate(${cfg.rot}deg)` }}
-                className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2"
+                style={{ width: cfg.size, height: cfg.size, transform: `translate(calc(-50% + ${cfg.ex}px), calc(-50% + ${cfg.ey}px)) rotate(${cfg.rot}deg)` }}
+                className="absolute left-1/2 top-1/2 z-30"
+                title={cfg.label}
               >
                 {cfg.Icon()}
               </div>
@@ -115,22 +112,11 @@ export function IngredientAssembly() {
             )
           )}
 
-          {/* the bottle */}
-          <motion.div
-            style={reduce ? undefined : { scale: bottlePulse }}
-            className="relative z-20 h-[340px] w-[200px] overflow-hidden rounded-[26px] border border-neutral-900/10 bg-neutral-900 shadow-warm-lg sm:h-[400px] sm:w-[240px]"
-          >
-            <Image
-              src="/assets/product-fiery-pomodoro.jpg"
-              alt="Nacholito Fiery Pomodoro fles"
-              fill
-              sizes="240px"
-              className="object-cover object-center"
-            />
-            <span className="lp-label absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-neutral-0/90 px-3 py-1 text-primary">
-              Fiery Pomodoro
-            </span>
-          </motion.div>
+          {/* the bottle — always visible */}
+          <div className="relative z-20 flex h-full items-center justify-center">
+            <div className="pointer-events-none absolute h-[80%] w-[60%] rounded-full bg-accent-tint blur-3xl" aria-hidden />
+            <FieryBottle className="relative h-[360px] w-auto drop-shadow-[0_24px_40px_rgba(28,20,8,0.3)] sm:h-[420px]" />
+          </div>
         </div>
       </div>
     </section>
