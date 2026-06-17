@@ -9,6 +9,7 @@ export interface Product {
   packSize: number // bottles per pack
   image: string
   badge?: string
+  comingSoon?: boolean // shown on the menu, price/ordering not live yet
 }
 
 export interface OrderLine {

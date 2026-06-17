@@ -46,6 +46,19 @@ export const PRODUCTS: Product[] = [
     packSize: 1,
     image: '/assets/product-rendang.png',
   },
+  {
+    id: 'bumbu-pomodoro',
+    name: 'Fiery Pomodoro',
+    origin: 'Italië',
+    description: 'Gegrilde paprika, rijpe tomaat en chili met verse tijm. Vol, fris en pittig.',
+    price: 0,
+    unit: 'fles 750ml',
+    minQty: 1,
+    packSize: 1,
+    image: '/assets/product-pomodoro.png',
+    badge: 'Nieuw',
+    comingSoon: true,
+  },
 ]
 
 export const BTW_RATE = 0.09 // 9% BTW

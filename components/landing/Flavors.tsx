@@ -12,14 +12,14 @@ export function Flavors() {
         <Reveal className="max-w-2xl">
           <span className="lp-label text-primary">De line-up</span>
           <h2 className="lp-display mt-3 text-h2 text-neutral-900">
-            Vier smaken, <span className="lp-mark">één belofte</span>
+Vijf smaken, <span className="lp-mark">één belofte</span>
           </h2>
           <p className="mt-4 text-body text-neutral-700">
             Echte ingrediënten, geen rommel. Elke fles geeft je een gerecht met restaurant-diepte in minder stappen.
           </p>
         </Reveal>
 
-        <RevealGroup className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <RevealGroup className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {PRODUCTS.map(product => (
             <motion.article key={product.id} variants={fadeUp} className="lp-card lp-card-hover group flex flex-col overflow-hidden">
               <div className="relative aspect-[4/5] overflow-hidden">

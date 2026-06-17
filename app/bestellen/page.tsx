@@ -193,30 +193,39 @@ export default function BestellenPage() {
                           <h3 className="font-display uppercase text-2xl mt-0.5">{product.name}</h3>
                           <p className="text-sm text-inkt-zacht font-medium mt-1.5 mb-3 flex-1">{product.description}</p>
                           <div className="flex items-center justify-between gap-3">
-                            <div>
-                              <p className="font-display text-xl leading-none">{formatEur(product.price)}</p>
-                              <p className="text-[11px] uppercase tracking-wide text-inkt-zacht font-bold mt-0.5">{product.unit} · excl. BTW</p>
-                            </div>
-                            <div className="flex items-center gap-1.5 border-2 border-inkt rounded-full p-1 bg-zand">
-                              <button
-                                type="button"
-                                onClick={() => setQty(product.id, qty - 1)}
-                                disabled={qty === 0}
-                                aria-label={`Minder ${product.name}`}
-                                className="w-9 h-9 rounded-full bg-wit border border-inkt/20 flex items-center justify-center font-display text-xl disabled:opacity-30 hover:bg-zand-donker transition-colors"
-                              >
-                                −
-                              </button>
-                              <span className="w-8 text-center font-display text-lg tabular-nums">{qty}</span>
-                              <button
-                                type="button"
-                                onClick={() => setQty(product.id, qty + 1)}
-                                aria-label={`Meer ${product.name}`}
-                                className="w-9 h-9 rounded-full bg-rood text-wit flex items-center justify-center font-display text-xl hover:bg-rood-diep transition-colors"
-                              >
-                                +
-                              </button>
-                            </div>
+                            {product.comingSoon ? (
+                              <div>
+                                <p className="font-display text-xl leading-none text-rood">Binnenkort</p>
+                                <p className="text-[11px] uppercase tracking-wide text-inkt-zacht font-bold mt-0.5">{product.unit} · prijs volgt</p>
+                              </div>
+                            ) : (
+                              <>
+                                <div>
+                                  <p className="font-display text-xl leading-none">{formatEur(product.price)}</p>
+                                  <p className="text-[11px] uppercase tracking-wide text-inkt-zacht font-bold mt-0.5">{product.unit} · excl. BTW</p>
+                                </div>
+                                <div className="flex items-center gap-1.5 border-2 border-inkt rounded-full p-1 bg-zand">
+                                  <button
+                                    type="button"
+                                    onClick={() => setQty(product.id, qty - 1)}
+                                    disabled={qty === 0}
+                                    aria-label={`Minder ${product.name}`}
+                                    className="w-9 h-9 rounded-full bg-wit border border-inkt/20 flex items-center justify-center font-display text-xl disabled:opacity-30 hover:bg-zand-donker transition-colors"
+                                  >
+                                    −
+                                  </button>
+                                  <span className="w-8 text-center font-display text-lg tabular-nums">{qty}</span>
+                                  <button
+                                    type="button"
+                                    onClick={() => setQty(product.id, qty + 1)}
+                                    aria-label={`Meer ${product.name}`}
+                                    className="w-9 h-9 rounded-full bg-rood text-wit flex items-center justify-center font-display text-xl hover:bg-rood-diep transition-colors"
+                                  >
+                                    +
+                                  </button>
+                                </div>
+                              </>
+                            )}
                           </div>
                         </div>
                       </article>

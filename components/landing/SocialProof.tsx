@@ -7,7 +7,7 @@ import { Reveal, RevealGroup, fadeUp, motion } from './motion'
 
 const STATS = [
   { value: 500, suffix: '+', label: 'Keukens beleverd' },
-  { value: 4, suffix: '', label: 'Signature smaken' },
+  { value: 5, suffix: '', label: 'Signature smaken' },
   { value: 9.4, suffix: '', label: 'Gemiddelde score', decimals: 1 },
 ]
 
