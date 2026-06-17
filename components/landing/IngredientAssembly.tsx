@@ -1,8 +1,8 @@
 'use client'
 
+import Image from 'next/image'
 import { useRef, type ReactNode } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion, type MotionValue } from 'framer-motion'
-import { FieryBottle } from './FieryBottle'
 
 /* ── stylised ingredient icons (the real stuff that goes in) ────────────── */
 const Tomato = () => (
@@ -112,10 +112,18 @@ export function IngredientAssembly() {
             )
           )}
 
-          {/* the bottle — always visible */}
+          {/* the bottle — real product shot, always visible */}
           <div className="relative z-20 flex h-full items-center justify-center">
-            <div className="pointer-events-none absolute h-[80%] w-[60%] rounded-full bg-accent-tint blur-3xl" aria-hidden />
-            <FieryBottle className="relative h-[360px] w-auto drop-shadow-[0_24px_40px_rgba(28,20,8,0.3)] sm:h-[420px]" />
+            <div className="pointer-events-none absolute h-[80%] w-[64%] rounded-full bg-accent-tint blur-3xl" aria-hidden />
+            <div className="relative h-[340px] w-[260px] overflow-hidden rounded-[26px] border border-neutral-900/10 shadow-warm-lg sm:h-[400px] sm:w-[300px]">
+              <Image
+                src="/assets/product-pomodoro.png"
+                alt="Nacholito Fiery Pomodoro fles met verse ingrediënten"
+                fill
+                sizes="300px"
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>

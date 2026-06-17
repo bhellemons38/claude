@@ -7,7 +7,6 @@ import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } fro
 import { Spotlight } from '@/components/ui/spotlight'
 import { WordReveal } from './Kinetic'
 import { CircularBadge } from './CircularBadge'
-import { FieryBottle } from './FieryBottle'
 
 const EASE = [0.2, 0.8, 0.2, 1] as const
 
@@ -36,7 +35,7 @@ export function Hero() {
     hidden: { opacity: 0, y: reduce ? 0 : 16 },
     show: (d: number) => ({ opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE, delay: d } }),
   }
-  const floatBottle = reduce ? {} : { animate: { y: [0, -10, 0] }, transition: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }
+  const kenBurns = reduce ? {} : { animate: { scale: [1, 1.06, 1] }, transition: { duration: 18, repeat: Infinity, ease: 'easeInOut' } }
   const floatCard = reduce ? {} : { animate: { y: [0, -12, 0] }, transition: { duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.4 } }
 
   return (
@@ -125,21 +124,27 @@ export function Hero() {
             className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none"
           >
             <motion.div style={reduce ? undefined : { x: px, y: py }} className="relative flex items-center justify-center">
-              {/* warm stage */}
-              <div className="relative flex aspect-square w-full items-center justify-center rounded-[32px] border border-neutral-900/10 bg-gradient-to-b from-neutral-0 to-neutral-200 shadow-warm-lg">
-                <div className="pointer-events-none absolute h-3/5 w-3/5 rounded-full bg-accent-tint blur-3xl" aria-hidden />
-                <motion.div {...floatBottle} className="relative">
-                  <FieryBottle className="h-[300px] w-auto drop-shadow-[0_28px_44px_rgba(28,20,8,0.32)] sm:h-[360px]" />
+              {/* hero product shot */}
+              <div className="relative w-full overflow-hidden rounded-[32px] border border-neutral-900/10 shadow-warm-lg">
+                <motion.div {...kenBurns} className="relative aspect-[4/5]">
+                  <Image
+                    src="/assets/product-pomodoro.png"
+                    alt="Nacholito Fiery Pomodoro saus met verse tomaten, paprika, chili, knoflook en tijm"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 90vw, 46vw"
+                    className="object-cover"
+                  />
                 </motion.div>
               </div>
 
-              {/* floating dish card */}
+              {/* floating product card */}
               <motion.div
                 {...floatCard}
-                className="absolute -bottom-6 -left-2 w-[40%] overflow-hidden rounded-2xl border-4 border-neutral-0 shadow-warm-lg"
+                className="absolute -bottom-6 -left-3 w-[36%] overflow-hidden rounded-2xl border-4 border-neutral-0 shadow-warm-lg"
               >
-                <div className="relative aspect-square">
-                  <Image src="/assets/dish-4.jpg" alt="Gerecht met Nacholito saus" fill sizes="200px" className="object-cover" />
+                <div className="relative aspect-[4/5]">
+                  <Image src="/assets/product-chili-crisp.png" alt="Nacholito Chinese Chili Crisp" fill sizes="200px" className="object-cover" />
                 </div>
               </motion.div>
             </motion.div>

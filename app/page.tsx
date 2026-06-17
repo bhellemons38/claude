@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       'Fusion sauzen door chefs ontwikkeld. Voor de professional én thuis. Bestel met iDEAL, snel geleverd.',
     type: 'website',
     locale: 'nl_NL',
-    images: ['/assets/smaak-bulgogi.jpg'],
+    images: ['/assets/product-pomodoro.png'],
   },
 }
 

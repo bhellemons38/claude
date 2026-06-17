@@ -10,7 +10,7 @@ export const PRODUCTS: Product[] = [
     unit: 'fles 750ml',
     minQty: 1,
     packSize: 1,
-    image: '/assets/smaak-bulgogi.jpg',
+    image: '/assets/product-bulgogi.png',
     badge: 'Meest besteld',
   },
   {
@@ -22,7 +22,7 @@ export const PRODUCTS: Product[] = [
     unit: 'fles 750ml',
     minQty: 1,
     packSize: 1,
-    image: '/assets/smaak-chipotle.jpg',
+    image: '/assets/product-chipotle.png',
   },
   {
     id: 'bumbu-chili-crisp',
@@ -33,7 +33,7 @@ export const PRODUCTS: Product[] = [
     unit: 'fles 750ml',
     minQty: 1,
     packSize: 1,
-    image: '/assets/smaak-chili.jpg',
+    image: '/assets/product-chili-crisp.png',
   },
   {
     id: 'bumbu-rendang',
@@ -44,7 +44,7 @@ export const PRODUCTS: Product[] = [
     unit: 'fles 750ml',
     minQty: 1,
     packSize: 1,
-    image: '/assets/smaak-rendang.jpg',
+    image: '/assets/product-rendang.png',
   },
 ]
 

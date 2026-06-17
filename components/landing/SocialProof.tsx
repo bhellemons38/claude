@@ -16,19 +16,19 @@ const QUOTES = [
     quote: 'De Bulgogi staat inmiddels vast op onze kaart. Onze gasten vragen er specifiek naar.',
     name: 'Sofie Maes',
     role: 'Chef-kok, Bistro Noord',
-    image: '/assets/dish-4.jpg',
+    image: '/assets/product-bulgogi.png',
   },
   {
     quote: 'Zelfde smaak, elke keer. Dat scheelt ons enorm veel prep tijdens de drukte.',
     name: 'Daan Verhoeven',
     role: 'Keukenmanager, Streetfood Co.',
-    image: '/assets/smaak-rendang.jpg',
+    image: '/assets/product-rendang.png',
   },
   {
     quote: 'Bestellen kost me twee minuten en de factuur staat meteen in de boekhouding.',
     name: 'Imane el Idrissi',
     role: 'Eigenaar, Café De Kroeg',
-    image: '/assets/dish-2.jpg',
+    image: '/assets/product-chipotle.png',
   },
 ]
 

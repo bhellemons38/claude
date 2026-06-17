@@ -22,7 +22,7 @@ export function Flavors() {
         <RevealGroup className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {PRODUCTS.map(product => (
             <motion.article key={product.id} variants={fadeUp} className="lp-card lp-card-hover group flex flex-col overflow-hidden">
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-[4/5] overflow-hidden">
                 <Image
                   src={product.image}
                   alt={product.name}
