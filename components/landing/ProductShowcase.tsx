@@ -48,11 +48,11 @@ export function ProductShowcase() {
             transition={{ duration: 0.9, ease: EASE, delay: 0.2 }}
             className="relative z-10 h-[280px] w-[280px] overflow-hidden rounded-full border-4 border-neutral-0 shadow-warm-lg md:h-[400px] md:w-[400px]"
           >
-            {/* Group shot of all bottles; falls back to a single bottle until uploaded */}
+            {/* Group shot of the bottles together */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/assets/product-group.png"
-              alt="Alle Nacholito sauzen bij elkaar"
+              src="/assets/product-trio.webp"
+              alt="Nacholito sauzen bij elkaar"
               className="h-full w-full object-cover object-center"
               onError={e => {
                 const img = e.currentTarget

@@ -5,9 +5,9 @@ import { motion } from 'framer-motion'
 import { Reveal, RevealGroup, fadeUp } from './motion'
 
 const RECIPES = [
-  { title: 'Bulgogi karaage chicken', flavor: 'Korean Bulgogi', image: '/assets/product-bulgogi.png', time: '25 min' },
+  { title: 'Bulgogi karaage chicken', flavor: 'Korean Bulgogi', image: '/assets/scene-bulgogi.webp', time: '25 min' },
   { title: 'Chili crisp noodles', flavor: 'Chinese Chili Crisp', image: '/assets/product-chili-crisp.png', time: '15 min' },
-  { title: 'Rendang pulled jackfruit', flavor: 'Rendang Base', image: '/assets/product-rendang.png', time: '30 min' },
+  { title: 'Rendang pulled jackfruit', flavor: 'Rendang Base', image: '/assets/scene-rendang-bulgogi.webp', time: '30 min' },
 ]
 
 export function Recipes() {
@@ -33,7 +33,7 @@ export function Recipes() {
                 controls
                 playsInline
                 preload="none"
-                poster="/assets/product-bulgogi.png"
+                poster="/assets/scene-bulgogi.webp"
               >
                 <source src="/assets/recipe-bulgogi.mp4" type="video/mp4" />
               </video>
