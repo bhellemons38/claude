@@ -57,10 +57,10 @@ export async function sendContactEmail(sub: ContactSubmission): Promise<void> {
     </div>`
 
   await r.emails.send({
-    from: 'Nacholito website <bestellingen@nacholito.nl>',
+    from: 'Nacholito website <info@samplekitchen.nl>',
     to: CONTACT_INBOX,
     replyTo: sub.email,
-    subject: `${label} — ${sub.name}`,
+    subject: `${label}: ${sub.name}`,
     html,
   })
 }
