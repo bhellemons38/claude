@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Navbar } from '@/components/landing/Navbar'
 import { Hero } from '@/components/landing/Hero'
 import { FeastMarquee } from '@/components/landing/FeastMarquee'
-import { IngredientAssembly } from '@/components/landing/IngredientAssembly'
+import { ProductShowcase } from '@/components/landing/ProductShowcase'
 import { Flavors } from '@/components/landing/Flavors'
 import { Features } from '@/components/landing/Features'
 import { SocialProof } from '@/components/landing/SocialProof'
@@ -30,7 +30,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <FeastMarquee />
-      <IngredientAssembly />
+      <ProductShowcase />
       <Flavors />
       <Features />
       <SocialProof />
