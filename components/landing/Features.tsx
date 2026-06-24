@@ -12,7 +12,7 @@ const PILLARS = [
       </>
     ),
     title: 'Echte producten',
-    body: 'Verse gember, kokosmelk, mirin, tomaat, gegrilde paprika en ui — herkenbaar eten dat je zo van de markt haalt.',
+    body: 'Verse gember, kokosmelk, mirin, tomaat, gegrilde paprika en ui, herkenbaar eten dat je zo van de markt haalt.',
   },
   {
     icon: (
@@ -23,7 +23,7 @@ const PILLARS = [
       </>
     ),
     title: 'Ambachtelijk bereid',
-    body: 'Laag op laag ingekookt zoals in een echte keuken. Diepe, ronde smaak die je proeft — niet een snelle mix.',
+    body: 'Laag op laag ingekookt zoals in een echte keuken. Diepe, ronde smaak die je proeft, niet een snelle mix.',
   },
   {
     icon: (

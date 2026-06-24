@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Reveal } from './motion'
+import { ProeverijButton } from './ProeverijDialog'
 
 const NAV = [
   { href: '#smaken', label: 'Smaken' },
@@ -13,7 +14,7 @@ const NAV = [
 
 export function Footer() {
   return (
-    <footer className="relative bg-neutral-900 text-neutral-100">
+    <footer className="relative bg-neutral-700 text-neutral-100">
       {/* final CTA */}
       <div className="border-b border-neutral-0/10">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-7 sm:py-24">
@@ -23,13 +24,16 @@ export function Footer() {
                 Klaar om je kaart <span className="text-accent">op smaak</span> te brengen?
               </h2>
               <p className="mt-4 text-body text-neutral-100/70">
-                Kies je smaken, reken af met iDEAL en ontvang je bestelling binnen 3–5 werkdagen.
+                Kies je smaken, reken af met iDEAL en ontvang je bestelling binnen 3 tot 5 werkdagen.
               </p>
             </div>
-            <Link href="/bestellen" className="lp-btn lp-btn--primary group flex-none">
-              Bestel nu
-              <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-            </Link>
+            <div className="flex flex-none flex-col gap-3 sm:flex-row">
+              <Link href="/bestellen" className="lp-btn lp-btn--primary group">
+                Bestel nu
+                <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+              </Link>
+              <ProeverijButton className="lp-btn lp-btn--ghost border-neutral-0/30 text-neutral-0 hover:bg-neutral-0/10" />
+            </div>
           </Reveal>
         </div>
       </div>

@@ -5,7 +5,7 @@ export const PRODUCTS: Product[] = [
     id: 'bumbu-bulgogi',
     name: 'Korean Bulgogi',
     origin: 'Korea · Seoul',
-    description: 'Zoete soja, scherpe knoflook en geroosterd sesam. Vol en in balans — onze meest bestelde smaak.',
+    description: 'Zoete soja, scherpe knoflook en geroosterd sesam. Vol en in balans, onze meest bestelde smaak.',
     price: 14.50,
     unit: 'fles 750ml',
     minQty: 1,

@@ -7,6 +7,7 @@ import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } fro
 import { Spotlight } from '@/components/ui/spotlight'
 import { WordReveal } from './Kinetic'
 import { CircularBadge } from './CircularBadge'
+import { ProeverijButton } from './ProeverijDialog'
 
 const EASE = [0.2, 0.8, 0.2, 1] as const
 
@@ -75,7 +76,7 @@ export function Hero() {
               variants={fade}
               className="mt-6 max-w-[48ch] text-lead text-neutral-700"
             >
-              Ambachtelijk ingekookte fusion sauzen met écht eten in de fles — verse gember, kokosmelk,
+              Ambachtelijk ingekookte fusion sauzen met écht eten in de fles, verse gember, kokosmelk,
               mirin, tomaat en gegrilde paprika. Geen extracten, geen aromaten. Jij hoeft alleen nog op te scheppen.
             </motion.p>
 
@@ -90,6 +91,7 @@ export function Hero() {
                 Bestel nu
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </Link>
+              <ProeverijButton />
               <a href="#smaken" className="lp-btn lp-btn--ghost">
                 Ontdek de smaken
               </a>

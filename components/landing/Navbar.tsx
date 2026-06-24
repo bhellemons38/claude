@@ -7,7 +7,8 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 
 const LINKS = [
   { href: '#smaken', label: 'Smaken' },
-  { href: '#voordelen', label: 'Voordelen' },
+  { href: '#kanalen', label: 'Kanalen' },
+  { href: '#recepten', label: 'Recepten' },
   { href: '#prijzen', label: 'Prijzen' },
   { href: '#faq', label: 'FAQ' },
 ]

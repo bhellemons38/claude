@@ -9,7 +9,7 @@ const TIERS = [
     price: '€ 59',
     unit: 'eenmalig',
     description: 'Maak kennis met alle vier de smaken voordat je ze op je kaart zet.',
-    features: ['Eén fles van elke smaak', '4 × 750 ml', 'Betaal met iDEAL', 'Binnen 3–5 werkdagen'],
+    features: ['Eén fles van elke smaak', '4 × 750 ml', 'Betaal met iDEAL', 'Binnen 3 tot 5 werkdagen'],
     cta: 'Bestel proefbox',
     highlight: false,
   },

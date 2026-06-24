@@ -7,7 +7,7 @@ import { Reveal } from './motion'
 const FAQS = [
   {
     q: 'Is er een minimale afname?',
-    a: 'Nee, er is geen MOQ op de fles — je bestelt per stuk. Wel geldt een minimale bestelwaarde van € 75 exclusief BTW per order.',
+    a: 'Nee, er is geen MOQ op de fles, je bestelt per stuk. Wel geldt een minimale bestelwaarde van € 75 exclusief BTW per order.',
   },
   {
     q: 'Hoe kan ik betalen?',

@@ -12,6 +12,59 @@ function getResend(): Resend {
   return resend
 }
 
+const CONTACT_INBOX = 'info@samplekitchen.nl'
+
+export interface ContactSubmission {
+  type: 'proeverij' | 'vraag'
+  name: string
+  email: string
+  company?: string
+  phone?: string
+  message?: string
+}
+
+function escapeHtml(s: string): string {
+  return s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string))
+}
+
+export async function sendContactEmail(sub: ContactSubmission): Promise<void> {
+  const r = getResend()
+  const label = sub.type === 'proeverij' ? 'Proeverij aanvraag' : 'Vraag via website'
+  const rows: [string, string][] = [
+    ['Type', label],
+    ['Naam', sub.name],
+    ['E-mail', sub.email],
+    ['Bedrijf', sub.company || '—'],
+    ['Telefoon', sub.phone || '—'],
+    ['Bericht', sub.message || '—'],
+  ]
+  const html = `
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:#F6EBD9; padding:24px; color:#1c1408;">
+      <div style="max-width:560px; margin:0 auto; background:#FFFDF7; border:2px solid #1c1408; border-radius:16px; overflow:hidden;">
+        <div style="background:#FFC61A; padding:20px 28px; border-bottom:2px solid #1c1408;">
+          <p style="margin:0; color:#BD0A0A; font-size:22px; font-weight:800; letter-spacing:2px; text-transform:uppercase;">Nacholito</p>
+          <p style="margin:4px 0 0; color:#4a3d2a; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase;">${label}</p>
+        </div>
+        <table style="width:100%; border-collapse:collapse; padding:8px;">
+          ${rows
+            .map(
+              ([k, v]) =>
+                `<tr><td style="padding:12px 24px; border-bottom:1px solid #e9dcc6; font-weight:700; color:#4a3d2a; vertical-align:top; width:120px;">${k}</td><td style="padding:12px 24px; border-bottom:1px solid #e9dcc6; color:#1c1408;">${escapeHtml(v)}</td></tr>`,
+            )
+            .join('')}
+        </table>
+      </div>
+    </div>`
+
+  await r.emails.send({
+    from: 'Nacholito website <bestellingen@nacholito.nl>',
+    to: CONTACT_INBOX,
+    replyTo: sub.email,
+    subject: `${label} — ${sub.name}`,
+    html,
+  })
+}
+
 function formatEur(amount: number): string {
   return new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR' }).format(amount)
 }

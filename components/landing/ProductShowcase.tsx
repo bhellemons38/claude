@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion, useReducedMotion } from 'framer-motion'
 
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -24,7 +23,7 @@ export function ProductShowcase() {
           <span className="lp-label text-primary">Echt eten in de fles</span>
           <p className="mx-auto mt-4 max-w-xs text-body leading-relaxed text-neutral-700 md:mx-0">
             Ambachtelijk ingekookt met verse gember, kokosmelk, mirin, tomaat en gegrilde paprika.
-            Geen extracten, geen aromaten — gewoon echt eten.
+            Geen extracten, geen aromaten, gewoon echt eten.
           </p>
           <Link href="#smaken" className="mt-5 inline-flex items-center gap-1.5 text-micro font-semibold text-neutral-900 underline decoration-primary decoration-2 underline-offset-4">
             Ontdek de smaken
@@ -49,12 +48,17 @@ export function ProductShowcase() {
             transition={{ duration: 0.9, ease: EASE, delay: 0.2 }}
             className="relative z-10 h-[280px] w-[280px] overflow-hidden rounded-full border-4 border-neutral-0 shadow-warm-lg md:h-[400px] md:w-[400px]"
           >
-            <Image
-              src="/assets/product-pomodoro.png"
-              alt="Nacholito Fiery Pomodoro met verse ingrediënten"
-              fill
-              sizes="(max-width: 768px) 280px, 400px"
-              className="object-cover object-center"
+            {/* Group shot of all bottles; falls back to a single bottle until uploaded */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/product-group.png"
+              alt="Alle Nacholito sauzen bij elkaar"
+              className="h-full w-full object-cover object-center"
+              onError={e => {
+                const img = e.currentTarget
+                img.onerror = null
+                img.src = '/assets/product-pomodoro.png'
+              }}
             />
           </motion.div>
         </div>
